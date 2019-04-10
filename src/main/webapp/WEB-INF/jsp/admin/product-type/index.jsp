@@ -1281,7 +1281,18 @@
                         </div>
                         <div class="sparkline13-graph">
                             <div class="datatable-dashv1-list custom-datatable-overright">
-                                <table id="table" border="1px">
+                                <button type="button"
+                                        class="btn btn-custon-four btn-primary"
+                                        data-toggle="modal"
+                                        data-target="#addProductType"
+                                        style="margin-bottom: 10px"
+
+                                >
+
+                                    <i class="fa fa-plus-square"></i>
+                                </button>
+
+                                <table class="table" id="table" border="1px">
                                     <thead>
                                     <tr>
                                         <th data-field="id">ID</th>
@@ -1319,7 +1330,6 @@
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
-
                                                 <div class="modal" id="editProductType${objProduct.id}">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
@@ -1364,6 +1374,45 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
+                                <div class="modal" id="addProductType">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Add Product Type</h4>
+                                            </div>
+
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <form id="add-post3"
+                                                      action="${pageContext.request.contextPath}/admin/product-type/add"
+                                                      method="POST">
+                                                    <div class="form-group">
+                                                        <label class="required"><strong>Product Type
+                                                            Name:</strong><span
+                                                                style="color: red"> *</span>&nbsp;</label>
+                                                        <input class="form-control" id="name"
+                                                               type="text"
+                                                               name="name"
+                                                               placeholder="Product type" required/>
+                                                    </div>
+                                                    <div style="text-align: center;vertical-align: middle;">
+                                                        <button type="submit" class="btn btn-primary"
+                                                                style="height:40px; width:80px; font-size:15px;"
+                                                                id="btnSubmit">Add
+                                                        </button>
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal"
+                                                                style="height:40px; width:80px;">Close
+                                                        </button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

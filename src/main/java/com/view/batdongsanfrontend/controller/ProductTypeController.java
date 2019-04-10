@@ -32,14 +32,6 @@ public class ProductTypeController {
         return "admin/product-type/index";
     }
 
-//    @RequestMapping(value = "product-type/{id}", method = RequestMethod.GET, produces = "application/json")
-//    public String edit(ModelMap modelMap, @PathVariable("id") Long id) {
-//        ProductType productType = productTypeService.getById(id);
-//        modelMap.addAttribute("title", "Edit Product Type");
-//        modelMap.addAttribute("objProductType", productType);
-//        return "admin/product-type/edit";
-//    }
-
     @RequestMapping(value = "product-type/{id}", method = RequestMethod.POST, produces = "application/json")
     public String editProduct(ModelMap modelMap, @PathVariable("id") Long id, @ModelAttribute("objProductType") ProductType objProductType, RedirectAttributes ra) {
         try {
@@ -55,15 +47,24 @@ public class ProductTypeController {
         return "redirect:/admin/product-type";
     }
 
-//    @ResponseBody
-//    @RequestMapping(value = "product-type/", method = RequestMethod.PUT, produces = "application/json")
-//    public String changeStatus(@RequestBody ProductType productType) {
-//        if(productTypeService.changeStatus(productType.getId()))
-//            return "Successfully";
-//        else
-//            return "Failed change status";
-//
-//    }
+    @RequestMapping(value = "product-type/add", method = RequestMethod.POST, produces = "application/json")
+    public String createProductType(ModelMap modelMap, @ModelAttribute("objProductType") ProductType objProductType, RedirectAttributes ra) {
+        try {
+            if (productTypeService.create(objProductType) != null) {
+                ra.addFlashAttribute("Message", "SuccessFull Edit");
+            } else {
+                ra.addFlashAttribute("Message", "Failed Edit");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/admin/product-type";
+    }
+
+
+
+
 
 
 

@@ -58,4 +58,16 @@ public class ProductTypeService extends BaseService {
         if (result != null) return true;
         return false;
     }
+
+    public ProductType create(ProductType objProductType) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Accept", "application/json");
+        headers.add("Content-Type", "application/json");
+        HttpEntity<ProductType> requestBody = new HttpEntity<>(objProductType, headers);
+        System.out.println(PRODUCT_TYPE_URI);
+        ResponseEntity<ProductType> result = restTemplate.exchange(PRODUCT_TYPE_URI, HttpMethod.POST, requestBody, ProductType.class);
+        if (result != null) {
+            return result.getBody();
+        } else return null;
+    }
 }
