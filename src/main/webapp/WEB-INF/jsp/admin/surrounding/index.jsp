@@ -132,7 +132,6 @@
                         <a class="has-arrow" href="${pageContext.request.contextPath}/admin/surrounding"
                            aria-expanded="false"><span
                                 class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Surounding</span></a>
-
                     </li>
                     <li>
                         <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span
@@ -1269,7 +1268,7 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1><span class="table-project-n">Product Type</span></h1>
+                                <h1><span class="table-project-n">Môi trường xung quanh</span></h1>
                             </div>
                         </div>
                         <div class="sparkline13-graph">
@@ -1277,7 +1276,7 @@
                                 <button type="button"
                                         class="btn btn-custon-four btn-primary"
                                         data-toggle="modal"
-                                        data-target="#addProductType"
+                                        data-target="#addSurrounding"
                                         style="margin-bottom: 10px"
 
                                 >
@@ -1295,94 +1294,94 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="objProduct" items="${listProductTypes}">
+                                    <c:forEach var="objSurrounding" items="${listSurrounding}">
                                         <tr>
-                                            <td style="width:5%">${objProduct.id}</td>
-                                            <td>${objProduct.name}</td>
+                                            <td style="width:5%">${objSurrounding.id}</td>
+                                            <td>${objSurrounding.name}</td>
                                             <td>
-                                                    <button type="button" class="btn btn-custon-four btn-warning"
-                                                            data-toggle="modal"
-                                                            data-target="#editProductType${objProduct.id}"><i
-                                                            class="fa fa-pencil"></i>
-                                                    </button>
-                                            <td id="status${objProduct.id}">
+                                                <button type="button" class="btn btn-custon-four btn-warning"
+                                                        data-toggle="modal"
+                                                        data-target="#editSurrounding${objSurrounding.id}"><i
+                                                        class="fa fa-pencil"></i>
+                                                </button>
+                                            <td id="status${objSurrounding.id}">
                                                 <c:choose>
-                                                    <c:when test="${ objProduct.status == 1}">
+                                                    <c:when test="${ objSurrounding.status == 1}">
                                                         <button type="button"
                                                                 class="btn btn-custon-four btn-success"
-                                                                onclick="changeStatus(${objProduct.id}, 1)">
+                                                                onclick="changeStatus(${objSurrounding.id}, 1)">
                                                             <i class="fa fa-check"></i>
                                                         </button>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <button type="button"
                                                                 class="btn btn-custon-four btn-danger"
-                                                                onclick="changeStatus(${objProduct.id}, 0)">
+                                                                onclick="changeStatus(${objSurrounding.id}, 0)">
                                                             <i class="fa fa-times"></i>
                                                         </button>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
-                                                <div class="modal" id="editProductType${objProduct.id}">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
+                                            <div class="modal" id="editSurrounding${objSurrounding.id}">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
 
-                                                            <!-- Modal Header -->
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title">Change Name</h4>
-                                                            </div>
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Change Name</h4>
+                                                        </div>
 
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <form id="add-post2"
-                                                                      action="${pageContext.request.contextPath}/admin/product-type/${objProduct.id}"
-                                                                      method="POST">
-                                                                    <div class="form-group">
-                                                                        <label class="required"><strong>Product Type
-                                                                            Name:</strong><span
-                                                                                style="color: red"> *</span>&nbsp;</label>
-                                                                        <input class="form-control" id="name"
-                                                                               type="text"
-                                                                               name="name" value="${objProduct.name}"
-                                                                               placeholder="Room Name" required/>
-                                                                    </div>
-                                                                    <div style="text-align: center;vertical-align: middle;">
-                                                                        <button type="submit" class="btn btn-primary"
-                                                                                style="height:40px; width:80px; font-size:15px;"
-                                                                                id="btnSubmit${objProduct.id}">Edit
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-default"
-                                                                                data-dismiss="modal"
-                                                                                style="height:40px; width:80px;">Close
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                            <form id="add-post2"
+                                                                  action="${pageContext.request.contextPath}/admin/surrounding/${objSurrounding.id}"
+                                                                  method="POST">
+                                                                <div class="form-group">
+                                                                    <label class="required"><strong>
+                                                                        Name:</strong><span
+                                                                            style="color: red"> *</span>&nbsp;</label>
+                                                                    <input class="form-control" id="name"
+                                                                           type="text"
+                                                                           name="name" value="${objSurrounding.name}"
+                                                                           placeholder="Room Name" required/>
+                                                                </div>
+                                                                <div style="text-align: center;vertical-align: middle;">
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                            style="height:40px; width:80px; font-size:15px;"
+                                                                            id="btnSubmit${objSurrounding.id}">Edit
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-default"
+                                                                            data-dismiss="modal"
+                                                                            style="height:40px; width:80px;">Close
+                                                                    </button>
+                                                                </div>
+                                                            </form>
 
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
                                             </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
-                                <div class="modal" id="addProductType">
+                                <div class="modal" id="addSurrounding">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Add Product Type</h4>
+                                                <h4 class="modal-title">Thêm loại môi trường xung quanh</h4>
                                             </div>
 
                                             <!-- Modal body -->
                                             <div class="modal-body">
                                                 <form id="add-post3"
-                                                      action="${pageContext.request.contextPath}/admin/product-type/add"
+                                                      action="${pageContext.request.contextPath}/admin/surrounding/add"
                                                       method="POST">
                                                     <div class="form-group">
-                                                        <label class="required"><strong>Product Type
+                                                        <label class="required"><strong>
                                                             Name:</strong><span
                                                                 style="color: red"> *</span>&nbsp;</label>
                                                         <input class="form-control" id="name"
@@ -1431,18 +1430,17 @@
 
 
   function changeStatus(id, status) {
-    var productType = {};
-    productType["id"] = id;
-    productType["name"] = "test request";
-    if (confirm("Bạn thật sự muốn thay đổi trạng thái của loại bất động sản này?")) {
+    var surrounding = {};
+    surrounding["id"] = id;
+    if (confirm("Bạn thật sự muốn thay đổi trạng thái của loại môi trường xung quanh này?")) {
       $.ajax({
-        url: '<%=request.getContextPath()%>/admin/product-type/',
+        url: '<%=request.getContextPath()%>/admin/surrounding/',
         contentType: "application/json",
         type: 'PUT',
-        data: JSON.stringify(productType),
+        data: JSON.stringify(surrounding),
         dataType: 'json',
         success: function (data) {
-          if (data){
+          if (data) {
             console.log("success")
           }
           changeButton(id, status);
@@ -1457,17 +1455,17 @@
   function changeButton(id, status) {
     idDiv = "status" + id;
     if (status == 0) {
-      $('#status' +id).html("<button type=\"button\"\n" +
-                                "class=\"btn btn-custon-four btn-success\"\n" +
-                                "onclick=\"changeStatus(" + id +", 1)\">\n" +
-                                "<i class=\"fa fa-check\"></i>\n" +
-                            "</button>");
+      $('#status' + id).html("<button type=\"button\"\n" +
+        "class=\"btn btn-custon-four btn-success\"\n" +
+        "onclick=\"changeStatus(" + id + ", 1)\">\n" +
+        "<i class=\"fa fa-check\"></i>\n" +
+        "</button>");
     } else {
-      $('#status' +id).html("<button type=\"button\" " +
-                                "class=\"btn btn-custon-four btn-danger\"\n" +
-                                "onclick=\"changeStatus(" + id +", 0)\">\n" +
-                                "<i class=\"fa fa-times\"></i>\n" +
-                                "</button>");
+      $('#status' + id).html("<button type=\"button\" " +
+        "class=\"btn btn-custon-four btn-danger\"\n" +
+        "onclick=\"changeStatus(" + id + ", 0)\">\n" +
+        "<i class=\"fa fa-times\"></i>\n" +
+        "</button>");
 
     }
 

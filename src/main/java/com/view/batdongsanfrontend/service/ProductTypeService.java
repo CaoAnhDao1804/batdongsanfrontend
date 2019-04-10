@@ -1,6 +1,7 @@
 package com.view.batdongsanfrontend.service;
 
 import com.view.batdongsanfrontend.model.ProductType;
+import com.view.batdongsanfrontend.util.HttpHeaderCustom;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -38,10 +39,7 @@ public class ProductTypeService extends BaseService {
     }
 
     public boolean update(ProductType objProductType) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", "application/json");
-        headers.add("Content-Type", "application/json");
-        HttpEntity<ProductType> requestBody = new HttpEntity<>(objProductType, headers);
+        HttpEntity<ProductType> requestBody = new HttpEntity<>(objProductType, HttpHeaderCustom.createNewHttpHeaders());
         ResponseEntity<ProductType> responseEntity = restTemplate.exchange(PRODUCT_TYPE_URI, HttpMethod.PUT, requestBody, ProductType.class);
         if (responseEntity != null) return true;
         return false;
@@ -49,9 +47,6 @@ public class ProductTypeService extends BaseService {
     }
 
     public boolean changeStatus(Long id) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", "application/json");
-        headers.add("Content-Type", "application/json");
         String uri = PRODUCT_TYPE_URI +id;
         System.out.println(uri + "change status");
         ResponseEntity<ProductType> result = restTemplate.exchange(uri, HttpMethod.PUT, null, ProductType.class);
@@ -60,11 +55,8 @@ public class ProductTypeService extends BaseService {
     }
 
     public ProductType create(ProductType objProductType) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", "application/json");
-        headers.add("Content-Type", "application/json");
-        HttpEntity<ProductType> requestBody = new HttpEntity<>(objProductType, headers);
-        System.out.println(PRODUCT_TYPE_URI);
+        HttpEntity<ProductType> requestBody = new HttpEntity<>(objProductType, HttpHeaderCustom.createNewHttpHeaders());
+        System.out.println(PRODUCT_TYPE_URI + "Create new");
         ResponseEntity<ProductType> result = restTemplate.exchange(PRODUCT_TYPE_URI, HttpMethod.POST, requestBody, ProductType.class);
         if (result != null) {
             return result.getBody();

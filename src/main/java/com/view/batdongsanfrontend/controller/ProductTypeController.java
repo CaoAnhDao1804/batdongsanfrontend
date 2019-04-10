@@ -18,12 +18,6 @@ public class ProductTypeController {
     @Autowired
     ProductTypeService productTypeService;
 
-    @RequestMapping("/")
-    public String helloWorld(Model model) {
-        model.addAttribute("russian", "Cao Thi Anh Dao");
-        return "helloword";
-    }
-
     @RequestMapping(value = "product-type", method = RequestMethod.GET, produces = "application/json")
     public String index(ModelMap modelMap) {
         List<ProductType> listProductTypes = productTypeService.getAllObject();
@@ -61,11 +55,4 @@ public class ProductTypeController {
         }
         return "redirect:/admin/product-type";
     }
-
-
-
-
-
-
-
 }
