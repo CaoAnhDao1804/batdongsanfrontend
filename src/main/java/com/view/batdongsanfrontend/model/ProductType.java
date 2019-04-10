@@ -6,4 +6,5 @@ import lombok.Data;
 public class ProductType {
     Long id;
     String name;
+    Long status;
 }
