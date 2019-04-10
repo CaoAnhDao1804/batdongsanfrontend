@@ -1,8 +1,10 @@
 package com.view.batdongsanfrontend.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.view.batdongsanfrontend.model.PostType;
 import com.view.batdongsanfrontend.model.ProductType;
 import com.view.batdongsanfrontend.model.Surrounding;
+import com.view.batdongsanfrontend.service.PostTypeService;
 import com.view.batdongsanfrontend.service.ProductTypeService;
 import com.view.batdongsanfrontend.service.SuroundingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class AjaxController {
 
     @Autowired
     SuroundingService suroundingService;
+
+    @Autowired
+    PostTypeService postTypeService;
 
     @ResponseBody
     @RequestMapping(value = "/admin/product-type/", method = RequestMethod.PUT, produces = "application/json")
@@ -41,4 +46,16 @@ public class AjaxController {
             return new ResponseEntity<Surrounding>(surrounding, HttpStatus.BAD_REQUEST);
 
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/admin/post-type/", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity<PostType> changeStatusOfPostType(@RequestBody PostType postType) {
+        System.out.println("/admin/post-type Changestatus");
+        if (postTypeService.changeStatus(postType.getId()))
+            return new ResponseEntity<PostType>(postType, HttpStatus.OK);
+        else
+            return new ResponseEntity<PostType>(postType, HttpStatus.BAD_REQUEST);
+
+    }
+
 }

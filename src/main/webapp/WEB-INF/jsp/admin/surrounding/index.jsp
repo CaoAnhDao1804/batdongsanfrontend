@@ -115,18 +115,9 @@
                             <span class="mini-click-non">Product Type</span></a>
                     </li>
                     <li>
-                        <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span
+                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/post-type"
+                           aria-expanded="false"><span
                                 class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Post Type</span></a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Professors</span></a>
-                            </li>
-                            <li><a title="Add Professor" href="add-professor.html"><span class="mini-sub-pro">Add Professor</span></a>
-                            </li>
-                            <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Professor</span></a>
-                            </li>
-                            <li><a title="Professor Profile" href="professor-profile.html"><span class="mini-sub-pro">Professor Profile</span></a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="${pageContext.request.contextPath}/admin/surrounding"
