@@ -1,12 +1,8 @@
 package com.view.batdongsanfrontend.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.view.batdongsanfrontend.model.PostType;
-import com.view.batdongsanfrontend.model.ProductType;
-import com.view.batdongsanfrontend.model.Surrounding;
-import com.view.batdongsanfrontend.service.PostTypeService;
-import com.view.batdongsanfrontend.service.ProductTypeService;
-import com.view.batdongsanfrontend.service.SuroundingService;
+import com.view.batdongsanfrontend.model.*;
+import com.view.batdongsanfrontend.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -24,6 +20,12 @@ public class AjaxController {
 
     @Autowired
     PostTypeService postTypeService;
+
+    @Autowired
+    UtilitiesService utilitiesService;
+
+    @Autowired
+    UserService userService;
 
     @ResponseBody
     @RequestMapping(value = "/admin/product-type/", method = RequestMethod.PUT, produces = "application/json")
@@ -55,6 +57,28 @@ public class AjaxController {
             return new ResponseEntity<PostType>(postType, HttpStatus.OK);
         else
             return new ResponseEntity<PostType>(postType, HttpStatus.BAD_REQUEST);
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/admin/utilities/", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity<Utilities> changeStatusOfUtilities(@RequestBody Utilities utilities) {
+        System.out.println("/admin/utilities Changestatus");
+        if (utilitiesService.changeStatus(utilities.getId()))
+            return new ResponseEntity<Utilities>(utilities, HttpStatus.OK);
+        else
+            return new ResponseEntity<Utilities>(utilities, HttpStatus.BAD_REQUEST);
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/admin/user/", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity<User> changeStatusOfUser(@RequestBody User user) {
+        System.out.println("/admin/user/ Changestatus");
+        if (userService.changeStatus(user.getId()))
+            return new ResponseEntity<User>(user, HttpStatus.OK);
+        else
+            return new ResponseEntity<User>(user, HttpStatus.BAD_REQUEST);
 
     }
 

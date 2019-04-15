@@ -4,7 +4,6 @@ import com.view.batdongsanfrontend.model.ProductType;
 import com.view.batdongsanfrontend.util.HttpHeaderCustom;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,9 +16,8 @@ import java.util.List;
 
 public class ProductTypeService extends BaseService {
 
-    private String PRODUCT_TYPE_URI= ROOT_URL+ "product-type/";
-
     private final RestTemplate restTemplate;
+    private String PRODUCT_TYPE_URI = ROOT_URL + "product-type/";
 
     public ProductTypeService(@Qualifier("appRestClient") RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
@@ -47,7 +45,7 @@ public class ProductTypeService extends BaseService {
     }
 
     public boolean changeStatus(Long id) {
-        String uri = PRODUCT_TYPE_URI +id;
+        String uri = PRODUCT_TYPE_URI + id;
         System.out.println(uri + "change status");
         ResponseEntity<ProductType> result = restTemplate.exchange(uri, HttpMethod.PUT, null, ProductType.class);
         if (result != null) return true;

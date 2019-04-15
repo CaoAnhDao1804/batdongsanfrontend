@@ -128,19 +128,8 @@
                     <li>
                         <a class="has-arrow" href="${pageContext.request.contextPath}/admin/utilities"
                            aria-expanded="false"><span
-                                class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Utilitie</span></a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" href="all-courses.html"><span
-                                    class="mini-sub-pro">All Courses</span></a></li>
-                            <li><a title="Add Courses" href="add-course.html"><span
-                                    class="mini-sub-pro">Add Course</span></a></li>
-                            <li><a title="Edit Courses" href="edit-course.html"><span
-                                    class="mini-sub-pro">Edit Course</span></a></li>
-                            <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Courses Info</span></a>
-                            </li>
-                            <li><a title="Product Payment" href="course-payment.html"><span class="mini-sub-pro">Courses Payment</span></a>
-                            </li>
-                        </ul>
+                                class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Utilities</span></a>
+
                     </li>
                     <li>
                         <a class="has-arrow" href="${pageContext.request.contextPath}/admin/user" aria-expanded="false"><span
@@ -1253,7 +1242,7 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1><span class="table-project-n">Product Type</span></h1>
+                                <h1><span class="table-project-n">User</span></h1>
                             </div>
                         </div>
                         <div class="sparkline13-graph">
@@ -1261,11 +1250,9 @@
                                 <button type="button"
                                         class="btn btn-custon-four btn-primary"
                                         data-toggle="modal"
-                                        data-target="#addProductType"
+                                        data-target="#addMod"
                                         style="margin-bottom: 10px"
-
                                 >
-
                                     <i class="fa fa-plus-square"></i>
                                 </button>
 
@@ -1273,105 +1260,107 @@
                                     <thead>
                                     <tr>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Name</th>
-                                        <th data-field="action">Edit</th>
+                                        <th data-field="username" data-editable="true">Tên đăng nhập</th>
+                                        <th data-field="fullname" data-editable="true">Tên đầy đủ</th>
+                                        <th data-field="address" data-editable="true">Địa chỉ liên lạc</th>
+                                        <th data-field="phone" data-editable="true">Số điện thoại</th>
+                                        <th data-field="dateCreate" data-editable="true">Ngày tạo</th>
+                                        <th data-field="idRole" data-editable="true">Quyền</th>
                                         <th data-field="action">Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="objProduct" items="${listProductTypes}">
+                                    <c:forEach var="objUser" items="${listUsers}">
                                         <tr>
-                                            <td style="width:5%">${objProduct.id}</td>
-                                            <td>${objProduct.name}</td>
-                                            <td>
-                                                    <button type="button" class="btn btn-custon-four btn-warning"
-                                                            data-toggle="modal"
-                                                            data-target="#editProductType${objProduct.id}"><i
-                                                            class="fa fa-pencil"></i>
-                                                    </button>
-                                            <td id="status${objProduct.id}">
+                                            <td style="width:5%">${objUser.id}</td>
+                                            <td>${objUser.username}</td>
+                                            <td>${objUser.fullname}</td>
+                                            <td>${objUser.address}</td>
+                                            <td>${objUser.phone}</td>
+                                            <td>${objUser.dateCreate}</td>
+                                            <td>${objUser.idRole}</td>
+                                            <td id="status${objUser.id}">
                                                 <c:choose>
-                                                    <c:when test="${ objProduct.status == 1}">
+                                                    <c:when test="${ objUser.status == 1}">
                                                         <button type="button"
                                                                 class="btn btn-custon-four btn-success"
-                                                                onclick="changeStatus(${objProduct.id}, 1)">
+                                                                onclick="changeStatus(${objUser.id}, 1)">
                                                             <i class="fa fa-check"></i>
                                                         </button>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <button type="button"
                                                                 class="btn btn-custon-four btn-danger"
-                                                                onclick="changeStatus(${objProduct.id}, 0)">
+                                                                onclick="changeStatus(${objUser.id}, 0)">
                                                             <i class="fa fa-times"></i>
                                                         </button>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
-                                                <div class="modal" id="editProductType${objProduct.id}">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
+                                            <div class="modal" id="editPostType${objUser.id}">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
 
-                                                            <!-- Modal Header -->
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title">Change Name</h4>
-                                                            </div>
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Change Name</h4>
+                                                        </div>
 
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <form id="add-post2"
-                                                                      action="${pageContext.request.contextPath}/admin/product-type/${objProduct.id}"
-                                                                      method="POST">
-                                                                    <div class="form-group">
-                                                                        <label class="required"><strong>Product Type
-                                                                            Name:</strong><span
-                                                                                style="color: red"> *</span>&nbsp;</label>
-                                                                        <input class="form-control" id="name"
-                                                                               type="text"
-                                                                               name="name" value="${objProduct.name}"
-                                                                               placeholder="Room Name" required/>
-                                                                    </div>
-                                                                    <div style="text-align: center;vertical-align: middle;">
-                                                                        <button type="submit" class="btn btn-primary"
-                                                                                style="height:40px; width:80px; font-size:15px;"
-                                                                                id="btnSubmit${objProduct.id}">Edit
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-default"
-                                                                                data-dismiss="modal"
-                                                                                style="height:40px; width:80px;">Close
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                            <form id="add-post2"
+                                                                  action="${pageContext.request.contextPath}/admin/user/${objUser.id}"
+                                                                  method="POST">
+                                                                <div class="form-group">
+                                                                    <label class="required"><strong>Product Type
+                                                                        Name:</strong><span
+                                                                            style="color: red"> *</span>&nbsp;</label>
+                                                                    <input class="form-control" id="username"
+                                                                           type="text"
+                                                                           name="username" value="${objUser.username}"
+                                                                           placeholder="Room Name" required/>
+                                                                </div>
+                                                                <div style="text-align: center;vertical-align: middle;">
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                            style="height:40px; width:80px; font-size:15px;"
+                                                                            id="btnSubmit${objUser.id}">Edit
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-default"
+                                                                            data-dismiss="modal"
+                                                                            style="height:40px; width:80px;">Close
+                                                                    </button>
+                                                                </div>
+                                                            </form>
 
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </td>
+                                            </div>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
-                                <div class="modal" id="addProductType">
+                                <div class="modal" id="addPostType">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Add Product Type</h4>
+                                                <h4 class="modal-title">Add Post Type</h4>
                                             </div>
 
                                             <!-- Modal body -->
                                             <div class="modal-body">
                                                 <form id="add-post3"
-                                                      action="${pageContext.request.contextPath}/admin/product-type/add"
+                                                      action="${pageContext.request.contextPath}/admin/user/add"
                                                       method="POST">
                                                     <div class="form-group">
                                                         <label class="required"><strong>Product Type
                                                             Name:</strong><span
                                                                 style="color: red"> *</span>&nbsp;</label>
-                                                        <input class="form-control" id="name"
+                                                        <input class="form-control"
                                                                type="text"
-                                                               name="name"
+                                                               name="username"
                                                                placeholder="Product type" required/>
                                                     </div>
                                                     <div style="text-align: center;vertical-align: middle;">
@@ -1412,21 +1401,18 @@
 </div>
 
 <script type="text/javascript">
-
-
   function changeStatus(id, status) {
-    var productType = {};
-    productType["id"] = id;
-    productType["name"] = "test request";
-    if (confirm("Bạn thật sự muốn thay đổi trạng thái của loại bất động sản này?")) {
+    var user = {};
+    user["id"] = id;
+    if (confirm("Bạn thật sự muốn thay đổi trạng thái của loại bai đăng bất động sản này?")) {
       $.ajax({
-        url: '<%=request.getContextPath()%>/admin/product-type/',
+        url: '<%=request.getContextPath()%>/admin/user/',
         contentType: "application/json",
         type: 'PUT',
-        data: JSON.stringify(productType),
+        data: JSON.stringify(user),
         dataType: 'json',
         success: function (data) {
-          if (data){
+          if (data) {
             console.log("success")
           }
           changeButton(id, status);
@@ -1441,17 +1427,17 @@
   function changeButton(id, status) {
     idDiv = "status" + id;
     if (status == 0) {
-      $('#status' +id).html("<button type=\"button\"\n" +
-                                "class=\"btn btn-custon-four btn-success\"\n" +
-                                "onclick=\"changeStatus(" + id +", 1)\">\n" +
-                                "<i class=\"fa fa-check\"></i>\n" +
-                            "</button>");
+      $('#status' + id).html("<button type=\"button\"\n" +
+        "class=\"btn btn-custon-four btn-success\"\n" +
+        "onclick=\"changeStatus(" + id + ", 1)\">\n" +
+        "<i class=\"fa fa-check\"></i>\n" +
+        "</button>");
     } else {
-      $('#status' +id).html("<button type=\"button\" " +
-                                "class=\"btn btn-custon-four btn-danger\"\n" +
-                                "onclick=\"changeStatus(" + id +", 0)\">\n" +
-                                "<i class=\"fa fa-times\"></i>\n" +
-                                "</button>");
+      $('#status' + id).html("<button type=\"button\" " +
+        "class=\"btn btn-custon-four btn-danger\"\n" +
+        "onclick=\"changeStatus(" + id + ", 0)\">\n" +
+        "<i class=\"fa fa-times\"></i>\n" +
+        "</button>");
 
     }
 
