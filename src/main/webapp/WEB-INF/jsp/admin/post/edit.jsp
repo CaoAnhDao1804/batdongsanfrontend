@@ -1246,147 +1246,289 @@
             </div>
         </div>
     </div>
-    <div class="data-table-area mg-b-15">
+
+    <!-- Basic Form Start -->
+    <div class="basic-form-area mg-b-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="sparkline13-list">
-                        <div class="sparkline13-hd">
-                            <div class="main-sparkline13-hd">
-                                <h1><span class="table-project-n">Product Type</span></h1>
+                    <div class="sparkline12-list">
+                        <div class="sparkline12-hd">
+                            <div class="main-sparkline12-hd">
+                                <h1>All Form Element</h1>
                             </div>
                         </div>
-                        <div class="sparkline13-graph">
-                            <div class="datatable-dashv1-list custom-datatable-overright">
-                                <button type="button"
-                                        class="btn btn-custon-four btn-primary"
-                                        data-toggle="modal"
-                                        data-target="#addProductType"
-                                        style="margin-bottom: 10px"
-
-                                >
-
-                                    <i class="fa fa-plus-square"></i>
-                                </button>
-
-                                <table class="table" id="table" border="1px">
-                                    <thead>
-                                    <tr>
-                                        <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Name</th>
-                                        <th data-field="action">Edit</th>
-                                        <th data-field="action">Status</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach var="objProduct" items="${listProductTypes}">
-                                        <tr>
-                                            <td style="width:5%">${objProduct.id}</td>
-                                            <td>${objProduct.name}</td>
-                                            <td>
-                                                    <button type="button" class="btn btn-custon-four btn-warning"
-                                                            data-toggle="modal"
-                                                            data-target="#editProductType${objProduct.id}"><i
-                                                            class="fa fa-pencil"></i>
-                                                    </button>
-                                            <td id="status${objProduct.id}">
-                                                <c:choose>
-                                                    <c:when test="${ objProduct.status == 1}">
-                                                        <button type="button"
-                                                                class="btn btn-custon-four btn-success"
-                                                                onclick="changeStatus(${objProduct.id}, 1)">
-                                                            <i class="fa fa-check"></i>
-                                                        </button>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <button type="button"
-                                                                class="btn btn-custon-four btn-danger"
-                                                                onclick="changeStatus(${objProduct.id}, 0)">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </td>
-                                                <div class="modal" id="editProductType${objProduct.id}">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-
-                                                            <!-- Modal Header -->
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title">Change Name</h4>
-                                                            </div>
-
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <form id="add-post2"
-                                                                      action="${pageContext.request.contextPath}/admin/product-type/${objProduct.id}"
-                                                                      method="POST">
-                                                                    <div class="form-group">
-                                                                        <label class="required"><strong>Product Type
-                                                                            Name:</strong><span
-                                                                                style="color: red"> *</span>&nbsp;</label>
-                                                                        <input class="form-control" id="name"
-                                                                               type="text"
-                                                                               name="name" value="${objProduct.name}"
-                                                                               placeholder="Room Name" required/>
-                                                                    </div>
-                                                                    <div style="text-align: center;vertical-align: middle;">
-                                                                        <button type="submit" class="btn btn-primary"
-                                                                                style="height:40px; width:80px; font-size:15px;"
-                                                                                id="btnSubmit${objProduct.id}">Edit
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-default"
-                                                                                data-dismiss="modal"
-                                                                                style="height:40px; width:80px;">Close
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-
-                                                            </div>
+                        <div class="sparkline12-graph">
+                            <div class="basic-login-form-ad">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="all-form-element-inner">
+                                            <form action="${pageContext.request.contextPath}/admin/post/edit/${objPost.id}" method="post" enctype="multipart/form-data">
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12">
+                                                            <label class="login2 pull-right pull-right-pro">Tên bài đăng</label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-10 col-sm-9 col-xs-12">
+                                                            <input type="text" class="form-control" id="name" name="name" value="${objPost.name}"/>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                                <div class="modal" id="addProductType">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Add Product Type</h4>
-                                            </div>
-
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <form id="add-post3"
-                                                      action="${pageContext.request.contextPath}/admin/product-type/add"
-                                                      method="POST">
-                                                    <div class="form-group">
-                                                        <label class="required"><strong>Product Type
-                                                            Name:</strong><span
-                                                                style="color: red"> *</span>&nbsp;</label>
-                                                        <input class="form-control" id="name"
-                                                               type="text"
-                                                               name="name"
-                                                               placeholder="Product type" required/>
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12">
+                                                            <label class="login2 pull-right pull-right-pro">Tên chủ sở hữu</label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-10 col-sm-9 col-xs-12">
+                                                            <input type="text" class="form-control" id="nameOwner" name="nameOwner" value="${objPost.user.id}"/>
+                                                        </div>
                                                     </div>
-                                                    <div style="text-align: center;vertical-align: middle;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                                style="height:40px; width:80px; font-size:15px;"
-                                                                id="btnSubmit">Add
-                                                        </button>
-                                                        <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal"
-                                                                style="height:40px; width:80px;">Close
-                                                        </button>
-                                                    </div>
-                                                </form>
+                                                </div>
 
-                                            </div>
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12">
+                                                            <label class="login2 pull-right pull-right-pro">Địa chỉ</label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-10 col-sm-9 col-xs-12">
+                                                            <input type="text" class="form-control" id="address" name="address" value="${objPost.address}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Diện tích (m2)</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12">
+                                                                    <input type="number" class="form-control" id="acreage" name="acreage" value="${objPost.acreage}" />
+                                                                </div>
+                                                            </div>
+                                                         </div>
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Loại bài đăng</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-4 col-sm-9 col-xs-12">
+                                                                    <div class="form-select-list">
+                                                                        <select class="form-control custom-select-value" name="postType_id">
+                                                                            <c:forEach var="postType" items="${listPostTypes}">
+                                                                                <c:choose>
+                                                                                    <c:when test="${postTypeOfPost.id == postType.id}">
+                                                                                        <option value="${postType.id}" selected="selected">${postType.name}</option>
+                                                                                    </c:when>
+                                                                                    <c:when test="${postTypeOfPost.id != postType.id}">
+                                                                                        <option value="${postType.id}">${postType.name}</option>
+                                                                                    </c:when>
+                                                                                </c:choose>
+                                                                            </c:forEach>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Loại nhà</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-4 col-sm-9 col-xs-12">
+                                                                    <div class="form-select-list">
+                                                                        <select class="form-control custom-select-value" name="productType_id">
+                                                                            <c:forEach var="productType" items="${listProductTypes}">
+                                                                                <c:choose>
+                                                                                    <c:when test="${productTypeOfPost.id == productType.id}">
+                                                                                        <option value="${productType.id}" selected="selected">${productType.name}</option>
+                                                                                    </c:when>
+                                                                                    <c:when test="${productTypeOfPost.id != productType.id}">
+                                                                                        <option value="${productType.id}">${productType.name}</option>
+                                                                                    </c:when>
+                                                                                </c:choose>
+                                                                            </c:forEach>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Độ rộng đường (m)</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-4 col-sm-9 col-xs-12">
+                                                                    <input type="number" class="form-control" id="roadInFrontOf" name="roadInFrontOf" value="${objPost.roadInFrontOf}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">SDT liên hệ</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12">
+                                                                    <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" value="${userOfPost.phone}"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Email</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12">
+                                                                    <input type="email" class="form-control" id="mail" name="mail" value="${userOfPost.email}"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Số tầng</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-4 col-sm-9 col-xs-12">
+                                                                    <input type="number" class="form-control" id="numberFloor" name="numberFloor" value="${objPost.numberFloor}"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Số phòng ngủ</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-4 col-sm-9 col-xs-12">
+                                                                    <input type="number" class="form-control" id="bedrooms" name="bedrooms" value="${objPost.bedrooms}"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Số phòng tắm</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-4 col-sm-9 col-xs-12">
+                                                                    <input type="number" class="form-control" id="bathrooms" name="bathrooms" value="${objPost.bathrooms}"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                            <label class="login2 pull-right pull-right-pro">Môi trường xung quanh
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                            <select name="surrounding_id[]" required id="categories" class="form-control" multiple="multiple">
+                                                                <c:forEach var="surrounding" items="${listSurroundings}">
+                                                                    ${stringUtil.displaySurrounding(listSurroundings, surroundingsOfPost)}
+                                                                </c:forEach>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                            <label class="login2 pull-right pull-right-pro">Tiện ích hiện có
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                            <select name="utilities_id[]" required id="utilities" class="form-control" multiple="multiple">
+                                                                <c:forEach var="utilities" items="${listUtilities}">
+                                                                    ${stringUtil.displayUtilities(listUtilities, utilitiesOfPost)}
+                                                                </c:forEach>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <label class="login2 pull-right pull-right-pro">Mô tả chi tiết
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                            <textarea id="description" name="description" value="${objPost.description}"  rows="5" cols="80"> ${objPost.description}</textarea>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <%--<div class="form-group-inner">--%>
+                                                    <%--<div class="row">--%>
+                                                        <%--<div class="form-group col-md-12">--%>
+                                                            <%--<div class="fileupload-exists" style="width: 200px;height: auto;display: inline;" >--%>
+                                                                <%--<img style="width: 200px;object-fit: cover;padding-top: 6px;border-radius: 3px" src="${coverPicture.url}" alt="image" id="file">--%>
+                                                            <%--</div>--%>
+                                                        <%--</div>--%>
+                                                        <%--<div class="form-group col-md-12">--%>
+                                                            <%--<label class="control-label">Ảnh đại diện</label>--%>
+                                                            <%--<div class="col-md-12 fileupload-exists">--%>
+                                                                <%--<input type="file" onchange="readURL(this);" name="file" id="fileCover" class="btn-default">--%>
+                                                            <%--</div>--%>
+                                                        <%--</div>--%>
+                                                    <%--</div>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="form-group-inner">--%>
+                                                    <%--<div class="row">--%>
+                                                        <%--<div class="form-group col-md-12">--%>
+                                                            <%--<div class="fileupload-exists" style="width: 200px; height: auto;" id="files">--%>
+                                                                <%--<c:if test="${pictures != null && pictures.size() > 0}">--%>
+                                                                    <%--<div class="row">--%>
+                                                                        <%--<c:forEach var="picture" items="${pictures}">--%>
+                                                                            <%--<div class="fileupload fileupload-new col-md-4" data-provides="fileupload">--%>
+                                                                                <%--<div class="fileupload-new thumbnail" style="width: 200px; height: auto;">--%>
+                                                                                    <%--<img src="${picture.url}" alt="image">--%>
+                                                                                <%--</div>--%>
+                                                                                    <%--<div>--%>
+                                                                                        <%--<div class="checkbox">--%>
+                                                                                            <%--<label>--%>
+                                                                                                <%--<input type="checkbox" value="${picture.id}" name="pid[]" id="chkSelect-${picture.id}" onchange="changeName(${picture.id})" checked="checked">--%>
+                                                                                                <%--<span class="cr"><i class="cr-icon fa fa-check"></i></span>--%>
+                                                                                                <%--<p id="check-${picture.id}">No Delete</p>--%>
+                                                                                            <%--</label>--%>
+                                                                                        <%--</div>--%>
+                                                                                    <%--</div>--%>
+                                                                            <%--</div>--%>
+                                                                        <%--</c:forEach>--%>
+                                                                    <%--</div>--%>
+                                                                <%--</c:if>--%>
+                                                            <%--</div>--%>
+                                                        <%--</div>--%>
+                                                        <%--<div class="form-group col-md-12">--%>
+                                                            <%--<label class="control-label">Ảnh chi tiếc</label>--%>
+                                                            <%--<div class="fileupload-exists">--%>
+                                                                <%--<input type="file" onchange="readURLs(this)" name="files" id="filesNotCover" multiple class="btn-default">--%>
+                                                            <%--</div>--%>
+                                                        <%--</div>--%>
+                                                    <%--</div>--%>
+                                                <%--</div>--%>
+
+                                                <div class="form-group-inner">
+                                                    <div class="login-btn-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3"></div>
+                                                            <div class="col-lg-9">
+                                                                <div class="login-horizental cancel-wp pull-left form-bc-ele">
+                                                                    <button class="btn btn-white" type="submit">Cancel</button>
+                                                                    <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Change</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></form></div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1397,6 +1539,7 @@
             </div>
         </div>
     </div>
+    <!-- Basic Form End-->
     <div class="footer-copyright-area">
         <div class="container-fluid">
             <div class="row">
@@ -1415,15 +1558,14 @@
 
 
   function changeStatus(id, status) {
-    var productType = {};
-    productType["id"] = id;
-    productType["name"] = "test request";
-    if (confirm("Bạn thật sự muốn thay đổi trạng thái của loại bất động sản này?")) {
+    var post = {};
+    post["id"] = id;
+    if (confirm("Bạn thật sự muốn thay đổi trạng thái của bài đăng này?")) {
       $.ajax({
-        url: '<%=request.getContextPath()%>/admin/product-type/',
+        url: '<%=request.getContextPath()%>/admin/post/',
         contentType: "application/json",
         type: 'PUT',
-        data: JSON.stringify(productType),
+        data: JSON.stringify(post),
         dataType: 'json',
         success: function (data) {
           if (data){
@@ -1442,20 +1584,52 @@
     idDiv = "status" + id;
     if (status == 0) {
       $('#status' +id).html("<button type=\"button\"\n" +
-                                "class=\"btn btn-custon-four btn-success\"\n" +
-                                "onclick=\"changeStatus(" + id +", 1)\">\n" +
-                                "<i class=\"fa fa-check\"></i>\n" +
-                            "</button>");
+        "class=\"btn btn-custon-four btn-success\"\n" +
+        "onclick=\"changeStatus(" + id +", 1)\">\n" +
+        "<i class=\"fa fa-check\"></i>\n" +
+        "</button>");
     } else {
       $('#status' +id).html("<button type=\"button\" " +
-                                "class=\"btn btn-custon-four btn-danger\"\n" +
-                                "onclick=\"changeStatus(" + id +", 0)\">\n" +
-                                "<i class=\"fa fa-times\"></i>\n" +
-                                "</button>");
+        "class=\"btn btn-custon-four btn-danger\"\n" +
+        "onclick=\"changeStatus(" + id +", 0)\">\n" +
+        "<i class=\"fa fa-times\"></i>\n" +
+        "</button>");
 
     }
 
   }
+</script>
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        $('#file').attr('src', e.target.result);
+        $('#file').show();
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  function readURLs(input) {
+    $('#files').html('');
+    if (input.files) {
+      var filesAmount = input.files.length;
+
+      for (var i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+          $('#files').append('<img style="width: 200px;object-fit: cover;border-radius: 3px;padding: 20px 20px 10px 0px;" src="' + event.target.result + '">');
+        }
+
+        reader.readAsDataURL(input.files[i]);
+      }
+    }
+  }
+  var editor = CKEDITOR.replace('editor');
+  CKFinder.setupCKEditor(editor, '${pageContext.request.contextPath}/lib/ckfinder/');
 </script>
 
 <!-- jquery

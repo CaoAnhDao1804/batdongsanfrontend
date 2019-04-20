@@ -27,6 +27,12 @@ public class AjaxController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    PostService postService;
+
+    @Autowired
+    PictureService pictureService;
+
     @ResponseBody
     @RequestMapping(value = "/admin/product-type/", method = RequestMethod.PUT, produces = "application/json")
     public ResponseEntity<ProductType> changeStatusOfProductType(@RequestBody ProductType productType) {
@@ -81,5 +87,31 @@ public class AjaxController {
             return new ResponseEntity<User>(user, HttpStatus.BAD_REQUEST);
 
     }
+    @ResponseBody
+    @RequestMapping(value = "/admin/post/", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity<Post> changeStatusOfPost(@RequestBody Post post) {
+        System.out.println("/admin/post/ Changestatus");
+        if (postService.changeStatus(post.getId()))
+            return new ResponseEntity<Post>(post, HttpStatus.OK);
+        else
+            return new ResponseEntity<Post>(post, HttpStatus.BAD_REQUEST);
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/admin/post/picture", method = RequestMethod.DELETE, produces = "application/json")
+    public ResponseEntity<Boolean> deletePicture(@RequestBody Picture picture) {
+        System.out.println("/admin/post/picture delete picture");
+
+        try {
+            pictureService.deletePictureById(Long.valueOf(picture.getId()));
+            return ResponseEntity.ok(true);
+        } catch (Exception e) {
+            return ResponseEntity.ok(false);
+        }
+
+
+    }
+
 
 }

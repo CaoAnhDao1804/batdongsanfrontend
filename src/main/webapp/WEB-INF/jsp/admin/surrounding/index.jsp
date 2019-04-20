@@ -91,20 +91,20 @@
             <nav class="sidebar-nav left-sidebar-menu-pro">
                 <ul class="metismenu" id="menu1">
                     <li>
-                        <a class="has-arrow" href="index.html">
+                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/post">
                             <span class="educate-icon educate-home icon-wrap"></span>
                             <span class="mini-click-non">Post</span>
                         </a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Dashboard v.1" href="index.html"><span
-                                    class="mini-sub-pro">Dashboard v.1</span></a></li>
+                            <li><a title="Dashboard v.1" href="${pageContext.request.contextPath}/admin/post"><span
+                                    class="mini-sub-pro">Danh sách</span></a></li>
                             <li><a title="Dashboard v.2" href="index-1.html"><span
-                                    class="mini-sub-pro">Dashboard v.2</span></a></li>
+                                    class="mini-sub-pro">Danh sách yêu thích</span></a></li>
                             <li><a title="Dashboard v.3" href="index-2.html"><span
-                                    class="mini-sub-pro">Dashboard v.3</span></a></li>
+                                    class="mini-sub-pro">Danh sách nổi bật</span></a></li>
                             <li><a title="Analytics" href="analytics.html"><span
-                                    class="mini-sub-pro">Analytics</span></a></li>
-                            <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a>
+                                    class="mini-sub-pro">Danh sách mới</span></a></li>
+                            <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Danh sách chặn</span></a>
                             </li>
                         </ul>
                     </li>
