@@ -763,12 +763,11 @@ section
 	box-shadow: 0px 20px 20px rgba(0,0,0,0.35);
 }
 .recent_item_image
+{}
+.recent_item_image .anh
 {
-	width: 100%;
-}
-.recent_item_image img
-{
-	max-width: 100%;
+    max-height: 250px;
+    overflow: hidden;
 }
 .property_tag
 {

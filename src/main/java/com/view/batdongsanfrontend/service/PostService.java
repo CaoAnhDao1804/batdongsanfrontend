@@ -1,11 +1,9 @@
 package com.view.batdongsanfrontend.service;
 
+import com.view.batdongsanfrontend.dto.PostBasicInformation;
 import com.view.batdongsanfrontend.dto.PostDTO;
 import com.view.batdongsanfrontend.model.Picture;
 import com.view.batdongsanfrontend.model.Post;
-import com.view.batdongsanfrontend.model.PostType;
-import com.view.batdongsanfrontend.model.ProductType;
-import com.view.batdongsanfrontend.util.HttpHeaderCustom;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.*;
@@ -115,7 +113,7 @@ public class PostService extends BaseService {
     }
 
     public List<Picture> findPicturesByIdPost(Long id) {
-        String uri = POST_URI + "pictures/" +id ;
+        String uri = POST_URI + "pictures/" + id;
         System.out.println(uri);
         ResponseEntity<Picture[]> responseEntity = restTemplate.getForEntity(uri, Picture[].class);
         return Arrays.asList(responseEntity.getBody());
@@ -145,5 +143,27 @@ public class PostService extends BaseService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public PostBasicInformation convertFromPost(Post post) {
+        PostBasicInformation postBasicInformation = new PostBasicInformation();
+        postBasicInformation.setId(post.getId());
+        postBasicInformation.setName(post.getName());
+        postBasicInformation.setBathrooms(post.getBathrooms());
+        postBasicInformation.setBedrooms(post.getBedrooms());
+        postBasicInformation.setPrice(1000000L);
+        postBasicInformation.setAcreage(post.getAcreage());
+        postBasicInformation.setAddress(post.getAddress());
+        if (post.getPictureEntities() != null) {
+            List<Picture>  pictureList = post.getPictureEntities();
+            for (Picture picture: pictureList){
+                postBasicInformation.setUrlPictureCover(picture.getUrl());
+                break;
+            }
+        } else {
+            postBasicInformation.setUrlPictureCover("${pageContext.request.contextPath}/templates/user/assets/images/city_1.jpg");
+        }
+
+        return postBasicInformation;
     }
 }

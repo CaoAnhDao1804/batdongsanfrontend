@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class HomepageUserController {
 
-    @RequestMapping("/")
-    public String helloWorld(Model model) {
-        model.addAttribute("russian", "Cao Thi Anh Dao");
-        return "user/homepage";
-    }
+//    @RequestMapping("/")
+//    public String helloWorld(Model model) {
+//        model.addAttribute("russian", "Cao Thi Anh Dao");
+//        return "user/homepage";
+//    }
 }

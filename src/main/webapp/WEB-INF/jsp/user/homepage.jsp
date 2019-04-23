@@ -26,7 +26,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo">
-                            <a href="#"><img src="images/logo.png" alt=""></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logo.png" alt=""></a>
                         </div>
                         <nav class="main_nav">
                             <ul>
@@ -39,7 +39,7 @@
                         </nav>
                         <div class="phone_num ml-auto">
                             <div class="phone_num_inner">
-                                <img src="images/phone.png" alt=""><span>652-345 3222 11</span>
+                                <img src="${pageContext.request.contextPath}/templates/user/assets/images/phone.png" alt=""><span>652-345 3222 11</span>
                             </div>
                         </div>
                         <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -57,7 +57,7 @@
             <div class="logo menu_logo">
                 <a href="#">
                     <div class="logo_container d-flex flex-row align-items-start justify-content-start">
-                        <div class="logo_image"><div><img src="images/logo.png" alt=""></div></div>
+                        <div class="logo_image"><div><img src="${pageContext.request.contextPath}/templates/user/assets/images/logo.png" alt=""></div></div>
                     </div>
                 </a>
             </div>
@@ -83,7 +83,7 @@
 
                 <!-- Slide -->
                 <div class="owl-item">
-                    <div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+                    <div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/templates/user/assets/images/home_slider_1.jpg)"></div>
                     <div class="slide_container">
                         <div class="container">
                             <div class="row">
@@ -94,15 +94,15 @@
                                         <div class="home_details">
                                             <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_1.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div>
                                                     <span> 650 Ftsq</span>
                                                 </li>
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_2.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
                                                     <span> 3 Bedrooms</span>
                                                 </li>
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_3.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div>
                                                     <span> 2 Bathrooms</span>
                                                 </li>
                                             </ul>
@@ -117,7 +117,7 @@
 
                 <!-- Slide -->
                 <div class="owl-item">
-                    <div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+                    <div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/templates/user/assets/images/home_slider_1.jpg)"></div>
                     <div class="slide_container">
                         <div class="container">
                             <div class="row">
@@ -128,15 +128,15 @@
                                         <div class="home_details">
                                             <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_1.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div>
                                                     <span> 650 Ftsq</span>
                                                 </li>
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_2.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
                                                     <span> 3 Bedrooms</span>
                                                 </li>
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_3.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div>
                                                     <span> 2 Bathrooms</span>
                                                 </li>
                                             </ul>
@@ -151,7 +151,7 @@
 
                 <!-- Slide -->
                 <div class="owl-item">
-                    <div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+                    <div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/templates/user/assets/images/home_slider_1.jpg)"></div>
                     <div class="slide_container">
                         <div class="container">
                             <div class="row">
@@ -162,15 +162,15 @@
                                         <div class="home_details">
                                             <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_1.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div>
                                                     <span> 650 Ftsq</span>
                                                 </li>
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_2.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
                                                     <span> 3 Bedrooms</span>
                                                 </li>
                                                 <li>
-                                                    <div class="home_details_image"><img src="images/icon_3.png" alt=""></div>
+                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div>
                                                     <span> 2 Bathrooms</span>
                                                 </li>
                                             </ul>
@@ -268,7 +268,7 @@
                                 <div class="recent_item">
                                     <div class="recent_item_inner">
                                         <div class="recent_item_image">
-                                            <img src="images/property_1.jpg" alt="">
+                                            <img src="${pageContext.request.contextPath}/templates/user/assets/images/property_1.jpg" alt="">
                                             <div class="tag_featured property_tag"><a href="#">Featured</a></div>
                                         </div>
                                         <div class="recent_item_body text-center">
@@ -277,9 +277,9 @@
                                             <div class="recent_item_price">$ 1. 234 981</div>
                                         </div>
                                         <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-                                            <div><div class="recent_icon"><img src="images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
-                                            <div><div class="recent_icon"><img src="images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
-                                            <div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -290,7 +290,7 @@
                                 <div class="recent_item">
                                     <div class="recent_item_inner">
                                         <div class="recent_item_image">
-                                            <img src="images/property_2.jpg" alt="">
+                                            <img src="${pageContext.request.contextPath}/templates/user/assets/images/property_2.jpg" alt="">
                                             <div class="tag_offer property_tag"><a href="#">Offer</a></div>
                                         </div>
                                         <div class="recent_item_body text-center">
@@ -299,9 +299,9 @@
                                             <div class="recent_item_price">$ 1. 234 981</div>
                                         </div>
                                         <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-                                            <div><div class="recent_icon"><img src="images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
-                                            <div><div class="recent_icon"><img src="images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
-                                            <div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -312,7 +312,7 @@
                                 <div class="recent_item">
                                     <div class="recent_item_inner">
                                         <div class="recent_item_image">
-                                            <img src="images/property_3.jpg" alt="">
+                                            <img src="${pageContext.request.contextPath}/templates/user/assets/images/property_3.jpg" alt="">
                                             <div class="tag_featured property_tag"><a href="#">Featured</a></div>
                                         </div>
                                         <div class="recent_item_body text-center">
@@ -321,9 +321,9 @@
                                             <div class="recent_item_price">$ 1. 234 981</div>
                                         </div>
                                         <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-                                            <div><div class="recent_icon"><img src="images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
-                                            <div><div class="recent_icon"><img src="images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
-                                            <div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+                                            <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -358,7 +358,7 @@
 
             <!-- City -->
             <div class="city">
-                <img src="images/city_1.jpg" alt="https://unsplash.com/@dnevozhai">
+                <img src="${pageContext.request.contextPath}/templates/user/assets/images/city_1.jpg" alt="https://unsplash.com/@dnevozhai">
                 <div class="city_overlay">
                     <a href="#" class="d-flex flex-column align-items-center justify-content-center">
                         <div class="city_title">Ibiza Town</div>
@@ -369,7 +369,7 @@
 
             <!-- City -->
             <div class="city">
-                <img src="images/city_2.jpg" alt="https://unsplash.com/@lachlanjdempsey">
+                <img src="${pageContext.request.contextPath}/templates/user/assets/images/city_2.jpg" alt="https://unsplash.com/@lachlanjdempsey">
                 <div class="city_overlay">
                     <a href="#" class="d-flex flex-column align-items-center justify-content-center">
                         <div class="city_title">Ibiza Town</div>
@@ -380,7 +380,7 @@
 
             <!-- City -->
             <div class="city">
-                <img src="images/city_3.jpg" alt="https://unsplash.com/@hellolightbulb">
+                <img src="${pageContext.request.contextPath}/templates/user/assets/images/city_3.jpg" alt="https://unsplash.com/@hellolightbulb">
                 <div class="city_overlay">
                     <a href="#" class="d-flex flex-column align-items-center justify-content-center">
                         <div class="city_title">Ibiza Town</div>
@@ -391,7 +391,7 @@
 
             <!-- City -->
             <div class="city">
-                <img src="images/city_4.jpg" alt="https://unsplash.com/@justinbissonbeck">
+                <img src="${pageContext.request.contextPath}/templates/user/assets/images/city_4.jpg" alt="https://unsplash.com/@justinbissonbeck">
                 <div class="city_overlay">
                     <a href="#" class="d-flex flex-column align-items-center justify-content-center">
                         <div class="city_title">Ibiza Town</div>
@@ -402,7 +402,7 @@
 
             <!-- City -->
             <div class="city">
-                <img src="images/city_5.jpg" alt="https://unsplash.com/@claudiotrigueros">
+                <img src="${pageContext.request.contextPath}/templates/user/assets/images/city_5.jpg" alt="https://unsplash.com/@claudiotrigueros">
                 <div class="city_overlay">
                     <a href="#" class="d-flex flex-column align-items-center justify-content-center">
                         <div class="city_title">Ibiza Town</div>
@@ -413,7 +413,7 @@
 
             <!-- City -->
             <div class="city">
-                <img src="images/city_6.jpg" alt="https://unsplash.com/@andersjilden">
+                <img src="${pageContext.request.contextPath}/templates/user/assets/images/city_6.jpg" alt="https://unsplash.com/@andersjilden">
                 <div class="city_overlay">
                     <a href="#" class="d-flex flex-column align-items-center justify-content-center">
                         <div class="city_title">Ibiza Town</div>
@@ -424,7 +424,7 @@
 
             <!-- City -->
             <div class="city">
-                <img src="images/city_7.jpg" alt="https://unsplash.com/@sawyerbengtson">
+                <img src="${pageContext.request.contextPath}/templates/user/assets/images/city_7.jpg" alt="https://unsplash.com/@sawyerbengtson">
                 <div class="city_overlay">
                     <a href="#" class="d-flex flex-column align-items-center justify-content-center">
                         <div class="city_title">Ibiza Town</div>
@@ -435,7 +435,7 @@
 
             <!-- City -->
             <div class="city">
-                <img src="images/city_8.jpg" alt="https://unsplash.com/@mathewwaters">
+                <img src="${pageContext.request.contextPath}/templates/user/assets/images/city_8.jpg" alt="https://unsplash.com/@mathewwaters">
                 <div class="city_overlay">
                     <a href="#" class="d-flex flex-column align-items-center justify-content-center">
                         <div class="city_title">Ibiza Town</div>
@@ -463,7 +463,7 @@
                     <div class="testimonial">
                         <div class="testimonial_title">Amazing home for me</div>
                         <div class="testimonial_text">Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
-                        <div class="testimonial_author_image"><img src="images/testimonial_1.jpg" alt=""></div>
+                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_1.jpg" alt=""></div>
                         <div class="testimonial_author"><a href="#">Diane Smith</a><span>, Client</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
@@ -474,7 +474,7 @@
                     <div class="testimonial">
                         <div class="testimonial_title">Friendly Realtors</div>
                         <div class="testimonial_text">Nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Pellentesque sit amet tellus blandit.</div>
-                        <div class="testimonial_author_image"><img src="images/testimonial_2.jpg" alt=""></div>
+                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_2.jpg" alt=""></div>
                         <div class="testimonial_author"><a href="#">Michael Duncan</a><span>, Client</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
@@ -485,7 +485,7 @@
                     <div class="testimonial">
                         <div class="testimonial_title">Very good communication</div>
                         <div class="testimonial_text">Retiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
-                        <div class="testimonial_author_image"><img src="images/testimonial_3.jpg" alt=""></div>
+                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_3.jpg" alt=""></div>
                         <div class="testimonial_author"><a href="#">Shawn Gaines</a><span>, Client</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
@@ -498,7 +498,7 @@
     <!-- Newsletter -->
 
     <div class="newsletter">
-        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/newsletter.jpg" data-speed="0.8"></div>
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="${pageContext.request.contextPath}/templates/user/assets/images/newsletter.jpg" data-speed="0.8"></div>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -526,7 +526,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="footer_logo"><a href="#"><img src="images/logo_large.png" alt=""></a></div>
+                        <div class="footer_logo"><a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logo_large.png" alt=""></a></div>
                     </div>
                     <div class="col-lg-9 d-flex flex-column align-items-start justify-content-end">
                         <div class="footer_title">Latest Properties</div>
@@ -540,7 +540,7 @@
                     </div>
                     <div class="col-lg-3 footer_col">
                         <div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-                            <div><div class="footer_latest_image"><img src="images/footer_latest_1.jpg" alt=""></div></div>
+                            <div><div class="footer_latest_image"><img src=${pageContext.request.contextPath}/templates/user/assets/images/footer_latest_1.jpg" alt=""></div></div>
                             <div class="footer_latest_content">
                                 <div class="footer_latest_location">Miami</div>
                                 <div class="footer_latest_name"><a href="#">Sea view property</a></div>
@@ -550,7 +550,7 @@
                     </div>
                     <div class="col-lg-3 footer_col">
                         <div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-                            <div><div class="footer_latest_image"><img src="images/footer_latest_2.jpg" alt=""></div></div>
+                            <div><div class="footer_latest_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/footer_latest_2.jpg" alt=""></div></div>
                             <div class="footer_latest_content">
                                 <div class="footer_latest_location">Miami</div>
                                 <div class="footer_latest_name"><a href="#">Town House</a></div>
@@ -560,7 +560,7 @@
                     </div>
                     <div class="col-lg-3 footer_col">
                         <div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-                            <div><div class="footer_latest_image"><img src="images/footer_latest_3.jpg" alt=""></div></div>
+                            <div><div class="footer_latest_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/footer_latest_3.jpg" alt=""></div></div>
                             <div class="footer_latest_content">
                                 <div class="footer_latest_location">Miami</div>
                                 <div class="footer_latest_name"><a href="#">Modern House</a></div>
