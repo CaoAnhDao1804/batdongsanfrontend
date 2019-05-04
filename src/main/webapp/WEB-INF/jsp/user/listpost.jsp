@@ -282,7 +282,7 @@
                                             </div>
                                             <div class="recent_item_body text-center">
                                                 <div class="recent_item_location">${objPost.address}</div>
-                                                <div class="recent_item_title"><a href="property.html">${objPost.name}</a></div>
+                                                <div class="recent_item_title"><a href="${pageContext.request.contextPath}/post/${objPost.id}">${objPost.name}</a></div>
                                                 <div class="recent_item_price">${objPost.price} </div>
                                             </div>
                                             <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">

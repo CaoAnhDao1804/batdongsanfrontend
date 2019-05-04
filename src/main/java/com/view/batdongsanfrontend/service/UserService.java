@@ -6,8 +6,10 @@ import com.view.batdongsanfrontend.util.HttpHeaderCustom;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -61,4 +63,39 @@ public class UserService extends BaseService {
 //            return result.getBody();
 //        } else return null;
 //    }
+
+    public Object getUserLogin(User user) {
+        try {
+            ResponseEntity<User> response = restTemplate.postForEntity(USER_URI + "login/check", user, User.class);
+            return Object.class.cast(response.getBody());
+        } catch (HttpClientErrorException httpClientErrorException) {
+            if(httpClientErrorException.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                String body = httpClientErrorException.getResponseBodyAsString();
+                return Object.class.cast(body);
+            }
+            return null;
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Object addUser(User user) {
+        try {
+            ResponseEntity<User> response = restTemplate.postForEntity(USER_URI + "signup", user, User.class);
+            if(response != null) {
+                return Object.class.cast(response.getBody());
+            }
+            return null;
+        } catch (HttpClientErrorException httpClientErrorException) {
+            if(httpClientErrorException.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                String body = httpClientErrorException.getResponseBodyAsString();
+                return Object.class.cast(body);
+            }
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 }

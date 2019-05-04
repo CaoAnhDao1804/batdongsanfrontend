@@ -35,6 +35,10 @@ public class Post {
 
     ProductType productType;
 
+    Long favoritePersons;
+
+    Long carePersons;
+
     List<Surrounding> suroundings;
 
     List<Utilities> utilities;
