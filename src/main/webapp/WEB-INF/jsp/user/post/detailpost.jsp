@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Bluesky template project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="${pageContext.request.contextPath}/templates/user/assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/styles/bootstrap4/bootstrap.min.css">
     <link href="${pageContext.request.contextPath}/templates/user/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -34,16 +35,36 @@
                         </div>
                         <nav class="main_nav">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="properties.html">Properties</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li class="menu_item"><a href="index.html">Trang chủ</a></li>
+                                <c:if test="${not empty loggedUser}">
+                                    <li class="menu_item"><a href="/favorite/">Yêu thích</a></li>
+                                    <li class="menu_item"><a href="/care/">Quan tâm</a></li>
+                                </c:if>
+                                <li class="menu_item"><a href="contact.html">Liên hệ</a></li>
                             </ul>
                         </nav>
                         <div class="phone_num ml-auto">
                             <div class="phone_num_inner">
-                                <a href="${pageContext.request.contextPath}/login-logout"><i class="fa fa-sign-in"></i><span>Đăng ký/ Đăng nhập</span></a>
+                                <c:if test="${not empty loggedUser}">
+                                    <div class="login-logout">
+                                        <a href="javascript:void(0)" style="color: white">Xin chào, ${loggedUser.username}
+                                        </a>
+                                        <a href="/logout" style="color: white" ><i class="fa fa-sign-out"></i> </a>
+                                    </div>
+
+                                </c:if>
+                                <c:if test="${empty loggedUser}">
+                                    <div class="login-logout">
+                                        <a href="/login" style="color: white;">Đăng nhập
+                                        </a>
+                                        <a href="/signup" style="color: white;">Đăng ký
+                                        </a>
+                                    </div>
+
+                                </c:if>
+                                <%--<a href="${pageContext.request.contextPath}/login-logout">--%>
+                                    <%--<i class="fa fa-sign-in"></i><span>Đăng ký/ Đăng nhập</span>--%>
+                                <%--</a>--%>
                             </div>
                         </div>
                         <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -66,15 +87,29 @@
                 </a>
             </div>
             <ul>
-                <li class="menu_item"><a href="index.html">Home</a></li>
-                <li class="menu_item"><a href="about.html">About us</a></li>
-                <li class="menu_item"><a href="#">Speakers</a></li>
-                <li class="menu_item"><a href="#">Tickets</a></li>
-                <li class="menu_item"><a href="news.html">News</a></li>
+                <li class="menu_item"><a href="index.html">Trang chủ</a></li>
+                <c:if test="${not empty loggedUser}">
+                    <li class="menu_item"><a href="/favorites">Yêu thích</a></li>
+                    <li class="menu_item"><a href="/careposts">Quan tâm</a></li>
+                </c:if>
                 <li class="menu_item"><a href="contact.html">Contact</a></li>
             </ul>
         </div>
-        <div class="menu_phone"><span>Đăng ký/ Đăng nhập </span></div>
+
+        <div class="menu_phone">
+            <c:if test="${not empty loggedUser}">
+                <a href="javascript:void(0)">Xin chào, ${loggedUser.username}
+                </a>
+                <a href="/logout" ><i class="fa fa-sign-out"></i> </a>
+            </c:if>
+            <c:if test="${empty loggedUser}">
+                <a href="/login">Đăng nhập
+                </a>
+                <a href="/signup">Đăng ký
+                </a>
+
+            </c:if>
+        </div>
     </div>
 
     <!-- Home -->
@@ -178,13 +213,46 @@
                                     <!-- Property Room Item -->
                                     <div class="property_room">
                                         <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
-                                            <div class="room_icon"><i class="fa fa-heart" aria-hidden="true" style="color: red"></i> </div>
+
+                                            <div class="room_icon">
+                                                <c:if test="${isFavorite == 'favorite'}">
+                                                    <button type="button" id="favorite_button" class="favorite-icon" title="Đã Thêm Vào Yêu Thích" onclick="changeFavorite(${objPost.id}, 2)">
+                                                        <i class="fa fa-heart-o" style="color: red;" aria-hidden="true"></i>
+                                                    </button>
+                                                </c:if>
+                                                <c:if test="${isFavorite == 'un-favorite'}">
+                                                    <button type="button" id="favorite_button" class="favorite-icon" title="Thêm Vào Yêu Thích" onclick="changeFavorite(${objPost.id}, 1)">
+                                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                                    </button>
+                                                </c:if>
+                                                <c:if test="${isFavorite == 'un-logged'}">
+                                                    <button type="button" id="favorite_button" class="favorite-icon" title="Thêm Vào Yêu Thích" onclick="changeFavorite(${objPost.id}, 0)">
+                                                        <i class="fa fa-heart-o un-logged" aria-hidden="true"></i>
+                                                    </button>
+                                                </c:if>
+                                            </div>
                                             <div class="room_num">${objPost.favoritePersons}</div>
                                         </div>
                                     </div>
                                     <div class="property_room">
                                         <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
-                                            <div class="room_icon"><i class="fa fa-eye" aria-hidden="true" style="color: dodgerblue"></i> </div>
+                                            <div class="room_icon">
+                                                <c:if test="${isCare == 'care'}">
+                                                    <button id="care_button" class="care-icon" title="Đã Thêm Vào Quan Tâm" type="button" onclick="changeCareStatus(${objPost.id}, 2)">
+                                                        <i class="fa fa-eye" style="color: dodgerblue;" aria-hidden="true"></i>
+                                                    </button>
+                                                </c:if>
+                                                <c:if test="${isCare == 'un-care'}">
+                                                    <button id="care_button" class="care-icon" title="Thêm Vào Quan Tâm" type="button" onclick="changeCareStatus(${objPost.id}, 1)">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </c:if>
+                                                <c:if test="${isCare == 'un-logged'}">
+                                                    <button id="care_button" class="care-icon" title="Thêm Vào Quan Tâm" type="button" onclick="changeCareStatus(${objPost.id}, 0)">
+                                                        <i class="fa fa-eye un-logged" aria-hidden="true"></i>
+                                                    </button>
+                                                </c:if>
+                                            </div>
                                             <div class="room_num">${objPost.carePersons}</div>
                                         </div>
                                     </div>
@@ -385,6 +453,22 @@
         </div>
     </div>
 
+
+    <div class="modal fade in" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bạn cần login để sử dụng chức năng này.</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-default close-modal" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Footer -->
 
     <footer class="footer">
@@ -464,6 +548,182 @@
     </footer>
 </div>
 
+<script type="text/javascript">
+
+    function changeFavorite(idPost, status) {
+      alert("change status")
+      console.log(idPost)
+      console.log(status)
+      if (status == 0) {
+        alert("Bạn phải đăng nhập để sử dụng chức năng này!");
+
+        // $('#myModal .modal-title').html('Bạn cần login để sử dụng chức năng này.');
+        // $('#myModal').show();
+        // $('#myModalBackGround').show();
+      } else {
+        if (status == 1) {
+          alert("Bạn muốn thêm sản phẩm này vào danh sách yêu thích?")
+          $.ajax({
+            url: '${pageContext.request.contextPath}/favorite/change',
+            type: 'POST',
+            cache: false,
+            data: {
+              post_id: idPost
+            },
+            success: function(data){
+              alert("Đã thêm vào danh sách yêu thích thành công!")
+              $('#favorite_button').html(data);
+              $('#favorite_button').attr('title', 'Đã thêm vào yêu thích');
+              if($('#favorite_button').attr('title') == 'Đã thêm vào yêu thích') {
+                $('.page_preloader').hide();
+              }
+            },
+            error: function (){
+              alert('Lỗi')
+            }
+          });
+
+        } else {
+          alert("Sản phẩm này có trong dánh sách yêu thích của bạn!")
+          $('#myModal .modal-title').text('Sản phẩm đã có trong danh sách yêu thích');
+          $('#myModal').show();
+          $('#myModalBackGround').show();
+        }
+      }
+
+
+    }
+    function changeCareStatus(idPost, status) {
+      alert("change care status")
+      console.log(idPost)
+      console.log(status)
+      if (status == 0) {
+        alert("Bạn phải đăng nhập để sử dụng chức năng này!");
+
+        // $('#myModal .modal-title').html('Bạn cần login để sử dụng chức năng này.');
+        // $('#myModal').show();
+        // $('#myModalBackGround').show();
+      } else {
+        if (status == 1) {
+          alert("Bạn muốn thêm sản phẩm này vào danh sách quan tâm?")
+          $.ajax({
+            url: '${pageContext.request.contextPath}/care/change',
+            type: 'POST',
+            cache: false,
+            data: {
+              post_id: idPost
+            },
+            success: function(data){
+              alert("Đã thêm vào danh sách quan tâm thành công!")
+              $('#care_button').html(data);
+              $('#care_button').attr('title', 'Đã thêm vào yêu thích');
+              if($('#care_button').attr('title') == 'Đã thêm vào yêu thích') {
+                $('.page_preloader').hide();
+              }
+            },
+            error: function (){
+              alert('Lỗi')
+            }
+          });
+
+        } else {
+          alert("Sản phẩm này có trong dánh sách quan tâm của bạn!")
+          $('#myModal .modal-title').text('Sản phẩm đã có trong danh sách yêu thích');
+          $('#myModal').show();
+          $('#myModalBackGround').show();
+        }
+      }
+
+
+    }
+
+  $(document).ready(function() {
+    $('#elevatezoom_gallery img').click(function() {
+      $('#elevatezoom_big').attr('src', this.src);
+      $('#elevatezoom_big').attr('alt', this.alt);
+    });
+    $('.rating-review .star-review').hover(function() {
+      var score = parseInt($(this).attr('id'));
+      if(score >= 1) {
+        for(var i = 1; i <= score; i++) {
+          if($('.star' + i).hasClass('fa-star-o')) {
+            $('.star' + i).removeClass('fa-star-o').addClass('fa-star');
+          }
+        }
+        for(var i = score + 1; i <= 5; i++) {
+          if($('.star' + i).hasClass('fa-star')) {
+            $('.star' + i).removeClass('fa-star').addClass('fa-star-o');
+          }
+        }
+      }
+    }, function(){
+      if($('#score').val() == 0) {
+        for(var i = 1; i <= 5; i++) {
+          if($('.star' + i).hasClass('fa-star')) {
+            $('.star' + i).removeClass('fa-star').addClass('fa-star-o');
+          }
+        }
+      }
+    });
+    $('.rating-review .star-review').click(function() {
+      if($(this).attr('id') == 5) {
+        $('#image-delete').css('display', 'inline-block');
+      }
+      $('#score').val($(this).attr('id'));
+    });
+    $('#image-delete').click(function () {
+      $('#score').val(0);
+      for(var i = 1; i <= 5; i++) {
+        if($('.star' + i).hasClass('fa-star')) {
+          $('.star' + i).removeClass('fa-star').addClass('fa-star-o');
+        }
+      }
+      $('#image-delete').css('display', 'none');
+    });
+
+    $('#favorite_button').click(function () {
+      alert("Da vao button!")
+      if($('#favorite_button').children().first().hasClass('un-logged')) {
+        $('#myModal .modal-title').html('Bạn cần login để sử dụng chức năng này.');
+        $('#myModal').show();
+        $('#myModalBackGround').show();
+      } else {
+        if($('#favorite_button').children().first().hasClass('fa-heart-o')) {
+          $('.page_preloader').show();
+          $.ajax({
+            url: '${pageContext.request.contextPath}/favorite/add-delete',
+            type: 'POST',
+            cache: false,
+            data: {
+              book_id: $('#book_id').val()
+            },
+            success: function(data){
+              $('#favorite_button').html(data);
+              $('#favorite_button').attr('title', 'Đã thêm vào yêu thích');
+              if($('#favorite_button').attr('title') == 'Đã thêm vào yêu thích') {
+                $('.page_preloader').hide();
+              }
+            },
+            error: function (){
+              alert('Lỗi')
+            }
+          });
+        } else {
+          $('#myModal .modal-title').text('Sản phẩm đã có trong danh sách yêu thích');
+          $('#myModal').show();
+          $('#myModalBackGround').show();
+        }
+      }
+    });
+
+    $('.close-modal').click(function () {
+      $('#myModal').hide();
+      $('#myModalBackGround').hide();
+    });
+  });
+
+
+</script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/styles/bootstrap4/popper.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/styles/bootstrap4/bootstrap.min.js"></script>

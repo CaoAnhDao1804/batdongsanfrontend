@@ -2,6 +2,8 @@ package com.view.batdongsanfrontend.controller;
 
 import com.view.batdongsanfrontend.dto.PostBasicInformation;
 import com.view.batdongsanfrontend.model.*;
+import com.view.batdongsanfrontend.service.CarePostService;
+import com.view.batdongsanfrontend.service.FavoriteService;
 import com.view.batdongsanfrontend.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +23,12 @@ public class PostUserController {
 
     @Autowired
     PostService postService;
+
+    @Autowired
+    FavoriteService favoriteService;
+
+    @Autowired
+    CarePostService carePostService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public String getAllPostForUser(ModelMap modelMap) {
@@ -35,7 +45,7 @@ public class PostUserController {
     }
 
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET, produces = "application/json")
-    public String showDetailPost(ModelMap modelMap, @PathVariable("id") Long id) {
+    public String showDetailPost(ModelMap modelMap, @PathVariable("id") Long id, HttpServletRequest request) {
         Post objPost = postService.findById(id);
 
         ProductType productTypeOfPost  = objPost.getProductType();
@@ -44,6 +54,9 @@ public class PostUserController {
         List<Utilities> utilitiesOfPost = objPost.getUtilities();
         User userOfPost = objPost.getUser();
         List<Picture> pictureList = postService.findPicturesByIdPost(id);
+
+        responseFavorite(request, modelMap, id);
+        responseCare(request, modelMap, id);
 
         modelMap.addAttribute("productTypeOfPost", productTypeOfPost);
         modelMap.addAttribute("postTypeOfPost", postTypeOfPost);
@@ -55,6 +68,36 @@ public class PostUserController {
         modelMap.addAttribute("pictureList", pictureList);
 
         return "user/post/detailpost";
+    }
+
+    private void responseFavorite(HttpServletRequest request, ModelMap modelMap, Long idPost) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if(loggedUser == null) {
+            modelMap.addAttribute("isFavorite", "un-logged");
+        } else {
+            Favourite favourite = favoriteService.getFavoriteByUserIdPostId( loggedUser.getId(), idPost);
+            if(favourite == null) {
+                modelMap.addAttribute("isFavorite", "un-favorite");
+            } else {
+                modelMap.addAttribute("isFavorite", "favorite");
+            }
+        }
+    }
+
+    private void responseCare(HttpServletRequest request, ModelMap modelMap, Long idPost) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if(loggedUser == null) {
+            modelMap.addAttribute("isCare", "un-logged");
+        } else {
+            CarePost carePost = carePostService.getCareByUserIdPostId(loggedUser.getId(), idPost);
+            if(carePost == null) {
+                modelMap.addAttribute("isCare", "un-care");
+            } else {
+                modelMap.addAttribute("isCare", "care");
+            }
+        }
     }
 
 }

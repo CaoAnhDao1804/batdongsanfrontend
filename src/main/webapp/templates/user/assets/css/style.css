@@ -1,0 +1,31 @@
+.favorite-icon {
+    font-size: 29px;
+    background: transparent;
+    border: none;
+}
+
+.favorite-icon:hover {
+    color: red;
+}
+
+.care-icon {
+    font-size: 29px;
+    background: transparent;
+    border: none;
+}
+
+.care-icon:hover {
+    color: dodgerblue;
+}
+.account-hello {
+    color: white;
+
+}
+.account-hello a {
+    color: white;
+}
+
+.login-logout {
+    color: white;
+    margin: 10px;
+}
