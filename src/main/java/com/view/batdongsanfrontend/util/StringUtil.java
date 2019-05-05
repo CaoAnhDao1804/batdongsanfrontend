@@ -4,6 +4,9 @@ import com.view.batdongsanfrontend.model.Surrounding;
 import com.view.batdongsanfrontend.model.Utilities;
 import org.springframework.stereotype.Service;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -53,6 +56,30 @@ public class StringUtil {
         }
         return data;
     }
+
+    public static String getDistanceOfDate(Date date) {
+        System.out.println("Đã vào String util!");
+        Timestamp createDate = new Timestamp(date.getTime());
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        int distanceTime = (int) (now.getTime() - createDate.getTime()) / 1000;
+        if(distanceTime / 60 > 1) {
+            if(distanceTime / 3600 > 1) {
+                if(distanceTime / 86400 > 1) {
+                    return (distanceTime / 86400) + " ngày trước";
+                } else {
+                    return (distanceTime / 3600) + " giờ trước";
+                }
+            } else {
+                return (distanceTime / 60) + " phút trước";
+            }
+        } else {
+            if(distanceTime == 0) {
+                return "vừa mới được gửi";
+            }
+            return distanceTime + " giây trước";
+        }
+    }
+
 
     public static void main(String[] args) {
         Integer a = 1;

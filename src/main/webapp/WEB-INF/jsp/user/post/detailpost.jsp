@@ -17,7 +17,10 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/plugins/rangeslider.js-2.3.0/rangeslider.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/styles/property.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/styles/contact.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/styles/property_responsive.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/styles/contact_responsive.css">
+
 </head>
 <body>
 
@@ -326,7 +329,7 @@
                 <!-- Sidebar -->
 
                 <!-- Property Content -->
-                <div class="col-lg-7 offset-lg-1">
+                <div class="col-lg-10 offset-lg-1">
                     <div class="property_content">
                         <div class="property_icons">
                             <div class="property_title">Thông tin chi tiếc vật chất</div>
@@ -423,6 +426,48 @@
 
                             </div>
                         </div>
+
+                        <!-- Comment content -->
+                        <c:if test="${not empty loggedUser}">
+                            <div class="contact_form_container">
+                                <form class="contact_form" id="contact_form">
+                                    <div><textarea class="contact_textarea contact_input" id="content_comment_text" placeholder="Message" required="required"></textarea></div>
+                                    <button class="contact_button button" onclick="addComment(${objPost.id})">send</button>
+                                </form>
+                            </div>
+                        </c:if>
+
+                        <!-- Comment list-->
+                        <div class="col-lg-10 comment-content-list">
+                            <h6>Bình luận của người xem</h6>
+                            <div id="content_comment_list">
+
+                                <c:if test="${empty listComment}">
+                                    <span style="font-size: 17px;color: green;">Không có bình luận</span>
+                                </c:if>
+                                <c:if test="${not empty listComment}">
+                                    <c:forEach var="obj" items="${listComment}">
+                                        <div class="row col-md-12 comment-element">
+                                            <div class="col-md-4">
+                                                <div class="text-center">
+                                                    <span class="name">${obj.username}</span><br>
+                                                    <span class="from">đến từ </span>
+                                                    <span class="address">${obj.address}</span><br>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8" style="padding-right: 0px !important;">
+                                                <div style="display: flex;">
+                                                    <div class="col-md-12" style="text-align: left;padding-left: 0px !important;"><span>${obj.distanceTime}</span></div>
+                                                </div>
+                                                <div style="color: #333333">${obj.content}</div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </c:if>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -549,6 +594,31 @@
 </div>
 
 <script type="text/javascript">
+
+    function addComment(postId) {
+      var  content = document.getElementById('content_comment_text').value;
+      if (content == "") {
+        alert("Nội dung không thể rổng");
+      } else {
+        $.ajax({
+          url: '${pageContext.request.contextPath}/comment/',
+          type: 'POST',
+          cache: false,
+          data: {
+            content: content,
+            postId: postId
+          },
+          success: function(data){
+            alert("Đã thêm bình luận thành công!")
+          },
+          error: function (){
+            alert('Lỗi')
+          }
+        });
+
+      }
+
+    }
 
     function changeFavorite(idPost, status) {
       alert("change status")
