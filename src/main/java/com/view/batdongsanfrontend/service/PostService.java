@@ -166,4 +166,37 @@ public class PostService extends BaseService {
 
         return postBasicInformation;
     }
+
+    public List<Post> getTopFavoritedPosts(int topNumber){
+        try {
+            System.out.println(POST_URI + "most-favorite/" + topNumber);
+            ResponseEntity<Post[]> response = restTemplate.getForEntity(POST_URI + "most-favorite/" + topNumber, Post[].class);
+            return Arrays.asList(response.getBody());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Post> getTopCaredPosts(int topNumber) {
+        try {
+            System.out.println(POST_URI +"most-care/" + topNumber);
+            ResponseEntity<Post[]> response = restTemplate.getForEntity(POST_URI +"most-care/" + topNumber, Post[].class);
+            return Arrays.asList(response.getBody());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Post> getTopNewestPosts(int topNumber) {
+        try {
+            System.out.println(POST_URI);
+            ResponseEntity<Post[]> response = restTemplate.getForEntity(POST_URI + "newest/" +topNumber, Post[].class);
+            return Arrays.asList(response.getBody());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

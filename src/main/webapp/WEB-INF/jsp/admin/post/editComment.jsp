@@ -1253,75 +1253,33 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1><span class="table-project-n">Danh sách bài đăng</span></h1>
+                                <h1><span class="table-project-n">Danh sách bình luận của bài đăng </span></h1>
                             </div>
                         </div>
                         <div class="sparkline13-graph">
                             <div class="datatable-dashv1-list custom-datatable-overright">
-                                <a href="${pageContext.request.contextPath}/admin/post/add">
-                                    <button type="button"
-                                            class="btn btn-custon-four btn-primary"
-                                            data-toggle="modal"
-                                            data-target="#addProductType"
-                                            style="margin-bottom: 10px"
-
-                                    >
-
-                                        <i class="fa fa-plus-square"></i>
-                                    </button>
-                                </a>
-
 
                                 <table class="table" id="table" border="1px">
                                     <thead>
                                     <tr>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Name</th>
-                                        <th data-field="action">Edit and View</th>
-                                        <th data-field="action">Status</th>
+                                        <th data-field="name" data-editable="true">Người viết</th>
+                                        <th data-field="name" data-editable="true">Nội dung</th>
+                                        <th data-field="action">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="objPost" items="${listPosts}">
-                                        <tr>
-                                            <td style="width:5%">${objPost.id}</td>
-                                            <td>${objPost.name}</td>
-                                            <td>
-                                                <a href="${pageContext.request.contextPath}/admin/post/edit/${objPost.id}">
-                                                    <button type="button" class="btn btn-custon-four btn-warning">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/admin/post/${objPost.id}/images/edit/">
-                                                    <button type="button" class="btn btn-custon-four btn-success">
-                                                        <i class="fa fa-image"></i>
-                                                    </button>
-                                                </a>
-
-                                                <a href="${pageContext.request.contextPath}/admin/post/${objPost.id}/comments">
-                                                    <button type="button" class="btn btn-custon-four btn-success">
-                                                        <i class="fa fa-comments"></i>
-                                                    </button>
-                                                </a>
-
-
-                                            <td id="status${objPost.id}">
-                                                <c:choose>
-                                                    <c:when test="${ objPost.status == 1}">
-                                                        <button type="button"
-                                                                class="btn btn-custon-four btn-success"
-                                                                onclick="changeStatus(${objPost.id}, 1)">
-                                                            <i class="fa fa-check"></i>
-                                                        </button>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <button type="button"
-                                                                class="btn btn-custon-four btn-danger"
-                                                                onclick="changeStatus(${objPost.id}, 0)">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </c:otherwise>
-                                                </c:choose>
+                                    <c:forEach var="objComment" items="${comments}">
+                                        <tr id="comment${objComment.id}">
+                                            <td style="width:5%">${objComment.id}</td>
+                                            <td>${objComment.username}</td>
+                                            <td>${objComment.content}</td>
+                                            <td id="action${objComment.id}">
+                                                <button type="button"
+                                                        class="btn btn-custon-four btn-danger"
+                                                        onclick="changeStatus(${objComment.id}, 1)">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
                                             </td>
                                             </td>
                                         </tr>
@@ -1353,26 +1311,34 @@
 
 
   function changeStatus(id, status) {
-    var post = {};
-    post["id"] = id;
-    if (confirm("Bạn thật sự muốn thay đổi trạng thái của bài đăng này?")) {
+    var comment = {};
+    comment["id"] = id;
+    if (confirm("Bạn thật sự muốn xóa bình luận này?")) {
       $.ajax({
-        url: '<%=request.getContextPath()%>/admin/post/',
+        url: '<%=request.getContextPath()%>/admin/post/comment',
         contentType: "application/json",
-        type: 'PUT',
-        data: JSON.stringify(post),
+        type: 'DELETE',
+        data: JSON.stringify(comment),
         dataType: 'json',
         success: function (data) {
           if (data){
             console.log("success")
           }
-          changeButton(id, status);
+          hiddenColumn(id);
         },
         error: function () {
           console.log("failed")
         }
       });
     }
+  }
+
+  function hiddenColumn(id) {
+
+    idDiv = 'comment'+ id;
+    console.log(idDiv);
+    var curentColumn = document.getElementById(idDiv);
+    curentColumn.style.display = 'none';
   }
 
   function changeButton(id, status) {
@@ -1392,6 +1358,23 @@
 
     }
 
+  }
+
+  function readURLs(input) {
+    $('#files').html('');
+    if (input.files) {
+      var filesAmount = input.files.length;
+
+      for (var i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+          $('#files').append('<img style="width: 200px;object-fit: cover;border-radius: 3px;padding: 20px 20px 10px 0px;" src="' + event.target.result + '">');
+        }
+
+        reader.readAsDataURL(input.files[i]);
+      }
+    }
   }
 </script>
 

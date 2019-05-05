@@ -267,7 +267,7 @@
                         <div class="owl-carousel owl-theme recent_slider">
 
                             <!-- Slide -->
-                            <c:forEach var="objPost" items="${postBasicInformations}">
+                            <c:forEach var="objPost" items="${topNew}">
 
                                 <div class="owl-item">
                                     <div class="recent_item">
@@ -320,7 +320,7 @@
                         <div class="owl-carousel owl-theme recent_slider">
 
                             <!-- Slide -->
-                            <c:forEach var="objPost" items="${postBasicInformations}">
+                            <c:forEach var="objPost" items="${topCare}">
 
                                 <div class="owl-item">
                                     <div class="recent_item">
@@ -359,6 +359,58 @@
         </div>
     </div>
 
+    <div class="recent">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title">Danh sách được yêu thích </div>
+                    <div class="section_subtitle">Tìm kiếm ngôi nhà tương lai của bạn</div>
+                </div>
+            </div>
+            <div class="row recent_row">
+                <div class="col">
+                    <div class="recent_slider_container">
+                        <div class="owl-carousel owl-theme recent_slider">
+
+                            <!-- Slide -->
+                            <c:forEach var="objPost" items="${topFavorite}">
+
+                                <div class="owl-item">
+                                    <div class="recent_item">
+                                        <div class="recent_item_inner">
+                                            <div class="recent_item_image">
+                                                <p class="anh">
+                                                    <img src="${objPost.urlPictureCover}" alt="Image">
+
+                                                </p>
+
+                                                <div class="tag_featured property_tag"><a href="#">New</a></div>
+                                            </div>
+                                            <div class="recent_item_body text-center">
+                                                <div class="recent_item_location">${objPost.address}</div>
+                                                <div class="recent_item_title"><a href="property.html">${objPost.name}</a></div>
+                                                <div class="recent_item_price">${objPost.price} </div>
+                                            </div>
+                                            <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
+                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>${objPost.acreage}</span></div>
+                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div><span>${objPost.bedrooms}</span></div>
+                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div><span>${objPost.bathrooms}</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                            <div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
+                                <div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                                <div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                        <div class="button recent_button"><a href="#">see more</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="recent">
         <div class="container">
                     <div class="row">

@@ -61,4 +61,12 @@ public class CommentService extends BaseService {
         }
     }
 
+    public boolean deleteCommentById(Long id) {
+        String uri = COMMENT_URI + id;
+        System.out.println(uri + " delete comment");
+        ResponseEntity<Object> result = restTemplate.exchange(uri, HttpMethod.DELETE, null, Object.class);
+        if (result != null) return true;
+        return false;
+    }
+
 }

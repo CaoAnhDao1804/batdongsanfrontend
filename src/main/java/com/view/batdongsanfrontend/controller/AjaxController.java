@@ -109,8 +109,6 @@ public class AjaxController {
         } catch (Exception e) {
             return ResponseEntity.ok(false);
         }
-
-
     }
 
 

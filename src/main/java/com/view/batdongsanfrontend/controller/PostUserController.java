@@ -39,14 +39,26 @@ public class PostUserController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public String getAllPostForUser(ModelMap modelMap) {
+
         List<Post> listPosts = postService.getAllObject();
-        List<PostBasicInformation> postBasicInformations = new ArrayList<>();
-        PostBasicInformation postBasicInformation;
-        for (Post post : listPosts) {
-            postBasicInformation = postService.convertFromPost(post);
-            postBasicInformations.add(postBasicInformation);
-        }
+        List<PostBasicInformation> postBasicInformations = convertFromPostsToPostBasicInformation(listPosts);
         modelMap.addAttribute("postBasicInformations", postBasicInformations);
+
+        List<Post> listTopMostFavoritePost = postService.getTopFavoritedPosts(10);
+        List<Post> listTopMostCaredPost = postService.getTopCaredPosts(10);
+        List<Post> listTopNewestPost = postService.getTopNewestPosts(10);
+
+        List<PostBasicInformation> listTopMostFavoritePostBasicInformations = convertFromPostsToPostBasicInformation(listTopMostFavoritePost);
+        List<PostBasicInformation> listTopMostCaredPostBasicInformations = convertFromPostsToPostBasicInformation(listTopMostCaredPost);
+        List<PostBasicInformation> listTopNewestPostBasicInformations = convertFromPostsToPostBasicInformation(listTopNewestPost);
+
+//        modelMap.addAttribute("topFavorite", listTopMostFavoritePostBasicInformations);
+//        modelMap.addAttribute("topCare", listTopMostCaredPostBasicInformations);
+        modelMap.addAttribute("topNew", listTopNewestPostBasicInformations);
+
+        //mockdata
+        modelMap.addAttribute("topFavorite", postBasicInformations);
+        modelMap.addAttribute("topCare", postBasicInformations);
 
         return "user/listpost";
     }
@@ -141,6 +153,16 @@ public class PostUserController {
                 modelMap.addAttribute("isCare", "care");
             }
         }
+    }
+
+    private List<PostBasicInformation> convertFromPostsToPostBasicInformation(List<Post> posts) {
+        List<PostBasicInformation> postBasicInformations = new ArrayList<>();
+        for (Post post : posts) {
+            PostBasicInformation postBasicInformation;
+            postBasicInformation = postService.convertFromPost(post);
+            postBasicInformations.add(postBasicInformation);
+        }
+        return postBasicInformations;
     }
 
 }
