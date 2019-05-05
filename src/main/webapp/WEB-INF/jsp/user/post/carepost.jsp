@@ -33,11 +33,12 @@
                         </div>
                         <nav class="main_nav">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="properties.html">Properties</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li class="menu_item"><a href="index.html">Trang chủ</a></li>
+                                <c:if test="${not empty loggedUser}">
+                                    <li class="menu_item"><a href="/favorite/">Yêu thích</a></li>
+                                    <li class="menu_item"><a href="/care/">Quan tâm</a></li>
+                                </c:if>
+                                <li class="menu_item"><a href="contact.html">Liên hệ</a></li>
                             </ul>
                         </nav>
                         <div class="phone_num ml-auto">
@@ -257,8 +258,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="section_title">Danh sách bài đăng mới nhất </div>
-                    <div class="section_subtitle">Tìm kiếm ngôi nhà tương lai của bạn</div>
+                    <div class="section_title">Danh sách quan tâm của bạn</div>
                 </div>
             </div>
             <div class="row recent_row">
@@ -306,111 +306,7 @@
         </div>
     </div>
 
-    <div class="recent">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="section_title">Danh sách nổi bật </div>
-                    <div class="section_subtitle">Tìm kiếm ngôi nhà tương lai của bạn</div>
-                </div>
-            </div>
-            <div class="row recent_row">
-                <div class="col">
-                    <div class="recent_slider_container">
-                        <div class="owl-carousel owl-theme recent_slider">
 
-                            <!-- Slide -->
-                            <c:forEach var="objPost" items="${postBasicInformations}">
-
-                                <div class="owl-item">
-                                    <div class="recent_item">
-                                        <div class="recent_item_inner">
-                                            <div class="recent_item_image">
-                                                <p class="anh">
-                                                    <img src="${objPost.urlPictureCover}" alt="Image">
-
-                                                </p>
-
-                                                <div class="tag_featured property_tag"><a href="#">New</a></div>
-                                            </div>
-                                            <div class="recent_item_body text-center">
-                                                <div class="recent_item_location">${objPost.address}</div>
-                                                <div class="recent_item_title"><a href="property.html">${objPost.name}</a></div>
-                                                <div class="recent_item_price">${objPost.price} </div>
-                                            </div>
-                                            <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>${objPost.acreage}</span></div>
-                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div><span>${objPost.bedrooms}</span></div>
-                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div><span>${objPost.bathrooms}</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                            <div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
-                                <div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-                                <div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
-                            </div>
-                        </div>
-                        <div class="button recent_button"><a href="#">see more</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="recent">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="section_title">Danh sách bài đăng </div>
-                    <div class="section_subtitle">Tìm kiếm ngôi nhà tương lai của bạn</div>
-                </div>
-            </div>
-            <div class="row recent_row">
-                <div class="col">
-                    <div class="recent_slider_container">
-                        <div class="owl-carousel owl-theme recent_slider">
-
-                            <!-- Slide -->
-                            <c:forEach var="objPost" items="${postBasicInformations}">
-
-                                <div class="owl-item">
-                                    <div class="recent_item">
-                                        <div class="recent_item_inner">
-                                            <div class="recent_item_image">
-                                                <p class="anh">
-                                                    <img src="${objPost.urlPictureCover}" alt="Image">
-
-                                                </p>
-
-                                                <div class="tag_featured property_tag"><a href="#">New</a></div>
-                                            </div>
-                                            <div class="recent_item_body text-center">
-                                                <div class="recent_item_location">${objPost.address}</div>
-                                                <div class="recent_item_title"><a href="property.html">${objPost.name}</a></div>
-                                                <div class="recent_item_price">${objPost.price} </div>
-                                            </div>
-                                            <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>${objPost.acreage}</span></div>
-                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div><span>${objPost.bedrooms}</span></div>
-                                                <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div><span>${objPost.bathrooms}</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                            <div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
-                                <div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-                                <div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
-                            </div>
-                        </div>
-                        <div class="button recent_button"><a href="#">see more</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Cities -->
 
     <div class="cities">

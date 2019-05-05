@@ -2,12 +2,16 @@ package com.view.batdongsanfrontend.service;
 
 import com.view.batdongsanfrontend.model.CarePost;
 import com.view.batdongsanfrontend.model.Favourite;
+import com.view.batdongsanfrontend.model.Post;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class FavoriteService extends BaseService{
@@ -43,5 +47,11 @@ public class FavoriteService extends BaseService{
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public List<Post> getAllFavoritePostByUser(Long userId) {
+        System.out.println(FAVORITE_URI + "posts/" + userId);
+        ResponseEntity<Post[]> response = restTemplate.getForEntity(FAVORITE_URI + "posts/" + userId, Post[].class);
+        return Arrays.asList(response.getBody());
     }
 }

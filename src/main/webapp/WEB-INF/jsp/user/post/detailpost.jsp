@@ -205,7 +205,7 @@
                     <div class="intro_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
                         <div class="intro_title_container">
                             <div class="intro_title">
-                                <div class="col-8">
+                                <div class="col-12">
                                     ${objPost.name}
                                 </div>
                                 <div class="property_rooms d-flex flex-sm-row flex-column align-items-start justify-content-start">
