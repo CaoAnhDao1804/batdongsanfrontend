@@ -90,11 +90,15 @@ public class PublicLoginController {
             user = User.class.cast(object);
             HttpSession session = request.getSession();
             session.setAttribute("loggedUser", user);
-            String url = (String) session.getAttribute("url");
-            if(url != null && !"".equals(url)) {
-                return "redirect:" + url;
+            if (user.getIdRole() == 1) {
+                return "redirect:/admin/post";
+            } else {
+                if (user.getIdRole()== 2){
+                    return "redirect:/mod/post";
+                } else {
+                    return "redirect:/";
+                }
             }
-            return "redirect:/";
         }
         JSONObject jsonObj = new JSONObject(object.toString());
         jsonObj = (JSONObject) jsonObj.get("errors");

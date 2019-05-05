@@ -199,4 +199,10 @@ public class PostService extends BaseService {
             return null;
         }
     }
+
+    public List<Post> getAllPostOfMod(Long modId) {
+        System.out.println(POST_URI);
+        ResponseEntity<Post[]> response = restTemplate.getForEntity(POST_URI + "mod/" + modId, Post[].class);
+        return Arrays.asList(response.getBody());
+    }
 }

@@ -76,196 +76,8 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<!-- Start Left menu area -->
-<div class="left-sidebar-pro">
-    <nav id="sidebar" class="">
-        <div class="sidebar-header">
-            <a href="index.html"><img class="main-logo"
-                                      src="${pageContext.request.contextPath}/templates/admin/assets/img/logo/long_house.png"
-                                      alt=""/></a>
-            <strong><a href="index.html"><img
-                    src="${pageContext.request.contextPath}/templates/admin/assets/img/logo/logosn.png"
-                    alt=""/></a></strong>
-        </div>
-        <div class="left-custom-menu-adp-wrap comment-scrollbar">
-            <nav class="sidebar-nav left-sidebar-menu-pro">
-                <ul class="metismenu" id="menu1">
-                    <li>
-                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/post">
-                            <span class="educate-icon educate-home icon-wrap"></span>
-                            <span class="mini-click-non">Post</span>
-                        </a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Dashboard v.1" href="${pageContext.request.contextPath}/admin/post"><span
-                                    class="mini-sub-pro">Danh sách</span></a></li>
-                            <li><a title="Dashboard v.2" href="index-1.html"><span
-                                    class="mini-sub-pro">Danh sách yêu thích</span></a></li>
-                            <li><a title="Dashboard v.3" href="index-2.html"><span
-                                    class="mini-sub-pro">Danh sách nổi bật</span></a></li>
-                            <li><a title="Analytics" href="analytics.html"><span
-                                    class="mini-sub-pro">Danh sách mới</span></a></li>
-                            <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Danh sách chặn</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a title="Landing Page" href="${pageContext.request.contextPath}/admin/product-type"
-                           aria-expanded="false"><span
-                                class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span>
-                            <span class="mini-click-non">Product Type</span></a>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/post-type"
-                           aria-expanded="false"><span
-                                class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Post Type</span></a>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/surrounding"
-                           aria-expanded="false"><span
-                                class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Surounding</span></a>
-
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/utilities"
-                           aria-expanded="false"><span
-                                class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Utilities</span></a>
-
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/user" aria-expanded="false"><span
-                                class="educate-icon educate-library icon-wrap"></span> <span
-                                class="mini-click-non">User</span></a>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span
-                                class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Departments</span></a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Departments List" href="departments.html"><span class="mini-sub-pro">Departments List</span></a>
-                            </li>
-                            <li><a title="Add Departments" href="add-department.html"><span class="mini-sub-pro">Add Departments</span></a>
-                            </li>
-                            <li><a title="Edit Departments" href="edit-department.html"><span class="mini-sub-pro">Edit Departments</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span
-                                class="educate-icon educate-message icon-wrap"></span> <span class="mini-click-non">Mailbox</span></a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Inbox" href="mailbox.html"><span class="mini-sub-pro">Inbox</span></a></li>
-                            <li><a title="View Mail" href="mailbox-view.html"><span
-                                    class="mini-sub-pro">View Mail</span></a></li>
-                            <li><a title="Compose Mail" href="mailbox-compose.html"><span class="mini-sub-pro">Compose Mail</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span
-                                class="educate-icon educate-interface icon-wrap"></span> <span class="mini-click-non">Interface</span></a>
-                        <ul class="submenu-angle interface-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Google Map" href="google-map.html"><span
-                                    class="mini-sub-pro">Google Map</span></a></li>
-                            <li><a title="Data Maps" href="data-maps.html"><span
-                                    class="mini-sub-pro">Data Maps</span></a></li>
-                            <li><a title="Pdf Viewer" href="pdf-viewer.html"><span
-                                    class="mini-sub-pro">Pdf Viewer</span></a></li>
-                            <li><a title="X-Editable" href="x-editable.html"><span
-                                    class="mini-sub-pro">X-Editable</span></a></li>
-                            <li><a title="Code Editor" href="code-editor.html"><span
-                                    class="mini-sub-pro">Code Editor</span></a></li>
-                            <li><a title="Tree View" href="tree-view.html"><span
-                                    class="mini-sub-pro">Tree View</span></a></li>
-                            <li><a title="Preloader" href="preloader.html"><span
-                                    class="mini-sub-pro">Preloader</span></a></li>
-                            <li><a title="Images Cropper" href="images-cropper.html"><span class="mini-sub-pro">Images Cropper</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span
-                                class="educate-icon educate-charts icon-wrap"></span> <span class="mini-click-non">Charts</span></a>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Bar Charts" href="bar-charts.html"><span
-                                    class="mini-sub-pro">Bar Charts</span></a></li>
-                            <li><a title="Line Charts" href="line-charts.html"><span
-                                    class="mini-sub-pro">Line Charts</span></a></li>
-                            <li><a title="Area Charts" href="area-charts.html"><span
-                                    class="mini-sub-pro">Area Charts</span></a></li>
-                            <li><a title="Rounded Charts" href="rounded-chart.html"><span class="mini-sub-pro">Rounded Charts</span></a>
-                            </li>
-                            <li><a title="C3 Charts" href="c3.html"><span class="mini-sub-pro">C3 Charts</span></a></li>
-                            <li><a title="Sparkline Charts" href="sparkline.html"><span class="mini-sub-pro">Sparkline Charts</span></a>
-                            </li>
-                            <li><a title="Peity Charts" href="peity.html"><span class="mini-sub-pro">Peity Charts</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span
-                                class="educate-icon educate-data-table icon-wrap"></span> <span class="mini-click-non">Data Tables</span></a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Peity Charts" href="static-table.html"><span
-                                    class="mini-sub-pro">Static Table</span></a></li>
-                            <li><a title="Data Table" href="data-table.html"><span
-                                    class="mini-sub-pro">Data Table</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span
-                                class="educate-icon educate-form icon-wrap"></span> <span class="mini-click-non">Forms Elements</span></a>
-                        <ul class="submenu-angle form-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Basic Form Elements" href="basic-form-element.html"><span
-                                    class="mini-sub-pro">Bc Form Elements</span></a></li>
-                            <li><a title="Advance Form Elements" href="advance-form-element.html"><span
-                                    class="mini-sub-pro">Ad Form Elements</span></a></li>
-                            <li><a title="Password Meter" href="password-meter.html"><span class="mini-sub-pro">Password Meter</span></a>
-                            </li>
-                            <li><a title="Multi Upload" href="multi-upload.html"><span
-                                    class="mini-sub-pro">Multi Upload</span></a></li>
-                            <li><a title="Text Editor" href="tinymc.html"><span class="mini-sub-pro">Text Editor</span></a>
-                            </li>
-                            <li><a title="Dual List Box" href="dual-list-box.html"><span class="mini-sub-pro">Dual List Box</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span
-                                class="educate-icon educate-apps icon-wrap"></span> <span class="mini-click-non">App views</span></a>
-                        <ul class="submenu-angle app-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Notifications" href="notifications.html"><span class="mini-sub-pro">Notifications</span></a>
-                            </li>
-                            <li><a title="Alerts" href="alerts.html"><span class="mini-sub-pro">Alerts</span></a></li>
-                            <li><a title="Modals" href="modals.html"><span class="mini-sub-pro">Modals</span></a></li>
-                            <li><a title="Buttons" href="buttons.html"><span class="mini-sub-pro">Buttons</span></a>
-                            </li>
-                            <li><a title="Tabs" href="tabs.html"><span class="mini-sub-pro">Tabs</span></a></li>
-                            <li><a title="Accordion" href="accordion.html"><span
-                                    class="mini-sub-pro">Accordion</span></a></li>
-                        </ul>
-                    </li>
-                    <li id="removable">
-                        <a class="has-arrow" href="#" aria-expanded="false"><span
-                                class="educate-icon educate-pages icon-wrap"></span> <span
-                                class="mini-click-non">Pages</span></a>
-                        <ul class="submenu-angle page-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Login" href="login.html"><span class="mini-sub-pro">Login</span></a></li>
-                            <li><a title="Register" href="register.html"><span class="mini-sub-pro">Register</span></a>
-                            </li>
-                            <li><a title="Lock" href="lock.html"><span class="mini-sub-pro">Lock</span></a></li>
-                            <li><a title="Password Recovery" href="password-recovery.html"><span class="mini-sub-pro">Password Recovery</span></a>
-                            </li>
-                            <li><a title="404 Page" href="404.html"><span class="mini-sub-pro">404 Page</span></a></li>
-                            <li><a title="500 Page" href="500.html"><span class="mini-sub-pro">500 Page</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </nav>
-</div>
-<!-- End Left menu area -->
 <!-- Start Welcome area -->
-<div class="all-content-wrapper">
+<div class="all-content-wrapper" style="margin-left: 30px; margin-right: 30px">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1242,194 +1054,81 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1><span class="table-project-n">User</span></h1>
+                                <h1><span class="table-project-n">Danh sách bài đăng</span></h1>
                             </div>
                         </div>
                         <div class="sparkline13-graph">
                             <div class="datatable-dashv1-list custom-datatable-overright">
-                                <button type="button"
-                                        class="btn btn-custon-four btn-primary"
-                                        data-toggle="modal"
-                                        data-target="#modalPoll-1"
-                                        style="margin-bottom: 10px"
-\                                >
-                                    <i class="fa fa-plus-square"></i>
-                                </button>
+                                <a href="${pageContext.request.contextPath}/admin/post/add">
+                                    <button type="button"
+                                            class="btn btn-custon-four btn-primary"
+                                            data-toggle="modal"
+                                            data-target="#addProductType"
+                                            style="margin-bottom: 10px"
 
+                                    >
 
-                                <div class="modal fade right" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                     aria-hidden="true" data-backdrop="false">
-                                    <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
-                                        <div class="modal-content">
-                                            <!--Header-->
-                                            <div class="modal-header" style="padding: 0px; height: 30px">
-                                                <p class="heading lead" style="margin-bottom: 5px; text-align: center" >Tạo mới Mod
-                                                </p>
-                                            </div>
+                                        <i class="fa fa-plus-square"></i>
+                                    </button>
+                                </a>
 
-                                            <!--Body-->
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="row">
-                                                        <label class="col-md-4">Tên đăng nhập</label>
-                                                        <input class="col-md-6" placeholder="Username" name="usernameOfNewMod" id="usernameOfNewMod" >
-                                                    </div>
-                                                    <div class="row">
-                                                        <label class="col-md-4">Họ và tên</label>
-                                                        <input class="col-md-6" placeholder="Fullname" name="fullnameOfNewMod" id="fullnameOfNewMod" >
-                                                    </div>
-
-                                                </form>
-
-                                            </div>
-
-                                            <!--Footer-->
-                                            <div class="modal-footer justify-content-center">
-                                                <a type="button" class="btn btn-primary waves-effect waves-light" onclick="saveNewMod()">Save
-                                                </a>
-                                                <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <table class="table" id="table" border="1px">
                                     <thead>
                                     <tr>
                                         <th data-field="id">ID</th>
-                                        <th data-field="username" data-editable="true">Tên đăng nhập</th>
-                                        <th data-field="fullname" data-editable="true">Tên đầy đủ</th>
-                                        <th data-field="address" data-editable="true">Địa chỉ liên lạc</th>
-                                        <th data-field="phone" data-editable="true">Số điện thoại</th>
-                                        <th data-field="dateCreate" data-editable="true">Ngày tạo</th>
-                                        <th data-field="idRole" data-editable="true">Quyền</th>
+                                        <th data-field="name" data-editable="true">Name</th>
+                                        <th data-field="action">Edit and View</th>
                                         <th data-field="action">Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="objUser" items="${listUsers}">
+                                    <c:forEach var="objPost" items="${listPosts}">
                                         <tr>
-                                            <td style="width:5%">${objUser.id}</td>
-                                            <td>${objUser.username}</td>
-                                            <td>${objUser.fullname}</td>
-                                            <td>${objUser.address}</td>
-                                            <td>${objUser.phone}</td>
-                                            <td>${objUser.dateCreate}</td>
+                                            <td style="width:5%">${objPost.id}</td>
+                                            <td>${objPost.name}</td>
+                                            <td>
+                                                <a href="${pageContext.request.contextPath}/admin/post/edit/${objPost.id}">
+                                                    <button type="button" class="btn btn-custon-four btn-warning">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="${pageContext.request.contextPath}/admin/post/${objPost.id}/images/edit/">
+                                                    <button type="button" class="btn btn-custon-four btn-success">
+                                                        <i class="fa fa-image"></i>
+                                                    </button>
+                                                </a>
 
-                                            <c:if test="${objUser.idRole == 1}">
-                                                <td>Admin</td>
-                                            </c:if>
-                                            <c:if test="${objUser.idRole == 2}">
-                                                <td>Mod</td>
-                                            </c:if>
-                                            <c:if test="${objUser.idRole == 3}">
-                                                <td>User</td>
-                                            </c:if>
+                                                <a href="${pageContext.request.contextPath}/mod/post/${objPost.id}/comments">
+                                                    <button type="button" class="btn btn-custon-four btn-success">
+                                                        <i class="fa fa-comments"></i>
+                                                    </button>
+                                                </a>
 
-                                            <c:if test="${ empty objUser.idRole}">
-                                                <td>User</td>
-                                            </c:if>
 
-                                            <td id="status${objUser.id}">
+                                            <td id="status${objPost.id}">
                                                 <c:choose>
-                                                    <c:when test="${ objUser.status == 1}">
+                                                    <c:when test="${ objPost.status == 1}">
                                                         <button type="button"
                                                                 class="btn btn-custon-four btn-success"
-                                                                onclick="changeStatus(${objUser.id}, 1)">
+                                                                onclick="changeStatus(${objPost.id}, 1)">
                                                             <i class="fa fa-check"></i>
                                                         </button>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <button type="button"
                                                                 class="btn btn-custon-four btn-danger"
-                                                                onclick="changeStatus(${objUser.id}, 0)">
+                                                                onclick="changeStatus(${objPost.id}, 0)">
                                                             <i class="fa fa-times"></i>
                                                         </button>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
-                                            <div class="modal" id="editPostType${objUser.id}">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-
-                                                        <!-- Modal Header -->
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title">Change Name</h4>
-                                                        </div>
-
-                                                        <!-- Modal body -->
-                                                        <div class="modal-body">
-                                                            <form id="add-post2"
-                                                                  action="${pageContext.request.contextPath}/admin/user/${objUser.id}"
-                                                                  method="POST">
-                                                                <div class="form-group">
-                                                                    <label class="required"><strong>Product Type
-                                                                        Name:</strong><span
-                                                                            style="color: red"> *</span>&nbsp;</label>
-                                                                    <input class="form-control" id="username"
-                                                                           type="text"
-                                                                           name="username" value="${objUser.username}"
-                                                                           placeholder="Room Name" required/>
-                                                                </div>
-                                                                <div style="text-align: center;vertical-align: middle;">
-                                                                    <button type="submit" class="btn btn-primary"
-                                                                            style="height:40px; width:80px; font-size:15px;"
-                                                                            id="btnSubmit${objUser.id}">Edit
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-default"
-                                                                            data-dismiss="modal"
-                                                                            style="height:40px; width:80px;">Close
-                                                                    </button>
-                                                                </div>
-                                                            </form>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
-                                <div class="modal" id="addPostType">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Add Post Type</h4>
-                                            </div>
-
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <form id="add-post3"
-                                                      action="${pageContext.request.contextPath}/admin/user/add"
-                                                      method="POST">
-                                                    <div class="form-group">
-                                                        <label class="required"><strong>Product Type
-                                                            Name:</strong><span
-                                                                style="color: red"> *</span>&nbsp;</label>
-                                                        <input class="form-control"
-                                                               type="text"
-                                                               name="username"
-                                                               placeholder="Product type" required/>
-                                                    </div>
-                                                    <div style="text-align: center;vertical-align: middle;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                                style="height:40px; width:80px; font-size:15px;"
-                                                                id="btnSubmit">Add
-                                                        </button>
-                                                        <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal"
-                                                                style="height:40px; width:80px;">Close
-                                                        </button>
-                                                    </div>
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1437,8 +1136,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="footer-copyright-area">
         <div class="container-fluid">
             <div class="row">
@@ -1455,62 +1152,19 @@
 
 <script type="text/javascript">
 
-   function saveNewMod() {
-     var username = document.getElementById('usernameOfNewMod').value;
-     var fullname = document.getElementById('fullnameOfNewMod').value;
-
-     var newMod = {};
-     newMod["username"] = username;
-     newMod["fullname"] = fullname;
-
-     console.log(username);
-     console.log(fullname);
-
-     $.ajax({
-       url: '<%=request.getContextPath()%>/admin/user/addMod',
-       contentType: "application/json",
-       type: 'POST',
-       data: JSON.stringify(newMod),
-       dataType: 'json',
-       success: function (data) {
-         if (data) {
-           console.log("success")
-           $('#modalPoll-1').modal('hide');
-           alert("Đã thêm thành công!")
-
-
-         } else {
-           alert("Thêm không thành công!")
-
-         }
-       },
-       error: function () {
-         console.log("failed")
-       }
-     });
-
-
-
-   }
-
-  function showModal() {
-    alert("Show modal");
-    var modal = document.getElementById('myModal');
-    modal.style.display= "block" ;
-  }
 
   function changeStatus(id, status) {
-    var user = {};
-    user["id"] = id;
-    if (confirm("Bạn thật sự muốn thay đổi trạng thái của loại bai đăng bất động sản này?")) {
+    var post = {};
+    post["id"] = id;
+    if (confirm("Bạn thật sự muốn thay đổi trạng thái của bài đăng này?")) {
       $.ajax({
-        url: '<%=request.getContextPath()%>/admin/user/',
+        url: '<%=request.getContextPath()%>/admin/post/',
         contentType: "application/json",
         type: 'PUT',
-        data: JSON.stringify(user),
+        data: JSON.stringify(post),
         dataType: 'json',
         success: function (data) {
-          if (data) {
+          if (data){
             console.log("success")
           }
           changeButton(id, status);
@@ -1525,15 +1179,15 @@
   function changeButton(id, status) {
     idDiv = "status" + id;
     if (status == 0) {
-      $('#status' + id).html("<button type=\"button\"\n" +
+      $('#status' +id).html("<button type=\"button\"\n" +
         "class=\"btn btn-custon-four btn-success\"\n" +
-        "onclick=\"changeStatus(" + id + ", 1)\">\n" +
+        "onclick=\"changeStatus(" + id +", 1)\">\n" +
         "<i class=\"fa fa-check\"></i>\n" +
         "</button>");
     } else {
-      $('#status' + id).html("<button type=\"button\" " +
+      $('#status' +id).html("<button type=\"button\" " +
         "class=\"btn btn-custon-four btn-danger\"\n" +
-        "onclick=\"changeStatus(" + id + ", 0)\">\n" +
+        "onclick=\"changeStatus(" + id +", 0)\">\n" +
         "<i class=\"fa fa-times\"></i>\n" +
         "</button>");
 

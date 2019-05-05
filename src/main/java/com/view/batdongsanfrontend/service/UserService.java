@@ -98,4 +98,23 @@ public class UserService extends BaseService {
         }
     }
 
+    public User createNewMod(User newMod) {
+        try {
+            newMod.setPassword("12345678");
+            ResponseEntity<User> response = restTemplate.postForEntity(USER_URI + "mod", newMod, User.class);
+            if(response != null) {
+                return response.getBody();
+            }
+            return null;
+        } catch (HttpClientErrorException httpClientErrorException) {
+            if(httpClientErrorException.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                String body = httpClientErrorException.getResponseBodyAsString();
+                return null;
+            }
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
 }
