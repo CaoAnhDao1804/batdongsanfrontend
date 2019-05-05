@@ -231,7 +231,7 @@
                                                     </button>
                                                 </c:if>
                                             </div>
-                                            <div class="room_num">${objPost.favoritePersons}</div>
+                                                <div class="room_num" id="number_favorite" value = "${numberFavoritePerson}">${numberFavoritePerson}</div>
                                         </div>
                                     </div>
                                     <div class="property_room">
@@ -253,7 +253,7 @@
                                                     </button>
                                                 </c:if>
                                             </div>
-                                            <div class="room_num">${objPost.carePersons}</div>
+                                            <div class="room_num" id="number_care" value="${numberCarePerson}">${numberCarePerson}</div>
                                         </div>
                                     </div>
 
@@ -577,6 +577,11 @@
               if($('#favorite_button').attr('title') == 'Đã thêm vào yêu thích') {
                 $('.page_preloader').hide();
               }
+              var numberFavorite = document.getElementById("number_favorite").getAttribute('value');
+              console.log(numberFavorite);
+              numberFavorite++;
+              console.log(numberFavorite);
+              $('#number_favorite').html(numberFavorite);
             },
             error: function (){
               alert('Lỗi')
@@ -620,6 +625,11 @@
               if($('#care_button').attr('title') == 'Đã thêm vào yêu thích') {
                 $('.page_preloader').hide();
               }
+              var numberCare = document.getElementById("number_care").getAttribute('value');
+              console.log(numberCare);
+              numberCare++;
+              console.log(numberCare);
+              $('#number_care').html(numberCare);
             },
             error: function (){
               alert('Lỗi')

@@ -54,4 +54,15 @@ public class CarePostService extends BaseService {
         ResponseEntity<Post[]> response = restTemplate.getForEntity(CARE_URI + "posts/" + userId, Post[].class);
         return Arrays.asList(response.getBody());
     }
+
+    public int numberCareByPostId(Long id) {
+        try {
+            ResponseEntity<Integer> response = restTemplate.getForEntity(CARE_URI + "all/" + id, Integer.class);
+            if (response.getStatusCode() == HttpStatus.OK)
+                return Integer.valueOf(response.getBody().toString());
+        } catch (Exception e) {
+            return 0;
+        }
+        return 0;
+    }
 }

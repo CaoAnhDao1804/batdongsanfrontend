@@ -54,4 +54,15 @@ public class FavoriteService extends BaseService{
         ResponseEntity<Post[]> response = restTemplate.getForEntity(FAVORITE_URI + "posts/" + userId, Post[].class);
         return Arrays.asList(response.getBody());
     }
+
+    public int numberFavoriteByPostId(Long idPost) {
+        try {
+            ResponseEntity<Integer> response = restTemplate.getForEntity(FAVORITE_URI + "all/" + idPost, Integer.class);
+            if (response.getStatusCode() == HttpStatus.OK)
+                return Integer.valueOf(response.getBody().toString());
+        } catch (Exception e) {
+            return 0;
+        }
+        return 0;
+    }
 }

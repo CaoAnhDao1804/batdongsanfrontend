@@ -57,6 +57,8 @@ public class PostUserController {
 
         responseFavorite(request, modelMap, id);
         responseCare(request, modelMap, id);
+        responseNumberFavoritePerson(modelMap, id);
+        responseNumverCarePerson(modelMap, id);
 
         modelMap.addAttribute("productTypeOfPost", productTypeOfPost);
         modelMap.addAttribute("postTypeOfPost", postTypeOfPost);
@@ -68,6 +70,16 @@ public class PostUserController {
         modelMap.addAttribute("pictureList", pictureList);
 
         return "user/post/detailpost";
+    }
+
+    private void responseNumverCarePerson(ModelMap modelMap, Long id) {
+        int sumcarePerson = carePostService.numberCareByPostId(id);
+        modelMap.addAttribute("numberCarePerson", sumcarePerson);
+    }
+
+    private void responseNumberFavoritePerson(ModelMap modelMap, Long id) {
+        int sumfavoritePerson = favoriteService.numberFavoriteByPostId(id);
+        modelMap.addAttribute("numberFavoritePerson", sumfavoritePerson);
     }
 
     private void responseFavorite(HttpServletRequest request, ModelMap modelMap, Long idPost) {
