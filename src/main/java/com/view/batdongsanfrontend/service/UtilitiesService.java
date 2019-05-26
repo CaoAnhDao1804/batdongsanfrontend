@@ -1,12 +1,15 @@
 package com.view.batdongsanfrontend.service;
 
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.Utilities;
 import com.view.batdongsanfrontend.util.HttpHeaderCustom;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -36,9 +39,15 @@ public class UtilitiesService extends BaseService {
     }
 
     public boolean update(Utilities objUtilities) {
-        HttpEntity<Utilities> requestBody = new HttpEntity<>(objUtilities, HttpHeaderCustom.createNewHttpHeaders());
-        ResponseEntity<Utilities> responseEntity = restTemplate.exchange(UTILITIES_URI, HttpMethod.PUT, requestBody, Utilities.class);
-        if (responseEntity != null) return true;
+        try {
+            HttpEntity<Utilities> requestBody = new HttpEntity<>(objUtilities, HttpHeaderCustom.createNewHttpHeaders());
+            ResponseEntity<Utilities> responseEntity = restTemplate.exchange(UTILITIES_URI, HttpMethod.PUT, requestBody, Utilities.class);
+            if (responseEntity != null) return true;
+        } catch (HttpStatusCodeException e) {
+            if (e.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                throw new ServiceBadRequestException(e.getMessage());
+            }
+        }
         return false;
 
     }
@@ -52,11 +61,19 @@ public class UtilitiesService extends BaseService {
     }
 
     public Utilities create(Utilities objUtilities) {
-        HttpEntity<Utilities> requestBody = new HttpEntity<>(objUtilities, HttpHeaderCustom.createNewHttpHeaders());
-        System.out.println(UTILITIES_URI + "Create new");
-        ResponseEntity<Utilities> result = restTemplate.exchange(UTILITIES_URI, HttpMethod.POST, requestBody, Utilities.class);
-        if (result != null) {
-            return result.getBody();
-        } else return null;
+        try {
+            HttpEntity<Utilities> requestBody = new HttpEntity<>(objUtilities, HttpHeaderCustom.createNewHttpHeaders());
+            System.out.println(UTILITIES_URI + "Create new");
+            ResponseEntity<Utilities> result = restTemplate.exchange(UTILITIES_URI, HttpMethod.POST, requestBody, Utilities.class);
+            if (result != null) {
+                return result.getBody();
+            } else return null;
+        } catch (HttpStatusCodeException e) {
+            if (e.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                throw new ServiceBadRequestException(e.getMessage());
+            }
+        }
+        return null;
+
     }
 }

@@ -1,5 +1,6 @@
 package com.view.batdongsanfrontend.controller;
 
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.ProductType;
 import com.view.batdongsanfrontend.service.ProductTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +31,16 @@ public class ProductTypeController {
     public String editProduct(ModelMap modelMap, @PathVariable("id") Long id, @ModelAttribute("objProductType") ProductType objProductType, RedirectAttributes ra) {
         try {
             if (productTypeService.update(objProductType)) {
-                ra.addFlashAttribute("Message", "SuccessFull Edit");
+                ra.addFlashAttribute("success", "Chỉnh sửa thành công!");
             } else {
-                ra.addFlashAttribute("Message", "Failed Edit");
+                ra.addFlashAttribute("failed", "Chỉnh sủa không thành công, vui lòng thử lại!");
 
             }
-        } catch (Exception e) {
+        } catch (ServiceBadRequestException e) {
+            ra.addFlashAttribute("failed", "Loại bất động sản này đã tồn tại");
+            return "redirect:/admin/product-type";
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/admin/product-type";
@@ -45,12 +50,15 @@ public class ProductTypeController {
     public String createProductType(ModelMap modelMap, @ModelAttribute("objProductType") ProductType objProductType, RedirectAttributes ra) {
         try {
             if (productTypeService.create(objProductType) != null) {
-                ra.addFlashAttribute("Message", "SuccessFull Edit");
+                ra.addFlashAttribute("success", "Tạo mới thành công!");
             } else {
-                ra.addFlashAttribute("Message", "Failed Edit");
-
+                ra.addFlashAttribute("failed", "Vui lòng thử lại!");
             }
-        } catch (Exception e) {
+        } catch (ServiceBadRequestException e) {
+            ra.addFlashAttribute("failed", "Loại bất động sản này đã tồn tại");
+            return "redirect:/admin/product-type";
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/admin/product-type";

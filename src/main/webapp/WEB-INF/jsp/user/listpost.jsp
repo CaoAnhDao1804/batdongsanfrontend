@@ -33,16 +33,33 @@
                         </div>
                         <nav class="main_nav">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="properties.html">Properties</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li class="menu_item"><a href="/">Trang chủ</a></li>
+                                <c:if test="${not empty loggedUser}">
+                                    <li class="menu_item"><a href="/favorite/">Yêu thích</a></li>
+                                    <li class="menu_item"><a href="/care/">Quan tâm</a></li>
+                                </c:if>
+                                <li class="menu_item"><a href="/">Liên hệ</a></li>
                             </ul>
                         </nav>
                         <div class="phone_num ml-auto">
                             <div class="phone_num_inner">
-                                <img src="${pageContext.request.contextPath}/templates/user/assets/images/phone.png" alt=""><span>652-345 3222 11</span>
+                                <c:if test="${not empty loggedUser}">
+                                    <div class="login-logout">
+                                        <a href="javascript:void(0)" style="color: white">Xin chào, ${loggedUser.username}
+                                        </a>
+                                        <a href="/logout" style="color: white" ><i class="fa fa-sign-out"></i> </a>
+                                    </div>
+
+                                </c:if>
+                                <c:if test="${empty loggedUser}">
+                                    <div class="login-logout">
+                                        <a href="/login" style="color: white;">Đăng nhập
+                                        </a>
+                                        <a href="/signup" style="color: white;">Đăng ký
+                                        </a>
+                                    </div>
+
+                                </c:if>
                             </div>
                         </div>
                         <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -242,7 +259,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <button class="search_form_button ml-auto">search</button>
+                                <button class="search_form_button ml-auto">Tìm kiếm</button>
                             </form>
                         </div>
                     </div>

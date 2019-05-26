@@ -1,5 +1,6 @@
 package com.view.batdongsanfrontend.service;
 
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.ProductType;
 import com.view.batdongsanfrontend.model.User;
 import com.view.batdongsanfrontend.util.HttpHeaderCustom;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -106,15 +108,14 @@ public class UserService extends BaseService {
                 return response.getBody();
             }
             return null;
-        } catch (HttpClientErrorException httpClientErrorException) {
-            if(httpClientErrorException.getStatusCode() == HttpStatus.BAD_REQUEST) {
-                String body = httpClientErrorException.getResponseBodyAsString();
-                return null;
+        } catch (HttpStatusCodeException e) {
+            if (e.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                throw new ServiceBadRequestException(e.getMessage());
             }
-            return null;
         } catch (Exception e) {
             return null;
         }
+        return null;
 
     }
 }

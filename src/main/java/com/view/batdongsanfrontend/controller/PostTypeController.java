@@ -1,5 +1,6 @@
 package com.view.batdongsanfrontend.controller;
 
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.PostType;
 import com.view.batdongsanfrontend.service.PostTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,27 +32,35 @@ public class PostTypeController {
     public String editPostType(ModelMap modelMap, @PathVariable("id") Long id, @ModelAttribute("objPostType") PostType objPostType, RedirectAttributes ra) {
         try {
             if (postTypeService.update(objPostType)) {
-                ra.addFlashAttribute("Message", "SuccessFull Edit");
+                ra.addFlashAttribute("success", "Chỉnh sửa loại bài đăng thành công!");
             } else {
-                ra.addFlashAttribute("Message", "Failed Edit");
+                ra.addFlashAttribute("failed", "Chỉnh sửa không thành công, vui lòng thử lại!");
 
             }
-        } catch (Exception e) {
+        } catch (ServiceBadRequestException e) {
+            ra.addFlashAttribute("failed", "Loại bài đăng này đã tồn tại");
+            return "redirect:/admin/post-type";
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/admin/post-type";
     }
 
     @RequestMapping(value = "post-type/add", method = RequestMethod.POST, produces = "application/json")
-    public String createProductType(ModelMap modelMap, @ModelAttribute("objPostType") PostType objPostType, RedirectAttributes ra) {
+    public String createPostType(ModelMap modelMap, @ModelAttribute("objPostType") PostType objPostType, RedirectAttributes ra) {
         try {
             if (postTypeService.create(objPostType) != null) {
-                ra.addFlashAttribute("Message", "SuccessFull Edit");
+                ra.addFlashAttribute("success", "Thêm loại bài đăng mới thành công!");
             } else {
-                ra.addFlashAttribute("Message", "Failed Edit");
+                ra.addFlashAttribute("failed", "Thêm loại bài đăng mới không thành công, vui lòng thử lại!");
 
             }
-        } catch (Exception e) {
+        } catch (ServiceBadRequestException e) {
+            ra.addFlashAttribute("failed", "Loại bài đăng này đã tồn tại!");
+            return "redirect:/admin/post-type";
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/admin/post-type";

@@ -2,6 +2,7 @@ package com.view.batdongsanfrontend.service;
 
 import com.view.batdongsanfrontend.dto.PostBasicInformation;
 import com.view.batdongsanfrontend.dto.PostDTO;
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.Picture;
 import com.view.batdongsanfrontend.model.Post;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,6 +12,7 @@ import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -60,12 +62,19 @@ public class PostService extends BaseService {
             ResponseEntity<Post> response = restTemplate.exchange(POST_URI,
                     HttpMethod.POST, requestEntity, Post.class);
             return response.getBody();
-        } catch (Exception e) {
+        }
+        catch (HttpStatusCodeException e) {
+            if (e.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                throw new ServiceBadRequestException(e.getMessage());
+            }
+        }
+        catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
             return null;
         }
 
+        return null;
     }
 
     private void saveFileToMap(MultipartFile file, MultiValueMap<String, Object> formData, String nameAdd) {
@@ -104,12 +113,18 @@ public class PostService extends BaseService {
             ResponseEntity<Post> response = restTemplate.exchange(POST_URI,
                     HttpMethod.PUT, requestEntity, Post.class);
             return response.getBody();
-        } catch (Exception e) {
+        } catch (HttpStatusCodeException e) {
+            if (e.getStatusCode() == HttpStatus.BAD_REQUEST){
+                throw new ServiceBadRequestException(e.getMessage());
+            }
+        }
+        catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
             return null;
         }
 
+        return null;
     }
 
     public List<Picture> findPicturesByIdPost(Long id) {

@@ -123,15 +123,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="home_content d-flex flex-row align-items-end justify-content-start">
-                            <div class="home_title">Search results</div>
-                            <div class="breadcrumbs ml-auto">
-                                <ul>
-                                    <li><a href="index.htmo">Home</a></li>
-                                    <li>Search Results</li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -401,11 +392,10 @@
                             <div class="property_title">Thông tin thêm</div>
                             <div class="details_container">
                                 <ul>
-                                    <li><span>bedroom features: </span>Main Floor Master Bedroom, Walk-In Closet</li>
-                                    <li><span>dining area: </span>Breakfast Counter/Bar, Living/Dining Combo</li>
-                                    <li><span>doors & windows: </span>Bay Window</li>
-                                    <li><span>entry location: </span>Mid Level</li>
-                                    <li><span>floors: </span>Raised Foundation, Vinyl Tile, Wall-to-Wall Carpet, Wood</li>
+                                    <li>Đây là khu đông dân cư, ý thức người dân cao</li>
+                                    <li>Gần các trung tâm thương mại, bệnh viện và trường học các cấp</li>
+                                    <li>Khuôn viên nhiều cây xanh và đường xá sạch đẹp</li>
+                                    <li>Vệ sinh chung sạch sẽ</li>
                                 </ul>
                             </div>
                         </div>

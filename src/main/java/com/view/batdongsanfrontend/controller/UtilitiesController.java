@@ -1,7 +1,9 @@
 package com.view.batdongsanfrontend.controller;
 
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.Utilities;
 import com.view.batdongsanfrontend.service.UtilitiesService;
+import com.view.batdongsanfrontend.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,12 +34,17 @@ public class UtilitiesController {
     public String edit(ModelMap modelMap, @PathVariable("id") Long id, @ModelAttribute("objUtilities") Utilities objUtilities, RedirectAttributes ra) {
         try {
             if (utilitiesService.update(objUtilities)) {
-                ra.addFlashAttribute("Message", "SuccessFull Edit");
+                ra.addFlashAttribute("success", Constants.SUCCESS_EDIT);
             } else {
-                ra.addFlashAttribute("Message", "Failed Edit");
+                ra.addFlashAttribute("failed", Constants.FAILED_EDIT);
 
             }
-        } catch (Exception e) {
+        } catch (ServiceBadRequestException e) {
+            ra.addFlashAttribute("failed", Constants.EXIST_NAME);
+            return "redirect:/admin/utilities";
+        }
+
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/admin/utilities";
@@ -47,12 +54,17 @@ public class UtilitiesController {
     public String create(ModelMap modelMap, @ModelAttribute("objUtilities") Utilities objUtilities, RedirectAttributes ra) {
         try {
             if (utilitiesService.create(objUtilities) != null) {
-                ra.addFlashAttribute("Message", "SuccessFull Edit");
+                ra.addFlashAttribute("success", Constants.SUCCESS_ADD);
             } else {
-                ra.addFlashAttribute("Message", "Failed Edit");
+                ra.addFlashAttribute("failed", Constants.FAILED_ADD);
 
             }
-        } catch (Exception e) {
+        }
+        catch (ServiceBadRequestException e) {
+            ra.addFlashAttribute("failed", Constants.EXIST_NAME);
+            return "redirect:/admin/utilities";
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/admin/utilities";

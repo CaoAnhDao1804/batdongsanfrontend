@@ -1,6 +1,7 @@
 package com.view.batdongsanfrontend.controller;
 
 import com.view.batdongsanfrontend.dto.PostDTO;
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.*;
 import com.view.batdongsanfrontend.service.*;
 import com.view.batdongsanfrontend.util.StringUtil;
@@ -65,7 +66,7 @@ public class PostController {
     public String showEditPost(ModelMap modelMap, @PathVariable("id") Long id) {
         Post objPost = postService.findById(id);
 
-        ProductType productTypeOfPost  = objPost.getProductType();
+        ProductType productTypeOfPost = objPost.getProductType();
         PostType postTypeOfPost = objPost.getPostType();
         List<Surrounding> surroundingsOfPost = objPost.getSuroundings();
         List<Utilities> utilitiesOfPost = objPost.getUtilities();
@@ -82,7 +83,6 @@ public class PostController {
     }
 
 
-
     @RequestMapping(value = "post/add", method = RequestMethod.POST, produces = "application/json")
     public String saveNewPost(@RequestParam("file") MultipartFile file,
                               @RequestParam("files") MultipartFile[] files,
@@ -91,7 +91,7 @@ public class PostController {
                               @RequestParam("utilities_id[]") String[] utilities_ids,
                               @RequestParam("postType_id") int postType_id,
                               @RequestParam("productType_id") int productType_id,
-                              @ModelAttribute("post") PostDTO postDTO ,
+                              @ModelAttribute("post") PostDTO postDTO,
                               RedirectAttributes ra,
                               ModelMap modelMap) {
 
@@ -114,22 +114,40 @@ public class PostController {
         postDTO.setUserId(1L);
 
 
-        Post newPost = postService.save(postDTO, file, files);
+        try {
+            Post newPost = postService.save(postDTO, file, files);
+            if (newPost != null) {
+                ra.addFlashAttribute("success", "Thêm bài đăng mới thành công!");
+
+            } else {
+                ra.addFlashAttribute("failed", "Thêm bài đăng mới không thành công, vui lòng thử lại!");
+            }
+        } catch (ServiceBadRequestException e) {
+
+            modelMap.addAttribute("message", e.getMessage());
+            modelMap.addAttribute("productTypeOfPost", productTypeService.getById(Long.valueOf(productType_id)));
+            modelMap.addAttribute("postTypeOfPost", postTypeService.getById(Long.valueOf(postType_id)));
+            modelMap.addAttribute("surroundingsOfPost", surroundings);
+            modelMap.addAttribute("utilitiesOfPost", utilities);
+            modelMap.addAttribute("title", "Edit Post");
+            modelMap.addAttribute("objPost", postDTO);
+            return "admin/post/add";
+        }
 
 
         return "redirect:/admin/post";
     }
 
     @RequestMapping(value = "post/edit/{id}", method = RequestMethod.POST, produces = "application/json")
-    public String updatePost( @PathVariable("id") Long id,
-                              @RequestParam("nameOwner") String nameOwner,
-                              @RequestParam("surrounding_id[]") String[] surrounding_ids,
-                              @RequestParam("utilities_id[]") String[] utilities_ids,
-                              @RequestParam("postType_id") int postType_id,
-                              @RequestParam("productType_id") int productType_id,
-                              @ModelAttribute("post") PostDTO postDTO ,
-                              RedirectAttributes ra,
-                              ModelMap modelMap) {
+    public String updatePost(@PathVariable("id") Long id,
+                             @RequestParam("nameOwner") String nameOwner,
+                             @RequestParam("surrounding_id[]") String[] surrounding_ids,
+                             @RequestParam("utilities_id[]") String[] utilities_ids,
+                             @RequestParam("postType_id") int postType_id,
+                             @RequestParam("productType_id") int productType_id,
+                             @ModelAttribute("post") PostDTO postDTO,
+                             RedirectAttributes ra,
+                             ModelMap modelMap) {
 
         postDTO.setPostTypeId(Long.valueOf(postType_id));
         postDTO.setProductTypeId(Long.valueOf(productType_id));
@@ -139,13 +157,21 @@ public class PostController {
         postDTO.setId(id);
 
 
-        Post newPost = postService.update(postDTO);
+        try {
+            Post newPost = postService.update(postDTO);
+            if (newPost != null) {
+                ra.addFlashAttribute("success", "Chỉnh sửa bài đăng  thành công!");
 
+            } else {
+                ra.addFlashAttribute("failed", "Chỉnh sửa bài đăng không thành công, vui lòng thử lại!");
+            }
+        } catch (ServiceBadRequestException e) {
+            ra.addFlashAttribute("message", "Tên bài đăng đã tồn tại");
+            return "redirect:/admin/post/edit/" + postDTO.getId();
+        }
 
         return "redirect:/admin/post";
     }
-
-
 
 
 }

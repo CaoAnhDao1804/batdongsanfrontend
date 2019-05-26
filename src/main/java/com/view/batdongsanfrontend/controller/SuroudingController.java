@@ -1,5 +1,6 @@
 package com.view.batdongsanfrontend.controller;
 
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.Surrounding;
 import com.view.batdongsanfrontend.service.SuroundingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +32,15 @@ public class SuroudingController {
     public String editProduct(ModelMap modelMap, @PathVariable("id") Long id, @ModelAttribute("objSurrounding") Surrounding objSurrounding, RedirectAttributes ra) {
         try {
             if (suroundingService.update(objSurrounding)) {
-                ra.addFlashAttribute("Message", "SuccessFull Edit");
+                ra.addFlashAttribute("success", "Chỉnh sửa thành công!");
             } else {
-                ra.addFlashAttribute("Message", "Failed Edit");
+                ra.addFlashAttribute("failed", "Chỉnh sửa không thành công, vui lòng thử lại!");
             }
-        } catch (Exception e) {
+        } catch (ServiceBadRequestException e){
+            ra.addFlashAttribute("failed", "Loại môi trường xung quanh này đã tồn tại!");
+            return "redirect:/admin/surrounding/";
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/admin/surrounding/";
@@ -45,11 +50,15 @@ public class SuroudingController {
     public String createProductType(ModelMap modelMap, @ModelAttribute("objSurrounding") Surrounding objSurrounding, RedirectAttributes ra) {
         try {
             if (suroundingService.create(objSurrounding) != null) {
-                ra.addFlashAttribute("Message", "SuccessFull Edit");
+                ra.addFlashAttribute("success", "Thêm mới môi trường xung quanh thành công!");
             } else {
-                ra.addFlashAttribute("Message", "Failed Edit");
+                ra.addFlashAttribute("Message", "Thêm mới không thành công, vui lòng thử lại!");
             }
-        } catch (Exception e) {
+        } catch (ServiceBadRequestException e){
+            ra.addFlashAttribute("failed", "Loại môi trường xung quanh này đã tồn tại!");
+            return "redirect:/admin/surrounding/";
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/admin/surrounding/";

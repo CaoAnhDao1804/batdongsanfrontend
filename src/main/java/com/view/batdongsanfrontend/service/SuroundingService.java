@@ -1,12 +1,15 @@
 package com.view.batdongsanfrontend.service;
 
+import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.Surrounding;
 import com.view.batdongsanfrontend.util.HttpHeaderCustom;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -28,12 +31,19 @@ public class SuroundingService extends BaseService {
     }
 
     public boolean update(Surrounding surounding) {
-        System.out.println(SUROUNDING_TYPE_URI + " update");
-        HttpEntity<Surrounding> requestBody = new HttpEntity<>(surounding, HttpHeaderCustom.createNewHttpHeaders());
-        ResponseEntity<Surrounding> result = restTemplate.exchange(SUROUNDING_TYPE_URI, HttpMethod.PUT, requestBody, Surrounding.class);
-        if (result.getBody() != null) {
-            return true;
+        try {
+            System.out.println(SUROUNDING_TYPE_URI + " update");
+            HttpEntity<Surrounding> requestBody = new HttpEntity<>(surounding, HttpHeaderCustom.createNewHttpHeaders());
+            ResponseEntity<Surrounding> result = restTemplate.exchange(SUROUNDING_TYPE_URI, HttpMethod.PUT, requestBody, Surrounding.class);
+            if (result.getBody() != null) {
+                return true;
+            }
+        } catch (HttpStatusCodeException e) {
+            if (e.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                throw new ServiceBadRequestException(e.getMessage());
+            }
         }
+
         return false;
     }
 
@@ -48,12 +58,19 @@ public class SuroundingService extends BaseService {
     }
 
     public Surrounding create(Surrounding surounding) {
-        HttpEntity<Surrounding> requestBody = new HttpEntity<>(surounding, HttpHeaderCustom.createNewHttpHeaders());
-        System.out.println(SUROUNDING_TYPE_URI + "Create new");
-        ResponseEntity<Surrounding> result = restTemplate.exchange(SUROUNDING_TYPE_URI, HttpMethod.POST, requestBody, Surrounding.class);
-        if (result != null) {
-            return result.getBody();
+        try {
+            HttpEntity<Surrounding> requestBody = new HttpEntity<>(surounding, HttpHeaderCustom.createNewHttpHeaders());
+            System.out.println(SUROUNDING_TYPE_URI + "Create new");
+            ResponseEntity<Surrounding> result = restTemplate.exchange(SUROUNDING_TYPE_URI, HttpMethod.POST, requestBody, Surrounding.class);
+            if (result != null) {
+                return result.getBody();
+            }
+        } catch (HttpStatusCodeException e) {
+            if (e.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                throw new ServiceBadRequestException(e.getMessage());
+            }
         }
+
         return null;
     }
 
