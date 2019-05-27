@@ -504,84 +504,6 @@
     </div>
 
 
-    <!-- Footer -->
-
-    <footer class="footer">
-        <div class="footer_main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="footer_logo"><a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logo_large.png" alt=""></a></div>
-                    </div>
-                    <div class="col-lg-9 d-flex flex-column align-items-start justify-content-end">
-                        <div class="footer_title">Latest Properties</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 footer_col">
-                        <div class="footer_about">
-                            <div class="footer_about_text">Donec in tempus leo. Aenean ultricies mauris sed quam lacinia lobortis. Cras ut vestibulum enim, in gravida nulla. Curab itur ornare nisl at sagittis cursus.</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 footer_col">
-                        <div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-                            <div><div class="footer_latest_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/footer_latest_1.jpg" alt=""></div></div>
-                            <div class="footer_latest_content">
-                                <div class="footer_latest_location">Miami</div>
-                                <div class="footer_latest_name"><a href="#">Sea view property</a></div>
-                                <div class="footer_latest_price">$ 1. 234 981</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 footer_col">
-                        <div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-                            <div><div class="footer_latest_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/footer_latest_2.jpg" alt=""></div></div>
-                            <div class="footer_latest_content">
-                                <div class="footer_latest_location">Miami</div>
-                                <div class="footer_latest_name"><a href="#">Town House</a></div>
-                                <div class="footer_latest_price">$ 1. 234 981</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 footer_col">
-                        <div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-                            <div><div class="footer_latest_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/footer_latest_3.jpg" alt=""></div></div>
-                            <div class="footer_latest_content">
-                                <div class="footer_latest_location">Miami</div>
-                                <div class="footer_latest_name"><a href="#">Modern House</a></div>
-                                <div class="footer_latest_price">$ 1. 234 981</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer_bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="footer_bar_content d-flex flex-row align-items-center justify-content-start">
-                            <div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </div>
-                            <div class="footer_nav">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="properties.html">Properties</a></li>
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer_phone ml-auto"><span>call us: </span>652 345 3222 11</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>
 
 <script type="text/javascript">
 
@@ -794,19 +716,96 @@
 
 
 </script>
+    <div class="testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title">Ý kiến khách hàng sau khi sử dụng trang web</div>
+                </div>
+            </div>
+            <div class="row testimonials_row">
+
+                <!-- Testimonial Item -->
+                <div class="col-lg-4 testimonial_col">
+                    <div class="testimonial">
+                        <div class="testimonial_title">Amazing home for me</div>
+                        <div class="testimonial_text">Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
+                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_1.jpg" alt=""></div>
+                        <div class="testimonial_author"><a href="#">Diane Smith</a><span>, Client</span></div>
+                        <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Item -->
+                <div class="col-lg-4 testimonial_col">
+                    <div class="testimonial">
+                        <div class="testimonial_title">Friendly Realtors</div>
+                        <div class="testimonial_text">Nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Pellentesque sit amet tellus blandit.</div>
+                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_2.jpg" alt=""></div>
+                        <div class="testimonial_author"><a href="#">Michael Duncan</a><span>, Client</span></div>
+                        <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Item -->
+                <div class="col-lg-4 testimonial_col">
+                    <div class="testimonial">
+                        <div class="testimonial_title">Very good communication</div>
+                        <div class="testimonial_text">Retiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
+                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_3.jpg" alt=""></div>
+                        <div class="testimonial_author"><a href="#">Shawn Gaines</a><span>, Client</span></div>
+                        <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer_main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 footer_col">
+                        <div class="footer_about">
+                            <div class="footer_about_text">Tìm kiếm ngôi nhà tương lai của bạn. Ngôi nhà là nơi bạn nuôi dưỡng tương lai và ước mơ của bạn. Thỏa sức lựa chọn đam mê và sở thích của bạn cùng với chúng tôi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_bar_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">CTAD</a>
+                            </div>
+                            <div class="footer_nav">
+                                <ul>
+                                    <li><a href="index.html">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="news.html">Yêu thích</a></li>
+                                    <li><a href="contact.html">Quan tâm</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer_phone ml-auto"><span>Liên hệ với chúng tôi: </span>035 234 567</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
 <script src="${pageContext.request.contextPath}/templates/user/assets/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/styles/bootstrap4/popper.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/styles/bootstrap4/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/templates/user/assets/plugins/greensock/TweenMax.min.js"></script>
-<script src="${pageContext.request.contextPath}/templates/user/assets/plugins/greensock/TimelineMax.min.js"></script>
-<script src="${pageContext.request.contextPath}/templates/user/assets/plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="${pageContext.request.contextPath}/templates/user/assets/plugins/greensock/animation.gsap.min.js"></script>
-<script src="${pageContext.request.contextPath}/templates/user/assets/plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/plugins/easing/easing.js"></script>
-<script src="${pageContext.request.contextPath}/templates/user/assets/plugins/rangeslider.js-2.3.0/rangeslider.min.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/plugins/parallax-js-master/parallax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
-<script src="${pageContext.request.contextPath}/templates/user/assets/js/property.js"></script>
+<script src="${pageContext.request.contextPath}/templates/user/assets/js/custom.js"></script>
+</div>
 </body>
 </html>

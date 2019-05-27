@@ -267,7 +267,7 @@
   function changeStatus(id, status) {
     var user = {};
     user["id"] = id;
-    if (confirm("Bạn thật sự muốn thay đổi trạng thái của loại bai đăng bất động sản này?")) {
+    if (confirm("Bạn thật sự muốn thay đổi trạng thái của người dùng này?")) {
       $.ajax({
         url: '<%=request.getContextPath()%>/admin/user/',
         contentType: "application/json",

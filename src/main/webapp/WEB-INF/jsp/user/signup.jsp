@@ -42,25 +42,49 @@
                     <div class="alert_msg">${msg}</div>
                 </c:if>
                 <div class="wrap-input100 validate-input" data-validate = "Enter fullname">
-                    <input class="input100" type="text" name="fullname" placeholder="Fullname">
+                    <input class="input100" type="text" name="fullname" placeholder="Fullname" required
+                           value="${user.fullname}"
+                           oninvalid="this.setCustomValidity('Vui lòng nhập họ và tên')"
+                           oninput="this.setCustomValidity('')"
+                    >
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     <span class="error">${error_fullname}</span>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                    <input class="input100" type="text" name="username" placeholder="Username">
+                    <input class="input100" type="text" name="username" placeholder="Username" required
+                           value= "${user.username}"
+                           oninvalid="this.setCustomValidity('Vui lòng nhập tên đăng nhập')"
+                           oninput="this.setCustomValidity('')"
+                    >
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                    <span class="error">${error_username}</span>
+                    <span class="error" style="color: #962020; font-size: 15px">${error}</span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <input class="input100" type="password" name="password" id="password" placeholder="Password" required
+                           oninvalid="this.setCustomValidity('Vui lòng nhập mật khẩu')"
+                           oninput="this.setCustomValidity('')"
+                    >
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                    <span class="error">${error_password}</span>
+                    <span class="error" >${error_password}</span>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100" type="password" name="confirmpassword" placeholder="ConfirmPassword">
-                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                <div class="wrap-input100 validate-input" data-validate="'Vui lòng nhập lại mật khẩu'">
+                    <input class="input100" type="password" name="confirm_password" id="confirm_password" placeholder="ConfirmPassword" required
+                           oninput="this.setCustomValidity('')"
+                    >
+                    <span class="focus-input100" id="message_confirm" data-placeholder="&#xf191;"></span>
                 </div>
+
+
+                <script type="text/javascript" src="${pageContext.request.contextPath}/templates/login/js/jquery.min.js" >
+
+                  $('#password, #confirm_password').on('keyup', function () {
+                    if ($('#password').val() == $('#confirm_password').val()) {
+                      $('#message_confirm').html('Matching').css('color', 'green');
+                    } else
+                      $('#message_confirm').html('Not Matching').css('color', 'red');
+                  });
+                </script>
 
                 <div class="container-login100-form-btn">
                     <input class="login100-form-btn" type="submit" value="Đăng ký" />
@@ -72,6 +96,22 @@
 
 
 <div id="dropDownSelect1"></div>
+<script>
+  var password = document.getElementById("password")
+    , confirm_password = document.getElementById("confirm_password");
+
+  function validatePassword(){
+    if(password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Mật khẩu không khớp, vui lòng nhập lại!");
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+  }
+
+  password.onchange = validatePassword;
+  confirm_password.onkeyup = validatePassword;
+</script>
+
 
 <!--===============================================================================================-->
 <script src="${pageContext.request.contextPath}/templates/login/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -89,6 +129,10 @@
 <script src="${pageContext.request.contextPath}/templates/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 <script src="${pageContext.request.contextPath}/templates/login/js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/lib/jquery.plugin.js"></script>
+<script src="${pageContext.request.contextPath}/templates/login/js/jquery.min.js"></script>
+
 
 </body>
 </html>

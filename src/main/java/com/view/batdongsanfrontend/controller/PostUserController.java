@@ -40,7 +40,7 @@ public class PostUserController {
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public String getAllPostForUser(ModelMap modelMap) {
 
-        List<Post> listPosts = postService.getAllObject();
+        List<Post> listPosts = postService.getAllObjectEnable();
         List<PostBasicInformation> postBasicInformations = convertFromPostsToPostBasicInformation(listPosts);
         modelMap.addAttribute("postBasicInformations", postBasicInformations);
 

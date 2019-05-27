@@ -28,9 +28,16 @@ public class PostService extends BaseService {
         this.restTemplate = restTemplate;
     }
 
+    public List<Post> getAllObjectEnable() {
+        String post_enable = POST_URI + "enable";
+        System.out.println(POST_URI );
+        ResponseEntity<Post[]> response = restTemplate.getForEntity(post_enable, Post[].class);
+        return Arrays.asList(response.getBody());
+    }
+
     public List<Post> getAllObject() {
-        System.out.println(POST_URI);
-        ResponseEntity<Post[]> response = restTemplate.getForEntity(POST_URI, Post[].class);
+        System.out.println(ROOT_URL + "posts" );
+        ResponseEntity<Post[]> response = restTemplate.getForEntity(ROOT_URL + "posts", Post[].class);
         return Arrays.asList(response.getBody());
     }
 

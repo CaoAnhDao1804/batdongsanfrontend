@@ -15,10 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 @Controller
 public class PublicLoginController {
@@ -26,10 +23,10 @@ public class PublicLoginController {
     @Autowired
     UserService userService;
 
-    @GetMapping(value = "/login" )
+    @GetMapping(value = "/login")
     public String loginPage(ModelMap model, HttpServletRequest request) {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
-        if(loggedUser != null) {
+        if (loggedUser != null) {
             return "redirect:/logout";
         }
         model.addAttribute("user", new User());
@@ -38,7 +35,7 @@ public class PublicLoginController {
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
-        if(!AuthUtil.checkUser(request)) {
+        if (!AuthUtil.checkUser(request)) {
             return "redirect:/login";
         }
         HttpSession session = request.getSession();
@@ -58,56 +55,43 @@ public class PublicLoginController {
         user.setEnable(1);
         user.setStatus(1L);
         Object object = userService.addUser(user);
-        if(object == null) {
+        if (object == null) {
             modelMap.addAttribute("msg", "Lỗi hệ thống");
             modelMap.addAttribute("user", user);
             return "user/signup";
         }
-        if(object instanceof User) {
+        if (object instanceof User) {
             ra.addFlashAttribute("msg", "Vui lòng đăng nhập vào hệ thống với tài khoản đã đăng ký");
             return "redirect:/login";
         }
-        JSONObject jsonObj = new JSONObject(object.toString());
-        jsonObj = (JSONObject) jsonObj.get("errors");
-        Iterator<String> keys = jsonObj.keys();
-        while(keys.hasNext()) {
-            String value = keys.next();
-            modelMap.addAttribute("error_" + value, jsonObj.get(value));
-        }
+        String error = object.toString();
+        modelMap.addAttribute("error", error);
         modelMap.addAttribute("user", user);
         return "user/signup";
     }
 
-    @RequestMapping(value="/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute("objUser") User user, HttpServletRequest request, ModelMap model) {
         Object object = userService.getUserLogin(user);
-        if(object == null) {
-            model.addAttribute("msg", "Tài khoản hoặc mật khẩu không chính xác");
+        if (object instanceof User) {
+
+            user = User.class.cast(object);
+                HttpSession session = request.getSession();
+                session.setAttribute("loggedUser", user);
+                if (user.getIdRole() == 1) {
+                    return "redirect:/admin/post";
+                } else {
+                    if (user.getIdRole() == 2) {
+                        return "redirect:/mod/post";
+                    } else {
+                        return "redirect:/";
+                    }
+                }
+
+        } else {
+            model.addAttribute("msg", "Tài khoản hoặc mật khẩu không chính xác!");
             model.addAttribute("user", user);
             return "user/login";
         }
-        if(object instanceof User) {
-            user = User.class.cast(object);
-            HttpSession session = request.getSession();
-            session.setAttribute("loggedUser", user);
-            if (user.getIdRole() == 1) {
-                return "redirect:/admin/post";
-            } else {
-                if (user.getIdRole()== 2){
-                    return "redirect:/mod/post";
-                } else {
-                    return "redirect:/";
-                }
-            }
-        }
-        JSONObject jsonObj = new JSONObject(object.toString());
-        jsonObj = (JSONObject) jsonObj.get("errors");
-        Iterator<String> keys = jsonObj.keys();
-        while(keys.hasNext()) {
-            String value = keys.next();
-            model.addAttribute("error_" + value, jsonObj.get(value));
-        }
-        model.addAttribute("user", user);
-        return "user/login";
     }
 }

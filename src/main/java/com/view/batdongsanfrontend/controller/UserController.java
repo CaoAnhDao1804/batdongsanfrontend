@@ -52,6 +52,6 @@ public class UserController {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-//        return "redirect:/admin/post-type";
+//        rsigneturn "redirect:/admin/post-type";
 //    }
 }

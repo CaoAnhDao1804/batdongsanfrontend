@@ -34,14 +34,7 @@
 <div class="limiter">
     <div class="container-login100" style="background-image: url('${pageContext.request.contextPath}/templates/login/images/bg-01.jpg');">
         <div class="wrap-login100">
-            <c:if test="${msg}">
-                <div class="clearfix large_form form-group">
-                    <label class="login control-label col-sm-4"></label>
-                    <div class="col-md-4">
-                        <div class="alert-warning">${msg}</div>
-                    </div>
-                </div>
-            </c:if>
+
             <form class="login100-form validate-form" action="/login" method="post">
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
@@ -50,10 +43,17 @@
                 <span class="login100-form-title p-b-5 p-t-5">
 						Đăng nhập
 					</span>
-
+                <c:if test="${not empty msg}">
+                    <div class="clearfix large_form form-group">
+                        <label class="login control-label col-sm-4"></label>
+                        <div class="col-md-12">
+                            <div class="error" style="color: #962020; font-size: 15px"> ${msg}</div>
+                        </div>
+                    </div>
+                </c:if>
                 <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                    <input class="input100" type="text" name="username" placeholder="Username">
-                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    <input class="input100" type="text" name="username" placeholder="Username" value="${user.username}">
+                    <span class="focus-input100" data-placeholder="&#xf207;"> ${error}</span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
