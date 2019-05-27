@@ -2,9 +2,7 @@ package com.view.batdongsanfrontend.service;
 
 import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.PostType;
-import com.view.batdongsanfrontend.model.ProductType;
 import com.view.batdongsanfrontend.util.HttpHeaderCustom;
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
