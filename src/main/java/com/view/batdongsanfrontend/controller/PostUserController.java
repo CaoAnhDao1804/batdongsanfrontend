@@ -72,7 +72,14 @@ public class PostUserController {
         List<Surrounding> surroundingsOfPost = objPost.getSuroundings();
         List<Utilities> utilitiesOfPost = objPost.getUtilities();
         User userOfPost = objPost.getUser();
+        User authorOfPost = objPost.getUserAccount();
         List<Picture> pictureList = postService.findPicturesByIdPost(id);
+        Picture activePicture = new Picture();
+        for (Picture picture: pictureList){
+            activePicture.setId(picture.getId());
+            activePicture.setUrl(picture.getUrl());
+            break;
+        }
 
 
         responseFavorite(request, modelMap, id);
@@ -89,6 +96,11 @@ public class PostUserController {
         modelMap.addAttribute("title", "Edit Post");
         modelMap.addAttribute("objPost", objPost);
         modelMap.addAttribute("pictureList", pictureList);
+        modelMap.addAttribute("activePicture", activePicture);
+        modelMap.addAttribute("authorOfPost", authorOfPost);
+
+
+
 
         return "user/post/detailpost";
     }

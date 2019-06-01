@@ -8,9 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon"
           href="${pageContext.request.contextPath}/templates/admin/assets/img/logoroundhouse.png">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/templates/login/images/icons/favicon.ico"/>
-    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/login/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -60,6 +57,26 @@
                     >
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     <span class="error" style="color: #962020; font-size: 15px">${error}</span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Enter email">
+                    <input class="input100" type="email" name="email" placeholder="Email" required
+                           value="${user.email}"
+                           oninvalid="this.setCustomValidity('Vui lòng email')"
+                           oninput="this.setCustomValidity('')"
+                    >
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    <span class="error">${error_fullname}</span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Enter số điện thoại">
+                    <input class="input100" type="text" name="phone" placeholder="Số điện thoại" required
+                           value="${user.phone}"
+                           oninvalid="this.setCustomValidity('Vui lòng nhập họ và tên')"
+                           oninput="this.setCustomValidity('')"
+                    >
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    <span class="error">${error_fullname}</span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">

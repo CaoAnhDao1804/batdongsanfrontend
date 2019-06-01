@@ -49,10 +49,18 @@ public class ModPostController {
 
         HttpSession session = request.getSession();
         User loggedUser = (User) session.getAttribute("loggedUser");
-
         if (loggedUser == null) {
             return "redirect:/login";
         }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 1) {
+            return "redirect:/admin/product-type";
+        }
+
+
         List<Post> listPosts = postService.getAllPostOfMod(loggedUser.getId());
         modelMap.addAttribute("listPosts", listPosts);
         modelMap.addAttribute("title", "List Product Type");
@@ -60,7 +68,20 @@ public class ModPostController {
     }
 
     @GetMapping(value = "post/{postId}/comments")
-    public String getAllCommentByPost(@PathVariable("postId") Long postId, ModelMap modelMap) {
+    public String getAllCommentByPost(@PathVariable("postId") Long postId, ModelMap modelMap, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 1) {
+            return "redirect:/admin/product-type";
+        }
+
         List<CommentResponse> comments = commentService.getListCommentByPost(postId);
         modelMap.addAttribute("comments", comments);
         return "mod/post/listComment";
@@ -78,7 +99,19 @@ public class ModPostController {
     }
 
     @RequestMapping(value = "post/add", method = RequestMethod.GET, produces = "application/json")
-    public String showAddPost(ModelMap modelMap) {
+    public String showAddPost(ModelMap modelMap, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 1) {
+            return "redirect:/admin/product-type";
+        }
         modelMap.addAttribute("title", "Add Post");
         return "mod/post/add";
     }
@@ -114,7 +147,23 @@ public class ModPostController {
                               @RequestParam("productType_id") int productType_id,
                               @ModelAttribute("post") PostDTO postDTO,
                               RedirectAttributes ra,
-                              ModelMap modelMap) {
+                              ModelMap modelMap,
+                              HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 1) {
+            return "redirect:/admin/product-type";
+        }
+
+
 
         List<Surrounding> surroundings = new ArrayList<>();
         for (int i = 0; i < surrounding_ids.length; i++) {
@@ -132,7 +181,7 @@ public class ModPostController {
         postDTO.setProductTypeId(Long.valueOf(productType_id));
         postDTO.setSuroundings(surrounding_ids);
         postDTO.setUtilities(utilities_ids);
-        postDTO.setUserId(1L);
+        postDTO.setUserId(loggedUser.getId());
 
 
         try {
@@ -154,9 +203,8 @@ public class ModPostController {
             modelMap.addAttribute("objPost", postDTO);
             return "mod/post/add";
         }
-
-
         return "redirect:/mod/post";
+
     }
 
     @RequestMapping(value = "post/edit/{id}", method = RequestMethod.POST, produces = "application/json")

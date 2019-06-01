@@ -46,4 +46,5 @@ public class Post {
     List<Picture> pictureEntities;
 
     User user;
+    User userAccount;
 }

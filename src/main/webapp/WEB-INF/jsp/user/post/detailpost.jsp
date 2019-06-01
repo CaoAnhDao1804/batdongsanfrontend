@@ -22,6 +22,9 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/styles/contact.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/styles/property_responsive.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/assets/styles/contact_responsive.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -305,6 +308,44 @@
         </div>
     </div>
 
+    <!-- Show picture -->
+    <%--<div id="myCarousel" class="carousel slide" data-ride="carousel">--%>
+        <%--<!-- Indicators -->--%>
+        <%--<ol class="carousel-indicators">--%>
+            <%--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>--%>
+            <%--<li data-target="#myCarousel" data-slide-to="1"></li>--%>
+            <%--<li data-target="#myCarousel" data-slide-to="2"></li>--%>
+        <%--</ol>--%>
+
+        <%--<!-- Wrapper for slides -->--%>
+        <%--<div class="carousel-inner">--%>
+            <%--<div class="item active">--%>
+                <%--<img src="${activePicture.url}" alt="New York">--%>
+            <%--</div>--%>
+
+        <%--</div>--%>
+
+        <%--<!-- Left and right controls -->--%>
+        <%--<a class="left carousel-control" href="#myCarousel" data-slide="prev">--%>
+            <%--<span class="glyphicon glyphicon-chevron-left"></span>--%>
+            <%--<span class="sr-only">Previous</span>--%>
+        <%--</a>--%>
+        <%--<a class="right carousel-control" href="#myCarousel" data-slide="next">--%>
+            <%--<span class="glyphicon glyphicon-chevron-right"></span>--%>
+            <%--<span class="sr-only">Next</span>--%>
+        <%--</a>--%>
+    <%--</div>--%>
+
+    <div class="property">
+        <div class="container" style="width: 400px; height: auto;" id="files">
+            <c:forEach var="objPicture" items="${pictureList}">
+                <div class="item">
+                    <img style="width: 400px;object-fit: cover;border-radius: 3px;padding: 20px 20px 10px 0px;" src="${objPicture.url}">
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+
     <!-- Property -->
 
     <div class="property">
@@ -318,9 +359,6 @@
                     <div class="property_content">
                         <div class="property_icons">
                             <div class="property_title">Thông tin chi tiếc vật chất</div>
-                            <div class="property_text property_text_1">
-                                <p>Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</p>
-                            </div>
                             <div class="property_rooms d-flex flex-sm-row flex-column align-items-start justify-content-start">
 
                                 <!-- Property Room Item -->
@@ -386,30 +424,13 @@
                             <div class="property_title">Thông tin thêm</div>
                             <div class="details_container">
                                 <ul>
-                                    <li>Đây là khu đông dân cư, ý thức người dân cao</li>
-                                    <li>Gần các trung tâm thương mại, bệnh viện và trường học các cấp</li>
-                                    <li>Khuôn viên nhiều cây xanh và đường xá sạch đẹp</li>
-                                    <li>Vệ sinh chung sạch sẽ</li>
+                                    <li>Tên chủ bài đăng: ${authorOfPost.fullname}  </li>
+                                    <li>Email chủ bài đăng: ${authorOfPost.email}</li>
+                                    <li>Số điện thoại liên hệ: ${authorOfPost.phone}</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Property On Map -->
-
-                        <div class="property_map">
-                            <div class="property_title">Property on map</div>
-                            <div class="property_map_container">
-
-                                <!-- Google Map -->
-                                <div id="google_map" class="google_map">
-                                    <div class="map_container">
-                                        <label>${objPost.address}</label>
-                                        <div id="map"> </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
 
                         <!-- Comment content -->
                         <c:if test="${not empty loggedUser}">
@@ -457,31 +478,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Newsletter -->
-
-    <div class="newsletter">
-        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="${pageContext.request.contextPath}/templates/user/assets/images/images/newsletter.jpg" data-speed="0.8"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="newsletter_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
-                        <div class="newsletter_title_container">
-                            <div class="newsletter_title">Are you buying or selling?</div>
-                            <div class="newsletter_subtitle">Search your dream home</div>
-                        </div>
-                        <div class="newsletter_form_container">
-                            <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" placeholder="Your e-mail address" required="required">
-                                <button class="newsletter_button">subscribe now</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <div class="modal fade in" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
@@ -624,49 +620,6 @@
     }
 
   $(document).ready(function() {
-    $('#elevatezoom_gallery img').click(function() {
-      $('#elevatezoom_big').attr('src', this.src);
-      $('#elevatezoom_big').attr('alt', this.alt);
-    });
-    $('.rating-review .star-review').hover(function() {
-      var score = parseInt($(this).attr('id'));
-      if(score >= 1) {
-        for(var i = 1; i <= score; i++) {
-          if($('.star' + i).hasClass('fa-star-o')) {
-            $('.star' + i).removeClass('fa-star-o').addClass('fa-star');
-          }
-        }
-        for(var i = score + 1; i <= 5; i++) {
-          if($('.star' + i).hasClass('fa-star')) {
-            $('.star' + i).removeClass('fa-star').addClass('fa-star-o');
-          }
-        }
-      }
-    }, function(){
-      if($('#score').val() == 0) {
-        for(var i = 1; i <= 5; i++) {
-          if($('.star' + i).hasClass('fa-star')) {
-            $('.star' + i).removeClass('fa-star').addClass('fa-star-o');
-          }
-        }
-      }
-    });
-    $('.rating-review .star-review').click(function() {
-      if($(this).attr('id') == 5) {
-        $('#image-delete').css('display', 'inline-block');
-      }
-      $('#score').val($(this).attr('id'));
-    });
-    $('#image-delete').click(function () {
-      $('#score').val(0);
-      for(var i = 1; i <= 5; i++) {
-        if($('.star' + i).hasClass('fa-star')) {
-          $('.star' + i).removeClass('fa-star').addClass('fa-star-o');
-        }
-      }
-      $('#image-delete').css('display', 'none');
-    });
-
     $('#favorite_button').click(function () {
       alert("Da vao button!")
       if($('#favorite_button').children().first().hasClass('un-logged')) {
@@ -722,10 +675,10 @@
                 <!-- Testimonial Item -->
                 <div class="col-lg-4 testimonial_col">
                     <div class="testimonial">
-                        <div class="testimonial_title">Amazing home for me</div>
-                        <div class="testimonial_text">Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
+                        <div class="testimonial_title">Một ngôi nhà tốt cho tôi</div>
+                        <div class="testimonial_text"> Đây là một website đáng tin cậy cho mọi nhà. Mọi người có thể kết nối dễ dàng để giao dịch thông qua website này. Tôi sẽ giới thiệu bạn bè nếu họ cần tìm kiếm nhà và mua bán nhà cửa sử dụng website của các bạn.</div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_1.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Diane Smith</a><span>, Client</span></div>
+                        <div class="testimonial_author"><a href="#">Nguyễn Hoài</a><span>, Khách hàng</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -733,10 +686,10 @@
                 <!-- Testimonial Item -->
                 <div class="col-lg-4 testimonial_col">
                     <div class="testimonial">
-                        <div class="testimonial_title">Friendly Realtors</div>
-                        <div class="testimonial_text">Nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Pellentesque sit amet tellus blandit.</div>
+                        <div class="testimonial_title">Giao dịch dễ dàng</div>
+                        <div class="testimonial_text"> Tôi đã tìm kiếm được rất nhiều khách hàng từ giao dịch trên website này. Thông tin sản phẩm được trình bày rõ ràng chi tiếc và có nhiều thông tin hữu ích cho khách hàng. Cảm ơn website rất nhiều. </div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_2.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Michael Duncan</a><span>, Client</span></div>
+                        <div class="testimonial_author"><a href="#">Đắt Tâm</a><span>, Nhân viên BDS</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -744,10 +697,10 @@
                 <!-- Testimonial Item -->
                 <div class="col-lg-4 testimonial_col">
                     <div class="testimonial">
-                        <div class="testimonial_title">Very good communication</div>
-                        <div class="testimonial_text">Retiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
+                        <div class="testimonial_title">Thông tin rõ ràng</div>
+                        <div class="testimonial_text">Tôi đã bán được nhà của mình với giá tốt nhờ website này. Nhờ cách trình bày rõ ràng và dễ hiểu. Người cần mua nhà đã dễ dàng tìm đến với tôi</div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_3.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Shawn Gaines</a><span>, Client</span></div>
+                        <div class="testimonial_author"><a href="#">Thanh Tâm</a><span>, Khách hàng</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -760,7 +713,7 @@
         <div class="footer_main">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 footer_col">
+                    <div class="col-lg-12 footer_col">
                         <div class="footer_about">
                             <div class="footer_about_text">Tìm kiếm ngôi nhà tương lai của bạn. Ngôi nhà là nơi bạn nuôi dưỡng tương lai và ước mơ của bạn. Thỏa sức lựa chọn đam mê và sở thích của bạn cùng với chúng tôi</div>
                         </div>
@@ -792,8 +745,9 @@
         </div>
     </footer>
 </div>
-
 <script src="${pageContext.request.contextPath}/templates/user/assets/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/templates/user/assets/js/jquery-ui.min.js"></script>
+
 <script src="${pageContext.request.contextPath}/templates/user/assets/styles/bootstrap4/popper.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/templates/user/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
