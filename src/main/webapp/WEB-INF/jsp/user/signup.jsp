@@ -3,9 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V3</title>
+    <title>Đăng nhập | Bất động sản Đà Nẵng</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon"
+          href="${pageContext.request.contextPath}/templates/admin/assets/img/logoroundhouse.png">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/templates/login/images/icons/favicon.ico"/>
     <!--===============================================================================================-->
