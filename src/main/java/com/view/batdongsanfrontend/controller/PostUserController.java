@@ -52,13 +52,13 @@ public class PostUserController {
         List<PostBasicInformation> listTopMostCaredPostBasicInformations = convertFromPostsToPostBasicInformation(listTopMostCaredPost);
         List<PostBasicInformation> listTopNewestPostBasicInformations = convertFromPostsToPostBasicInformation(listTopNewestPost);
 
-//        modelMap.addAttribute("topFavorite", listTopMostFavoritePostBasicInformations);
-//        modelMap.addAttribute("topCare", listTopMostCaredPostBasicInformations);
+        modelMap.addAttribute("topFavorite", listTopMostFavoritePostBasicInformations);
+        modelMap.addAttribute("topCare", listTopMostCaredPostBasicInformations);
         modelMap.addAttribute("topNew", listTopNewestPostBasicInformations);
 
         //mockdata
-        modelMap.addAttribute("topFavorite", postBasicInformations);
-        modelMap.addAttribute("topCare", postBasicInformations);
+//        modelMap.addAttribute("topFavorite", postBasicInformations);
+//        modelMap.addAttribute("topCare", postBasicInformations);
 
         return "user/listpost";
     }
