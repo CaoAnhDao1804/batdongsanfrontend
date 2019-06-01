@@ -34,7 +34,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo">
-                            <a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logo.png" alt=""></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logotranparentadmin.png" alt=""></a>
                         </div>
                         <nav class="main_nav">
                             <ul>
@@ -140,14 +140,14 @@
                                 <div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
                                     <div>
                                         <select class="search_form_select">
-                                            <option disabled selected>For rent</option>
+                                            <option disabled selected>Cho thuê</option>
                                             <option>Yes</option>
                                             <option>No</option>
                                         </select>
                                     </div>
                                     <div>
                                         <select class="search_form_select">
-                                            <option disabled selected>All types</option>
+                                            <option disabled selected>Biệt thự</option>
                                             <option>Type 1</option>
                                             <option>Type 2</option>
                                             <option>Type 3</option>
@@ -156,7 +156,7 @@
                                     </div>
                                     <div>
                                         <select class="search_form_select">
-                                            <option disabled selected>City</option>
+                                            <option disabled selected>Phòng ngủ</option>
                                             <option>New York</option>
                                             <option>Paris</option>
                                             <option>Amsterdam</option>
@@ -165,23 +165,15 @@
                                     </div>
                                     <div>
                                         <select class="search_form_select">
-                                            <option disabled selected>Bedrooms</option>
+                                            <option disabled selected>Phòng tắm</option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
                                         </select>
                                     </div>
-                                    <div>
-                                        <select class="search_form_select">
-                                            <option disabled selected>Bathrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
-                                    </div>
                                 </div>
-                                <button class="search_form_button ml-auto">search</button>
+                                <button class="search_form_button ml-auto">Tìm kiếm</button>
                             </form>
                         </div>
                     </div>
@@ -199,7 +191,7 @@
                     <div class="intro_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
                         <div class="intro_title_container">
                             <div class="intro_title">
-                                <div class="col-12">
+                                <div class="col-12" style="font-size: 25px; color: #1390c5;">
                                     ${objPost.name}
                                 </div>
                                 <div class="property_rooms d-flex flex-sm-row flex-column align-items-start justify-content-start">
@@ -290,7 +282,7 @@
             <div class="owl-carousel owl-theme intro_slider">
 
                 <c:forEach var="objPicture" items="${pictureList}">
-                    <div class="owl-item"><img src="${objPicture.url}" alt=""></div>
+                    <div class="owl-item"><img src="${objPicture.url}" alt="Image"></div>
                 </c:forEach>
                 <!-- Slide -->
             </div>

@@ -19,7 +19,7 @@
                                         class="btn btn-custon-four btn-primary"
                                         data-toggle="modal"
                                         data-target="#modalPoll-1"
-                                        style="margin-bottom: 10px"
+                                        style="margin-bottom: 10px; margin-top: 20px"
 \                                >
                                     <i class="fa fa-plus-square"></i>
                                 </button>
@@ -100,25 +100,25 @@
                                 <table class="table" id="myTable" border="1px">
                                     <thead>
                                     <tr>
-                                        <th data-field="id">ID</th>
-                                        <th data-field="username" data-editable="true">Tên đăng nhập</th>
-                                        <th data-field="fullname" data-editable="true">Tên đầy đủ</th>
-                                        <th data-field="address" data-editable="true">Email liên lạc</th>
-                                        <th data-field="phone" data-editable="true">Số điện thoại</th>
-                                        <th data-field="dateCreate" data-editable="true">Ngày tạo</th>
-                                        <th data-field="idRole" data-editable="true">Quyền</th>
-                                        <th data-field="action">Status</th>
+                                        <th data-field="id" style="text-align: center">ID</th>
+                                        <th data-field="username" data-editable="true" style="text-align: center">Tên đăng nhập</th>
+                                        <th data-field="fullname" data-editable="true" style="text-align: center">Tên đầy đủ</th>
+                                        <th data-field="address" data-editable="true" style="text-align: center">Email liên lạc</th>
+                                        <th data-field="phone" data-editable="true" style="text-align: center">Số điện thoại</th>
+                                        <th data-field="dateCreate" data-editable="true" style="text-align: center">Ngày tạo</th>
+                                        <th data-field="idRole" data-editable="true" style="text-align: center">Quyền</th>
+                                        <th data-field="action" style="text-align: center">Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach var="objUser" items="${listUsers}">
                                         <tr>
-                                            <td style="width:5%">${objUser.id}</td>
+                                            <td style="width:5%; text-align: center">${objUser.id}</td>
                                             <td>${objUser.username}</td>
-                                            <td>${objUser.fullname}</td>
-                                            <td>${objUser.email}</td>
-                                            <td>${objUser.phone}</td>
-                                            <td>${objUser.dateCreate}</td>
+                                            <td style="text-align: center">${objUser.fullname}</td>
+                                            <td style="text-align: center">${objUser.email}</td>
+                                            <td style="text-align: center">${objUser.phone}</td>
+                                            <td style="text-align: center">${objUser.dateCreate}</td>
 
                                             <c:if test="${objUser.idRole == 1}">
                                                 <td>Admin</td>
@@ -134,7 +134,7 @@
                                                 <td>User</td>
                                             </c:if>
 
-                                            <td id="status${objUser.id}">
+                                            <td style="text-align: center" id="status${objUser.id}">
                                                 <c:choose>
                                                     <c:when test="${ objUser.status == 1}">
                                                         <button type="button"
@@ -209,8 +209,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-copy-right">
-                        <p>Copyright © 2018. All rights reserved. Template by <a
-                                href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+                        <p>Copyright © 2019. Develop by Dao Cao</p>
                     </div>
                 </div>
             </div>

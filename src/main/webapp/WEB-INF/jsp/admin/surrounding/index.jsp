@@ -19,7 +19,7 @@
                                         class="btn btn-custon-four btn-primary"
                                         data-toggle="modal"
                                         data-target="#addSurrounding"
-                                        style="margin-bottom: 10px"
+                                        style="margin-bottom: 10px; margin-top: 20px"
 
                                 >
 
@@ -33,24 +33,24 @@
                                 <table class="table" id="myTable" border="1px">
                                     <thead>
                                     <tr>
-                                        <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Name</th>
-                                        <th data-field="action">Edit</th>
-                                        <th data-field="action">Status</th>
+                                        <th data-field="id" style="text-align: center">ID</th>
+                                        <th data-field="name" style="text-align: center" data-editable="true">Name</th>
+                                        <th data-field="action" style="text-align: center">Edit</th>
+                                        <th data-field="action" style="text-align: center" >Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach var="objSurrounding" items="${listSurrounding}">
                                         <tr>
-                                            <td style="width:5%">${objSurrounding.id}</td>
+                                            <td style="width:5%; text-align: center">${objSurrounding.id}</td>
                                             <td>${objSurrounding.name}</td>
-                                            <td>
+                                            <td style="text-align: center">
                                                 <button type="button" class="btn btn-custon-four btn-warning"
                                                         data-toggle="modal"
                                                         data-target="#editSurrounding${objSurrounding.id}"><i
                                                         class="fa fa-pencil"></i>
                                                 </button>
-                                            <td id="status${objSurrounding.id}">
+                                            <td id="status${objSurrounding.id}" style="text-align: center">
                                                 <c:choose>
                                                     <c:when test="${ objSurrounding.status == 1}">
                                                         <button type="button"
@@ -168,8 +168,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-copy-right">
-                        <p>Copyright © 2018. All rights reserved. Template by <a
-                                href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+                        <p>Copyright © 2019. Develop by Dao Cao</p>
                     </div>
                 </div>
             </div>

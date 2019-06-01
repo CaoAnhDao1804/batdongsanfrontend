@@ -29,7 +29,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo">
-                            <a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logo.png" alt=""></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logotranparentadmin.png" alt=""></a>
                         </div>
                         <nav class="main_nav">
                             <ul>
@@ -109,8 +109,8 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="slide_content">
-                                        <div class="home_subtitle">super offer</div>
-                                        <div class="home_title">Villa with sea view</div>
+                                        <div class="home_subtitle">Nổi bật nhất</div>
+                                        <div class="home_title">Biệt thự gần biển </div>
                                         <div class="home_details">
                                             <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
                                                 <li>
@@ -119,15 +119,15 @@
                                                 </li>
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
-                                                    <span> 3 Bedrooms</span>
+                                                    <span> 3 Phòng ngủ</span>
                                                 </li>
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div>
-                                                    <span> 2 Bathrooms</span>
+                                                    <span> 2 Phòng tắm</span>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="home_price">$ 1. 245 999</div>
+                                        <div class="home_price">10 tỷ VND</div>
                                     </div>
                                 </div>
                             </div>
@@ -218,32 +218,24 @@
                                 <div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
                                     <div>
                                         <select class="search_form_select">
-                                            <option disabled selected>For rent</option>
+                                            <option disabled selected>Cho thuê</option>
                                             <option>Yes</option>
                                             <option>No</option>
                                         </select>
                                     </div>
                                     <div>
                                         <select class="search_form_select">
-                                            <option disabled selected>All types</option>
+                                            <option disabled selected>Biệt thự</option>
                                             <option>Type 1</option>
                                             <option>Type 2</option>
                                             <option>Type 3</option>
                                             <option>Type 4</option>
                                         </select>
                                     </div>
+
                                     <div>
                                         <select class="search_form_select">
-                                            <option disabled selected>City</option>
-                                            <option>New York</option>
-                                            <option>Paris</option>
-                                            <option>Amsterdam</option>
-                                            <option>Rome</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <select class="search_form_select">
-                                            <option disabled selected>Bedrooms</option>
+                                            <option disabled selected>Phòng ngủ</option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -252,7 +244,7 @@
                                     </div>
                                     <div>
                                         <select class="search_form_select">
-                                            <option disabled selected>Bathrooms</option>
+                                            <option disabled selected>Phòng tắm</option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>

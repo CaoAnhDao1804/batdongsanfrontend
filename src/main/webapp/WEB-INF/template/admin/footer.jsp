@@ -6,7 +6,7 @@
 ============================================ -->
 <script src="${pageContext.request.contextPath}/templates/admin/assets/js/bootstrap.min.js"></script>
 <!-- wow JS
-============================================ -->
+============================================ -- >
 <script src="${pageContext.request.contextPath}/templates/admin/assets/js/wow.min.js"></script>
 <!-- price-slider JS
 ============================================ -->

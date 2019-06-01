@@ -49,7 +49,7 @@ html, body {height: 100%; font-family: 'Roboto', sans-serif;font-weight:400;back
 .alignright {float:right;margin-left:15px;margin-bottom: 15px}
 .aligncenter {display:block;margin:0 auto 15px}
 a:focus {outline:0px solid}
-img {max-width:100%;height:auto}
+img {max-width:80%;height:auto}
 .fix {overflow:hidden}
 p {margin:0 0 15px;}
 h1, h2, h3, h4, h5, h6 {
@@ -3723,7 +3723,7 @@ div#sparklinehome canvas {
     background-color: #86bc42;
 }
 .footer-copyright-area {
-    background: #006DF0;
+    background: #1390c5;
 	padding: 20px 0px;
     text-align: center;
 }
