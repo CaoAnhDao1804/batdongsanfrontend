@@ -8,9 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon"
           href="${pageContext.request.contextPath}/templates/admin/assets/img/logoroundhouse.png">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/templates/login/images/icons/favicon.ico"/>
-    <!--===============================================================================================-->
+    <!--===============================================================================================--><!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/login/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -39,7 +37,7 @@
 
             <form class="login100-form validate-form" action="/login" method="post">
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+                        <img src="${pageContext.request.contextPath}/templates/admin/assets/img/logoroundhouse.png" style="width: 50%">
 					</span>
 
                 <span class="login100-form-title p-b-5 p-t-5">
@@ -61,13 +59,6 @@
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
                     <input class="input100" type="password" name="password" placeholder="Password">
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                </div>
-
-                <div class="contact100-form-checkbox">
-                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                    <label class="label-checkbox100" for="ckb1">
-                        Remember me
-                    </label>
                 </div>
 
                 <div class="container-login100-form-btn">

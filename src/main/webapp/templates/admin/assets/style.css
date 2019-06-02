@@ -2020,8 +2020,6 @@ ul.two-part-sp li{
 }
 .header-top-area {
     position: fixed;
-    background: -webkit-linear-gradient(178deg, #e12503 0%, #85060c 100%);
-    background: linear-gradient(178deg, #e12503 0%, #85060c 100%);
     z-index: 99;
     left: 200px;
     right: 0;
@@ -3650,7 +3648,7 @@ div#sparklinehome canvas {
     width: 100% !important;
 }
 .header-top-area {
-    background: #006DF0;
+    background: #1390c5;
 }
 .sidebar-nav .metismenu{
 	background: #fff;
@@ -4645,7 +4643,7 @@ div#sparklinehome canvas {
 	border-width: 0px;
 }
 .profile-img img{
-	width:100%;
+	width:80%;
 }
 .c3-align-dlt{
 	display:none;
