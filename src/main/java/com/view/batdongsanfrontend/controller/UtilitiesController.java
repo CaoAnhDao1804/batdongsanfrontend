@@ -1,6 +1,7 @@
 package com.view.batdongsanfrontend.controller;
 
 import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
+import com.view.batdongsanfrontend.model.User;
 import com.view.batdongsanfrontend.model.Utilities;
 import com.view.batdongsanfrontend.service.UtilitiesService;
 import com.view.batdongsanfrontend.util.Constants;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -23,7 +26,19 @@ public class UtilitiesController {
     UtilitiesService utilitiesService;
 
     @RequestMapping(value = "utilities", method = RequestMethod.GET, produces = "application/json")
-    public String index(ModelMap modelMap) {
+    public String index(ModelMap modelMap, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 2) {
+            return "redirect:/mod/post";
+        }
         List<Utilities> listUtilities = utilitiesService.getAllObject();
         modelMap.addAttribute("listUtilities", listUtilities);
         modelMap.addAttribute("title", "List Product Type");

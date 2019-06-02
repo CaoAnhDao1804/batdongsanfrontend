@@ -124,8 +124,7 @@
                                                    class="nav-link dropdown-toggle">
                                                     <img src="${pageContext.request.contextPath}/templates/admin/assets/img/product/pro4.jpg" alt=""/>
                                                     <span class="admin-name">Nhân viên</span>
-                                                    <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
-                                                </a>
+                                                    <a href="${pageContext.request.contextPath}/logout"> <i class="fa fa-sign-out"></i></a>                                                </a>
                                             </li>
                                         </ul>
                                     </div>

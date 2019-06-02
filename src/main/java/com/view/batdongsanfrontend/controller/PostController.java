@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +51,19 @@ public class PostController {
     }
 
     @RequestMapping(value = "post", method = RequestMethod.GET, produces = "application/json")
-    public String index(ModelMap modelMap) {
+    public String index(ModelMap modelMap, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 2) {
+            return "redirect:/mod/post";
+        }
         List<Post> listPosts = postService.getAllObject();
         modelMap.addAttribute("listPosts", listPosts);
         modelMap.addAttribute("title", "List Product Type");
@@ -57,13 +71,37 @@ public class PostController {
     }
 
     @RequestMapping(value = "post/add", method = RequestMethod.GET, produces = "application/json")
-    public String showAddPost(ModelMap modelMap) {
+    public String showAddPost(ModelMap modelMap, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 2) {
+            return "redirect:/mod/post";
+        }
         modelMap.addAttribute("title", "Add Post");
         return "admin/post/add";
     }
 
     @RequestMapping(value = "post/edit/{id}", method = RequestMethod.GET, produces = "application/json")
-    public String showEditPost(ModelMap modelMap, @PathVariable("id") Long id) {
+    public String showEditPost(ModelMap modelMap, @PathVariable("id") Long id, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 2) {
+            return "redirect:/mod/post";
+        }
         Post objPost = postService.findById(id);
 
         ProductType productTypeOfPost = objPost.getProductType();
@@ -93,7 +131,21 @@ public class PostController {
                               @RequestParam("productType_id") int productType_id,
                               @ModelAttribute("post") PostDTO postDTO,
                               RedirectAttributes ra,
-                              ModelMap modelMap) {
+                              ModelMap modelMap,
+                              HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 2) {
+            return "redirect:/mod/post";
+        }
+
 
         List<Surrounding> surroundings = new ArrayList<>();
         for (int i = 0; i < surrounding_ids.length; i++) {
@@ -147,7 +199,21 @@ public class PostController {
                              @RequestParam("productType_id") int productType_id,
                              @ModelAttribute("post") PostDTO postDTO,
                              RedirectAttributes ra,
-                             ModelMap modelMap) {
+                             ModelMap modelMap,
+                             HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 2) {
+            return "redirect:/mod/post";
+        }
 
         postDTO.setPostTypeId(Long.valueOf(postType_id));
         postDTO.setProductTypeId(Long.valueOf(productType_id));

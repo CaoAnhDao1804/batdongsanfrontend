@@ -72,7 +72,13 @@ public class PostUserController {
         List<Surrounding> surroundingsOfPost = objPost.getSuroundings();
         List<Utilities> utilitiesOfPost = objPost.getUtilities();
         User userOfPost = objPost.getUser();
+
         User authorOfPost = objPost.getUserAccount();
+        if (authorOfPost.getIdRole() == 1) {
+            authorOfPost.setUsername("Cao Thị Anh Đào");
+            authorOfPost.setEmail("caoanhdao@gmail.com");
+            authorOfPost.setPhone("012345678");
+        }
         List<Picture> pictureList = postService.findPicturesByIdPost(id);
         Picture activePicture = new Picture();
         for (Picture picture: pictureList){

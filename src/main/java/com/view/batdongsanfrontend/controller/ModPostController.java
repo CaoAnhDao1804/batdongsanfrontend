@@ -57,7 +57,7 @@ public class ModPostController {
         }
 
         if (loggedUser.getIdRole() == 1) {
-            return "redirect:/admin/product-type";
+            return "redirect:/admin/post";
         }
 
 
@@ -79,7 +79,7 @@ public class ModPostController {
         }
 
         if (loggedUser.getIdRole() == 1) {
-            return "redirect:/admin/product-type";
+            return "redirect:/admin/post";
         }
 
         List<CommentResponse> comments = commentService.getListCommentByPost(postId);
@@ -110,14 +110,26 @@ public class ModPostController {
         }
 
         if (loggedUser.getIdRole() == 1) {
-            return "redirect:/admin/product-type";
+            return "redirect:/admin/post";
         }
         modelMap.addAttribute("title", "Add Post");
         return "mod/post/add";
     }
 
     @RequestMapping(value = "post/edit/{id}", method = RequestMethod.GET, produces = "application/json")
-    public String showEditPost(ModelMap modelMap, @PathVariable("id") Long id) {
+    public String showEditPost(ModelMap modelMap, @PathVariable("id") Long id, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 1) {
+            return "redirect:/admin/post";
+        }
         Post objPost = postService.findById(id);
 
         ProductType productTypeOfPost = objPost.getProductType();
@@ -160,7 +172,7 @@ public class ModPostController {
         }
 
         if (loggedUser.getIdRole() == 1) {
-            return "redirect:/admin/product-type";
+            return "redirect:/admin/post";
         }
 
 
@@ -216,7 +228,21 @@ public class ModPostController {
                              @RequestParam("productType_id") int productType_id,
                              @ModelAttribute("post") PostDTO postDTO,
                              RedirectAttributes ra,
-                             ModelMap modelMap) {
+                             ModelMap modelMap,
+                             HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+        if (loggedUser.getIdRole() == 3) {
+            return "redirect:/";
+        }
+
+        if (loggedUser.getIdRole() == 1) {
+            return "redirect:/admin/post";
+        }
 
         postDTO.setPostTypeId(Long.valueOf(postType_id));
         postDTO.setProductTypeId(Long.valueOf(productType_id));

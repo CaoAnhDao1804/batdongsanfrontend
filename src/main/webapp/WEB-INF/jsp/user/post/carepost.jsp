@@ -194,65 +194,65 @@
     </div>
 
     <!-- Home Search -->
-    <div class="home_search">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="home_search_container">
-                        <div class="home_search_content">
-                            <form action="#" class="search_form d-flex flex-row align-items-start justfy-content-start">
-                                <div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
-                                    <div>
-                                        <select class="search_form_select">
-                                            <option disabled selected>For rent</option>
-                                            <option>Yes</option>
-                                            <option>No</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <select class="search_form_select">
-                                            <option disabled selected>All types</option>
-                                            <option>Type 1</option>
-                                            <option>Type 2</option>
-                                            <option>Type 3</option>
-                                            <option>Type 4</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <select class="search_form_select">
-                                            <option disabled selected>City</option>
-                                            <option>New York</option>
-                                            <option>Paris</option>
-                                            <option>Amsterdam</option>
-                                            <option>Rome</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <select class="search_form_select">
-                                            <option disabled selected>Bedrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <select class="search_form_select">
-                                            <option disabled selected>Bathrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button class="search_form_button ml-auto">search</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%--<div class="home_search">--%>
+        <%--<div class="container">--%>
+            <%--<div class="row">--%>
+                <%--<div class="col">--%>
+                    <%--<div class="home_search_container">--%>
+                        <%--<div class="home_search_content">--%>
+                            <%--<form action="#" class="search_form d-flex flex-row align-items-start justfy-content-start">--%>
+                                <%--<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">--%>
+                                    <%--<div>--%>
+                                        <%--<select class="search_form_select">--%>
+                                            <%--<option disabled selected>For rent</option>--%>
+                                            <%--<option>Yes</option>--%>
+                                            <%--<option>No</option>--%>
+                                        <%--</select>--%>
+                                    <%--</div>--%>
+                                    <%--<div>--%>
+                                        <%--<select class="search_form_select">--%>
+                                            <%--<option disabled selected>All types</option>--%>
+                                            <%--<option>Type 1</option>--%>
+                                            <%--<option>Type 2</option>--%>
+                                            <%--<option>Type 3</option>--%>
+                                            <%--<option>Type 4</option>--%>
+                                        <%--</select>--%>
+                                    <%--</div>--%>
+                                    <%--<div>--%>
+                                        <%--<select class="search_form_select">--%>
+                                            <%--<option disabled selected>City</option>--%>
+                                            <%--<option>New York</option>--%>
+                                            <%--<option>Paris</option>--%>
+                                            <%--<option>Amsterdam</option>--%>
+                                            <%--<option>Rome</option>--%>
+                                        <%--</select>--%>
+                                    <%--</div>--%>
+                                    <%--<div>--%>
+                                        <%--<select class="search_form_select">--%>
+                                            <%--<option disabled selected>Bedrooms</option>--%>
+                                            <%--<option>1</option>--%>
+                                            <%--<option>2</option>--%>
+                                            <%--<option>3</option>--%>
+                                            <%--<option>4</option>--%>
+                                        <%--</select>--%>
+                                    <%--</div>--%>
+                                    <%--<div>--%>
+                                        <%--<select class="search_form_select">--%>
+                                            <%--<option disabled selected>Bathrooms</option>--%>
+                                            <%--<option>1</option>--%>
+                                            <%--<option>2</option>--%>
+                                            <%--<option>3</option>--%>
+                                        <%--</select>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                                <%--<button class="search_form_button ml-auto">search</button>--%>
+                            <%--</form>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
 
     <!-- Recent -->
 
@@ -426,10 +426,10 @@
                 <!-- Testimonial Item -->
                 <div class="col-lg-4 testimonial_col">
                     <div class="testimonial">
-                        <div class="testimonial_title">Amazing home for me</div>
-                        <div class="testimonial_text">Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
+                        <div class="testimonial_title">Một ngôi nhà tốt cho tôi</div>
+                        <div class="testimonial_text"> Đây là một website đáng tin cậy cho mọi nhà. Mọi người có thể kết nối dễ dàng để giao dịch thông qua website này. Tôi sẽ giới thiệu bạn bè nếu họ cần tìm kiếm nhà và mua bán nhà cửa sử dụng website của các bạn.</div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_1.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Diane Smith</a><span>, Client</span></div>
+                        <div class="testimonial_author"><a href="#">Nguyễn Hoài</a><span>, Khách hàng</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -437,10 +437,10 @@
                 <!-- Testimonial Item -->
                 <div class="col-lg-4 testimonial_col">
                     <div class="testimonial">
-                        <div class="testimonial_title">Friendly Realtors</div>
-                        <div class="testimonial_text">Nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Pellentesque sit amet tellus blandit.</div>
+                        <div class="testimonial_title">Giao dịch dễ dàng</div>
+                        <div class="testimonial_text"> Tôi đã tìm kiếm được rất nhiều khách hàng từ giao dịch trên website này. Thông tin sản phẩm được trình bày rõ ràng chi tiếc và có nhiều thông tin hữu ích cho khách hàng. Cảm ơn website rất nhiều. </div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_2.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Michael Duncan</a><span>, Client</span></div>
+                        <div class="testimonial_author"><a href="#">Đắt Tâm</a><span>, Nhân viên BDS</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -448,10 +448,10 @@
                 <!-- Testimonial Item -->
                 <div class="col-lg-4 testimonial_col">
                     <div class="testimonial">
-                        <div class="testimonial_title">Very good communication</div>
-                        <div class="testimonial_text">Retiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
+                        <div class="testimonial_title">Thông tin rõ ràng</div>
+                        <div class="testimonial_text">Tôi đã bán được nhà của mình với giá tốt nhờ website này. Nhờ cách trình bày rõ ràng và dễ hiểu. Người cần mua nhà đã dễ dàng tìm đến với tôi</div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_3.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Shawn Gaines</a><span>, Client</span></div>
+                        <div class="testimonial_author"><a href="#">Thanh Tâm</a><span>, Khách hàng</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -464,7 +464,7 @@
         <div class="footer_main">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 footer_col">
+                    <div class="col-lg-12 footer_col">
                         <div class="footer_about">
                             <div class="footer_about_text">Tìm kiếm ngôi nhà tương lai của bạn. Ngôi nhà là nơi bạn nuôi dưỡng tương lai và ước mơ của bạn. Thỏa sức lựa chọn đam mê và sở thích của bạn cùng với chúng tôi</div>
                         </div>

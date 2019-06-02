@@ -32,7 +32,7 @@ public class FavoriteController {
     @GetMapping(value = "/")
     public String getAll(HttpServletRequest request, ModelMap modelMap){
         if (!AuthUtil.checkUser(request)) {
-            return "redirect:/";
+            return "redirect:/login";
         } else {
             HttpSession session = request.getSession();
             User loggedUser = (User) session.getAttribute("loggedUser");
@@ -55,9 +55,13 @@ public class FavoriteController {
         if(!AuthUtil.checkUser(request)) {
             return "redirect:/login";
         }
+
         Long postId = Long.valueOf(request.getParameter("post_id"));
         HttpSession session = request.getSession();
         User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser.getIdRole() == 1){
+            return "redirect:/admin/post";
+        }
         Favourite favorite;
         favorite = favoriteService.getFavoriteByUserIdPostId(loggedUser.getId(), postId);
         if(favorite != null) {

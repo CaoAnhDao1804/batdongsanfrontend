@@ -200,15 +200,11 @@
                                             <li class="nav-item">
                                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
                                                    class="nav-link dropdown-toggle">
-                                                    <img src="${pageContext.request.contextPath}/templates/admin/assets/img/avartar.jpg" alt=""/>
+                                                    <img src="${pageContext.request.contextPath}/templates/admin/assets/img/profile/1.jpg" alt=""/>
                                                     <span class="admin-name"> Quản trị viên </span>
-                                                    <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+                                                    <a href="${pageContext.request.contextPath}/logout"> <i class="fa fa-sign-out"></i></a>
                                                 </a>
                                             </li>
-                                            <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown"
-                                                                                     role="button" aria-expanded="false"
-                                                                                     class="nav-link dropdown-toggle"><i
-                                                    class="educate-icon educate-menu"></i></a>
 
                                                 <div role="menu"
                                                      class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">

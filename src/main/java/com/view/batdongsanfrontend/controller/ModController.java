@@ -4,6 +4,7 @@ import com.view.batdongsanfrontend.exception.ServiceBadRequestException;
 import com.view.batdongsanfrontend.model.User;
 import com.view.batdongsanfrontend.model.Utilities;
 import com.view.batdongsanfrontend.service.UserService;
+import com.view.batdongsanfrontend.util.AuthUtil;
 import com.view.batdongsanfrontend.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class ModController {
@@ -20,7 +23,7 @@ public class ModController {
 
     @ResponseBody
     @RequestMapping(value = "/admin/user/addMod", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<User> createNewMod(@RequestBody User newMod) {
+    public ResponseEntity<User> createNewMod(@RequestBody User newMod, HttpServletRequest request) {
         System.out.println("/admin/user/addMod create new Mod");
 
         User user = userService.createNewMod(newMod);
