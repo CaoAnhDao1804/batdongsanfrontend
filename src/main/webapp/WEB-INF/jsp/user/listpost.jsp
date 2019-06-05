@@ -40,7 +40,7 @@
                                     <li class="menu_item"><a href="${pageContext.request.contextPath}/favorite/">Yêu thích</a></li>
                                     <li class="menu_item"><a href="${pageContext.request.contextPath}/care/">Quan tâm</a></li>
                                 </c:if>
-                                <li class="menu_item"><a href="${pageContext.request.contextPath}/">Liên hệ</a></li>
+                                <li class="menu_item"><a href="${pageContext.request.contextPath}/contact">Liên hệ</a></li>
                             </ul>
                         </nav>
                         <div class="phone_num ml-auto">
@@ -102,7 +102,6 @@
         <!-- Home Slider -->
         <div class="home_slider_container">
             <div class="owl-carousel owl-theme home_slider">
-
                 <!-- Slide -->
                 <div class="owl-item">
                     <div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/templates/user/assets/images/home_slider_1.jpg)"></div>
@@ -130,74 +129,6 @@
                                             </ul>
                                         </div>
                                         <div class="home_price">10 tỷ VND</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide -->
-                <div class="owl-item">
-                    <div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/templates/user/assets/images/home_slider_1.jpg)"></div>
-                    <div class="slide_container">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="slide_content">
-                                        <div class="home_subtitle">super offer</div>
-                                        <div class="home_title">Villa with sea view</div>
-                                        <div class="home_details">
-                                            <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
-                                                <li>
-                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div>
-                                                    <span> 650 Ftsq</span>
-                                                </li>
-                                                <li>
-                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
-                                                    <span> 3 Bedrooms</span>
-                                                </li>
-                                                <li>
-                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div>
-                                                    <span> 2 Bathrooms</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="home_price">$ 1. 245 999</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide -->
-                <div class="owl-item">
-                    <div class="home_slider_background" style="background-image:url(${pageContext.request.contextPath}/templates/user/assets/images/home_slider_1.jpg)"></div>
-                    <div class="slide_container">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="slide_content">
-                                        <div class="home_subtitle">super offer</div>
-                                        <div class="home_title">Villa with sea view</div>
-                                        <div class="home_details">
-                                            <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
-                                                <li>
-                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div>
-                                                    <span> 650 Ftsq</span>
-                                                </li>
-                                                <li>
-                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
-                                                    <span> 3 Bedrooms</span>
-                                                </li>
-                                                <li>
-                                                    <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div>
-                                                    <span> 2 Bathrooms</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="home_price">$ 1. 245 999</div>
                                     </div>
                                 </div>
                             </div>
@@ -293,8 +224,7 @@
                                             </div>
                                             <div class="recent_item_body text-center">
                                                 <div class="recent_item_location">${objPost.address}</div>
-                                                <div class="recent_item_title"><a href="${pageContext.request.contextPath}/post/${objPost.id}">${objPost.name}</a></div>
-                                                <div class="recent_item_price">${objPost.price} </div>
+                                                <div class="recent_item_title"><a href="${pageContext.request.contextPath}/post/${objPost.id}" maxlength="10" >${objPost.name}</a></div>
                                             </div>
                                             <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
                                                 <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>${objPost.acreage}</span></div>
@@ -346,7 +276,6 @@
                                             <div class="recent_item_body text-center">
                                                 <div class="recent_item_location">${objPost.address}</div>
                                                 <div class="recent_item_title"><a href="${pageContext.request.contextPath}/post/${objPost.id}">${objPost.name}</a></div>
-                                                <div class="recent_item_price">${objPost.price} </div>
                                             </div>
                                             <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
                                                 <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>${objPost.acreage}</span></div>
@@ -398,7 +327,6 @@
                                             <div class="recent_item_body text-center">
                                                 <div class="recent_item_location">${objPost.address}</div>
                                                 <div class="recent_item_title"><a href="${pageContext.request.contextPath}/post/${objPost.id}">${objPost.name}</a></div>
-                                                <div class="recent_item_price">${objPost.price} </div>
                                             </div>
                                             <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
                                                 <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>${objPost.acreage}</span></div>
@@ -447,7 +375,6 @@
                                                     <div class="recent_item_body text-center">
                                                         <div class="recent_item_location">${objPost.address}</div>
                                                         <div class="recent_item_title"><a href="${pageContext.request.contextPath}/post/${objPost.id}">${objPost.name}</a></div>
-                                                        <div class="recent_item_price">${objPost.price} </div>
                                                     </div>
                                                     <div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
                                                         <div><div class="recent_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div><span>${objPost.acreage}</span></div>
@@ -486,7 +413,7 @@
                         <div class="testimonial_title">Một ngôi nhà tốt cho tôi</div>
                         <div class="testimonial_text"> Đây là một website đáng tin cậy cho mọi nhà. Mọi người có thể kết nối dễ dàng để giao dịch thông qua website này. Tôi sẽ giới thiệu bạn bè nếu họ cần tìm kiếm nhà và mua bán nhà cửa sử dụng website của các bạn.</div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_1.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Nguyễn Hoài</a><span>, Khách hàng</span></div>
+                        <div class="testimonial_author">Nguyễn Hoài<span>, Khách hàng</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -497,7 +424,7 @@
                         <div class="testimonial_title">Giao dịch dễ dàng</div>
                         <div class="testimonial_text"> Tôi đã tìm kiếm được rất nhiều khách hàng từ giao dịch trên website này. Thông tin sản phẩm được trình bày rõ ràng chi tiếc và có nhiều thông tin hữu ích cho khách hàng. Cảm ơn website rất nhiều. </div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_2.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Đắt Tâm</a><span>, Nhân viên BDS</span></div>
+                        <div class="testimonial_author">Đắt Tâm<span>, Nhân viên BDS</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -506,9 +433,9 @@
                 <div class="col-lg-4 testimonial_col">
                     <div class="testimonial">
                         <div class="testimonial_title">Thông tin rõ ràng</div>
-                        <div class="testimonial_text">Tôi đã bán được nhà của mình với giá tốt nhờ website này. Nhờ cách trình bày rõ ràng và dễ hiểu. Người cần mua nhà đã dễ dàng tìm đến với tôi</div>
+                        <div class="testimonial_text">Tôi đã bán được nhà của mình với giá tốt nhờ website này. Nhờ cách trình bày rõ ràng và dễ hiểu. Người cần mua nhà đã dễ dàng tìm đến với tôi. Website cần phát triển chức năng quản lý tài khoản cá nhân.</div>
                         <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_3.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Thanh Tâm</a><span>, Khách hàng</span></div>
+                        <div class="testimonial_author">Thanh Tâm<span>, Khách hàng</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -518,24 +445,13 @@
     </div>
 
     <footer class="footer">
-        <div class="footer_main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 footer_col">
-                        <div class="footer_about">
-                            <div class="footer_about_text">Tìm kiếm ngôi nhà tương lai của bạn. Ngôi nhà là nơi bạn nuôi dưỡng tương lai và ước mơ của bạn. Thỏa sức lựa chọn đam mê và sở thích của bạn cùng với chúng tôi</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="footer_bar">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="footer_bar_content d-flex flex-row align-items-center justify-content-start">
                             <div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">CTAD</a>
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> by CTAD
                             </div>
                             <div class="footer_nav">
                                 <ul>

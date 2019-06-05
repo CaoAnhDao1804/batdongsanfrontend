@@ -12,6 +12,7 @@ import com.view.batdongsanfrontend.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,18 +41,25 @@ public class PostUserController {
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public String getAllPostForUser(ModelMap modelMap) {
 
+
         List<Post> listPosts = postService.getAllObjectEnable();
-        List<PostBasicInformation> postBasicInformations = convertFromPostsToPostBasicInformation(listPosts);
-        modelMap.addAttribute("postBasicInformations", postBasicInformations);
+        getListWithMaxLenghForName(listPosts);
 
         List<Post> listTopMostFavoritePost = postService.getTopFavoritedPosts(10);
-        List<Post> listTopMostCaredPost = postService.getTopCaredPosts(10);
-        List<Post> listTopNewestPost = postService.getTopNewestPosts(10);
+        getListWithMaxLenghForName(listTopMostFavoritePost);
 
+        List<Post> listTopMostCaredPost = postService.getTopCaredPosts(10);
+        getListWithMaxLenghForName(listTopMostCaredPost);
+
+        List<Post> listTopNewestPost = postService.getTopNewestPosts(10);
+        getListWithMaxLenghForName(listTopNewestPost);
+
+        List<PostBasicInformation> postBasicInformations = convertFromPostsToPostBasicInformation(listPosts);
         List<PostBasicInformation> listTopMostFavoritePostBasicInformations = convertFromPostsToPostBasicInformation(listTopMostFavoritePost);
         List<PostBasicInformation> listTopMostCaredPostBasicInformations = convertFromPostsToPostBasicInformation(listTopMostCaredPost);
         List<PostBasicInformation> listTopNewestPostBasicInformations = convertFromPostsToPostBasicInformation(listTopNewestPost);
 
+        modelMap.addAttribute("postBasicInformations", postBasicInformations);
         modelMap.addAttribute("topFavorite", listTopMostFavoritePostBasicInformations);
         modelMap.addAttribute("topCare", listTopMostCaredPostBasicInformations);
         modelMap.addAttribute("topNew", listTopNewestPostBasicInformations);
@@ -183,4 +191,22 @@ public class PostUserController {
         return postBasicInformations;
     }
 
+    private void getListWithMaxLenghForName(List<Post> posts) {
+        for (Post post: posts) {
+            post.setName(setMaxLengh(post.getName()));
+        }
+    }
+
+    private String setMaxLengh(String name) {
+        if (name.length() < 28){
+            return name;
+        } else {
+            String cutedName = name.substring(0, 28);
+            int index = cutedName.lastIndexOf(" ");
+            cutedName = cutedName.substring(0, index);
+            cutedName.concat("...");
+            cutedName = cutedName + "...";
+            return cutedName;
+        }
+    }
 }

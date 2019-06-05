@@ -38,7 +38,7 @@
                                     <li class="menu_item"><a href="/favorite/">Yêu thích</a></li>
                                     <li class="menu_item"><a href="/care/">Quan tâm</a></li>
                                 </c:if>
-                                <li class="menu_item"><a href="/">Liên hệ</a></li>
+                                <li class="menu_item"><a href="${pageContext.request.contextPath}/contact">Liên hệ</a></li>
                             </ul>
                         </nav>
                         <div class="phone_num ml-auto">

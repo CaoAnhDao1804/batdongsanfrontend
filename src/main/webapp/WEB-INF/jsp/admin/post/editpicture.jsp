@@ -46,7 +46,7 @@
                                     <thead>
                                     <tr>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Chi tiếc</th>
+                                        <th data-field="name" data-editable="true">Chi tiết</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                     </thead>

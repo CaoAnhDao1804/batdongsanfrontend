@@ -43,12 +43,12 @@
                         </div>
                         <nav class="main_nav">
                             <ul>
-                                <li class="menu_item"><a href="index.html">Trang chủ</a></li>
+                                <li class="menu_item"><a href="${pageContext.request.contextPath}/">Trang chủ</a></li>
                                 <c:if test="${not empty loggedUser}">
                                     <li class="menu_item"><a href="/favorite/">Yêu thích</a></li>
                                     <li class="menu_item"><a href="/care/">Quan tâm</a></li>
                                 </c:if>
-                                <li class="menu_item"><a href="contact.html">Liên hệ</a></li>
+                                <li class="menu_item"><a href="${pageContext.request.contextPath}/contact">Liên hệ</a></li>
                             </ul>
                         </nav>
                         <div class="phone_num ml-auto">
@@ -95,12 +95,12 @@
                 </a>
             </div>
             <ul>
-                <li class="menu_item"><a href="index.html">Trang chủ</a></li>
+                <li class="menu_item"><a href="${pageContext.request.contextPath}/">Trang chủ</a></li>
                 <c:if test="${not empty loggedUser}">
                     <li class="menu_item"><a href="/favorites">Yêu thích</a></li>
                     <li class="menu_item"><a href="/careposts">Quan tâm</a></li>
                 </c:if>
-                <li class="menu_item"><a href="contact.html">Contact</a></li>
+                <li class="menu_item"><a href="${pageContext.request.contextPath}/">Contact</a></li>
             </ul>
         </div>
 
@@ -123,7 +123,7 @@
     <!-- Home -->
 
     <div class="home">
-        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="${pageContext.request.contextPath}/templates/user/assets/images/properties.jpg" data-speed="0.8"></div>
+        <%--<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="${pageContext.request.contextPath}/templates/user/assets/images/properties.jpg" data-speed="0.8"></div>--%>
         <div class="home_container">
             <div class="container">
                 <div class="row">
@@ -275,7 +275,7 @@
                         </div>
                         <div class="intro_price_container ml-lg-auto d-flex flex-column align-items-start justify-content-center">
                             <div>Giá tham khảo</div>
-                            <div class="intro_price">100000 VND</div>
+                            <div class="intro_price">Thỏa thuận</div>
                         </div>
                     </div>
                 </div>
@@ -293,18 +293,6 @@
             </div>
 
             <!-- Intro Slider Nav -->
-            <div class="intro_slider_nav_container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="intro_slider_nav_content d-flex flex-row align-items-start justify-content-end">
-                                <div class="intro_slider_nav intro_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-                                <div class="intro_slider_nav intro_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -392,7 +380,7 @@
                                 <div class="property_room">
                                     <div class="property_room_title">Đường trước nhà</div>
                                     <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
-                                        <div class="room_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/room_4.png" alt=""></div>
+                                        <div class="room_icon"><img src="${pageContext.request.contextPath}/templates/user/assets/images/street.jpg" alt=""></div>
                                         <div class="room_num">${objPost.roadInFrontOf}</div>
                                     </div>
                                 </div>
@@ -677,8 +665,8 @@
                     <div class="testimonial">
                         <div class="testimonial_title">Một ngôi nhà tốt cho tôi</div>
                         <div class="testimonial_text"> Đây là một website đáng tin cậy cho mọi nhà. Mọi người có thể kết nối dễ dàng để giao dịch thông qua website này. Tôi sẽ giới thiệu bạn bè nếu họ cần tìm kiếm nhà và mua bán nhà cửa sử dụng website của các bạn.</div>
-                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_1.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Nguyễn Hoài</a><span>, Khách hàng</span></div>
+                        <div class="testimonial_author_image" style="margin-top: 15px"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_1.jpg" alt=""></div>
+                        <div class="testimonial_author">Nguyễn Hoài<span>, Khách hàng</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -688,8 +676,8 @@
                     <div class="testimonial">
                         <div class="testimonial_title">Giao dịch dễ dàng</div>
                         <div class="testimonial_text"> Tôi đã tìm kiếm được rất nhiều khách hàng từ giao dịch trên website này. Thông tin sản phẩm được trình bày rõ ràng chi tiếc và có nhiều thông tin hữu ích cho khách hàng. Cảm ơn website rất nhiều. </div>
-                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_2.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Đắt Tâm</a><span>, Nhân viên BDS</span></div>
+                        <div class="testimonial_author_image" style="margin-top: 15px"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_2.jpg" alt=""></div>
+                        <div class="testimonial_author">Đắt Tâm<span>, Nhân viên BDS</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -698,9 +686,9 @@
                 <div class="col-lg-4 testimonial_col">
                     <div class="testimonial">
                         <div class="testimonial_title">Thông tin rõ ràng</div>
-                        <div class="testimonial_text">Tôi đã bán được nhà của mình với giá tốt nhờ website này. Nhờ cách trình bày rõ ràng và dễ hiểu. Người cần mua nhà đã dễ dàng tìm đến với tôi</div>
-                        <div class="testimonial_author_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_3.jpg" alt=""></div>
-                        <div class="testimonial_author"><a href="#">Thanh Tâm</a><span>, Khách hàng</span></div>
+                        <div class="testimonial_text">Tôi đã bán được nhà của mình với giá tốt nhờ website này. Nhờ cách trình bày rõ ràng và dễ hiểu. Người cần mua nhà đã dễ dàng tìm đến với tôi. Website cần phát triển chức năng quản lý tài khoản cá nhân.</div>
+                        <div class="testimonial_author_image" style="margin-top: 15px"><img src="${pageContext.request.contextPath}/templates/user/assets/images/testimonial_3.jpg" alt=""></div>
+                        <div class="testimonial_author">Thanh Tâm<span>, Khách hàng</span></div>
                         <div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                 </div>
@@ -710,28 +698,17 @@
     </div>
 
     <footer class="footer">
-        <div class="footer_main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 footer_col">
-                        <div class="footer_about">
-                            <div class="footer_about_text">Tìm kiếm ngôi nhà tương lai của bạn. Ngôi nhà là nơi bạn nuôi dưỡng tương lai và ước mơ của bạn. Thỏa sức lựa chọn đam mê và sở thích của bạn cùng với chúng tôi</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="footer_bar">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="footer_bar_content d-flex flex-row align-items-center justify-content-start">
                             <div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">CTAD</a>
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> by CTAD
                             </div>
                             <div class="footer_nav">
                                 <ul>
-                                    <li><a href="index.html">Trang chủ</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/">Trang chủ</a></li>
                                     <li><a href="#">Giới thiệu</a></li>
                                     <li><a href="news.html">Yêu thích</a></li>
                                     <li><a href="contact.html">Quan tâm</a></li>

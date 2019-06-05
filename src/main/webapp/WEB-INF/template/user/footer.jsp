@@ -1,15 +1,4 @@
 <footer class="footer">
-    <div class="footer_main">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 footer_col">
-                    <div class="footer_about">
-                        <div class="footer_about_text">Tìm kiếm ngôi nhà tương lai của bạn. Ngôi nhà là nơi bạn nuôi dưỡng tương lai và ước mơ của bạn. Thỏa sức lựa chọn đam mê và sở thích của bạn cùng với chúng tôi</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="footer_bar">
         <div class="container">
             <div class="row">
@@ -20,7 +9,7 @@
                         </div>
                         <div class="footer_nav">
                             <ul>
-                                <li><a href="index.html">Trang chủ</a></li>
+                                <li><a href="${pageContext.request.contextPath}/">Trang chủ</a></li>
                                 <li><a href="#">Giới thiệu</a></li>
                                 <li><a href="news.html">Yêu thích</a></li>
                                 <li><a href="contact.html">Quan tâm</a></li>

@@ -695,6 +695,7 @@ section
 .intro_content
 {
 	padding-bottom: 48px;
+	margin-top: 30px;
 }
 .intro_title
 {
@@ -806,7 +807,7 @@ section
 }
 .intro_price
 {
-	font-size: 24px;
+	font-size: 15px;
 	font-weight: 700;
 	color: #FFFFFF;
 	line-height: 0.75;
