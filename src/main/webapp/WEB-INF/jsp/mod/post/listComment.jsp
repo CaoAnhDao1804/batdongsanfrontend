@@ -17,13 +17,13 @@
                         <div class="sparkline13-graph">
                             <div class="datatable-dashv1-list custom-datatable-overright">
 
-                                <table class="table" id="myTable" border="1px">
+                                <table class="table table-striped table-bordered table-sm" id="myTable" border="1px">
                                     <thead>
                                     <tr>
                                         <th data-field="id">ID</th>
                                         <th data-field="name" data-editable="true">Người viết</th>
                                         <th data-field="name" data-editable="true">Nội dung</th>
-                                        <th data-field="action">Action</th>
+                                        <th data-field="action">Hành động</th>
                                     </tr>
                                     </thead>
                                     <tbody>

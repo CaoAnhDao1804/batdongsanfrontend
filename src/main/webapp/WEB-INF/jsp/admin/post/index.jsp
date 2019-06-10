@@ -37,9 +37,9 @@
                                     <thead>
                                     <tr>
                                         <th data-field="id" style="text-align: center">ID</th>
-                                        <th data-field="name" data-editable="true" style="text-align: center" >Name</th>
-                                        <th data-field="action" style="text-align: center">Edit and View</th>
-                                        <th data-field="action" style="text-align: center">Status</th>
+                                        <th data-field="name" data-editable="true" style="text-align: center" >Tiêu đề</th>
+                                        <th data-field="action" style="text-align: center">Chỉnh sửa</th>
+                                        <th data-field="action" style="text-align: center">Trạng thái</th>
                                     </tr>
                                     </thead>
                                     <tbody>

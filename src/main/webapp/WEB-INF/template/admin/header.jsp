@@ -81,10 +81,10 @@
 <div class="left-sidebar-pro">
     <nav id="sidebar" class="">
         <div class="sidebar-header">
-            <a href="index.html"><img class="main-logo"
+            <a href="#"><img class="main-logo"
                                       src="${pageContext.request.contextPath}/templates/admin/assets/img/logo/logonew.png"
                                       alt=""/></a>
-            <strong><a href="index.html"><img
+            <strong><a href="#"><img
                     src="${pageContext.request.contextPath}/templates/admin/assets/img/logo/logosn.png"
                     alt=""/></a></strong>
         </div>
@@ -92,22 +92,22 @@
             <nav class="sidebar-nav left-sidebar-menu-pro">
                 <ul class="metismenu" id="menu1">
                     <li>
-                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/post">
+                        <a class="has-arrow" href="${pageContext.request.contextPath}/admin/post" aria-expanded="false">
                             <span class="educate-icon educate-library icon-wrap"></span>
                             <span class="mini-click-non">Bài đăng</span>
                         </a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Dashboard v.1" href="${pageContext.request.contextPath}/admin/post"><span
-                                    class="mini-sub-pro">Danh sách</span></a></li>
-                            <li><a title="Dashboard v.2" href="index-1.html"><span
-                                    class="mini-sub-pro">Danh sách yêu thích</span></a></li>
-                            <li><a title="Dashboard v.3" href="index-2.html"><span
-                                    class="mini-sub-pro">Danh sách nổi bật</span></a></li>
-                            <li><a title="Analytics" href="analytics.html"><span
-                                    class="mini-sub-pro">Danh sách mới</span></a></li>
-                            <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Danh sách chặn</span></a>
-                            </li>
-                        </ul>
+                        <%--<ul class="submenu-angle" aria-expanded="false">--%>
+                            <%--<li><a title="Dashboard v.1" href="${pageContext.request.contextPath}/admin/post"><span--%>
+                                    <%--class="mini-sub-pro">Danh sách</span></a></li>--%>
+                            <%--<li><a title="Dashboard v.2" href="index-1.html"><span--%>
+                                    <%--class="mini-sub-pro">Danh sách yêu thích</span></a></li>--%>
+                            <%--<li><a title="Dashboard v.3" href="index-2.html"><span--%>
+                                    <%--class="mini-sub-pro">Danh sách nổi bật</span></a></li>--%>
+                            <%--<li><a title="Analytics" href="analytics.html"><span--%>
+                                    <%--class="mini-sub-pro">Danh sách mới</span></a></li>--%>
+                            <%--<li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Danh sách chặn</span></a>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
                     </li>
                     <li>
                         <a title="Loại sản phẩm" href="${pageContext.request.contextPath}/admin/product-type"

@@ -31,13 +31,13 @@
                                 <em class="success" style="color: green"> ${success}</em>
                                 <em class="error" style="color: red"> ${failed}</em>
 
-                                <table class="table" id="myTable" border="1px">
+                                <table class="table table-striped table-bordered table-sm" id="myTable" border="1px">
                                     <thead>
                                     <tr>
                                         <th data-field="id" style="text-align: center">ID</th>
-                                        <th data-field="name" data-editable="true" style="text-align: center">Name</th>
-                                        <th data-field="action" style="text-align: center">Edit</th>
-                                        <th data-field="action" style="text-align: center">Status</th>
+                                        <th data-field="name" data-editable="true" style="text-align: center">Tên</th>
+                                        <th data-field="action" style="text-align: center">Chỉnh sửa</th>
+                                        <th data-field="action" style="text-align: center">Trạng thái</th>
                                     </tr>
                                     </thead>
                                     <tbody>

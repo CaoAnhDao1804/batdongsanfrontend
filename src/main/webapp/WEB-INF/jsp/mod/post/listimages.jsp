@@ -42,11 +42,11 @@
                                 </button>
                             </form>
 
-                            <table class="table" id="myTable" border="1px">
+                            <table class="table table-striped table-bordered table-sm" id="myTable" border="1px">
                                 <thead>
                                 <tr>
                                     <th data-field="id">ID</th>
-                                    <th data-field="name" data-editable="true">Chi tiếc</th>
+                                    <th data-field="name" data-editable="true">Chi tiết</th>
                                     <th data-field="action">Action</th>
                                 </tr>
                                 </thead>

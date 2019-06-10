@@ -33,13 +33,13 @@
 
 
 
-                                <table class="table" id="myTable" border="1px">
+                                <table class="table table-striped table-bordered table-sm" id="myTable" border="1px">
                                     <thead>
                                     <tr>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Name</th>
-                                        <th data-field="action">Edit and View</th>
-                                        <th data-field="action">Status</th>
+                                        <th data-field="name" data-editable="true">Tiêu đề</th>
+                                        <th data-field="action">Chỉnh sửa</th>
+                                        <th data-field="action">Trạng thái</th>
                                     </tr>
                                     </thead>
                                     <tbody>

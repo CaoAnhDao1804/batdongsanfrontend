@@ -31,7 +31,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo">
-                            <a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logo.png" alt=""></a>
+                            <a href="#"><img src="${pageContext.request.contextPath}/templates/user/assets/images/logotranparentadmin.png" alt=""></a>
                         </div>
                         <nav class="main_nav">
                             <ul>
@@ -111,8 +111,8 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="slide_content">
-                                        <div class="home_subtitle">super offer</div>
-                                        <div class="home_title">Villa with sea view</div>
+                                        <div class="home_subtitle">Nổi bật nhất</div>
+                                        <div class="home_title">Biệt thự gần biển </div>
                                         <div class="home_details">
                                             <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
                                                 <li>
@@ -121,17 +121,16 @@
                                                 </li>
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
-                                                    <span> 3 Bedrooms</span>
+                                                    <span> 3 Phòng ngủ</span>
                                                 </li>
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_3.png" alt=""></div>
-                                                    <span> 2 Bathrooms</span>
+                                                    <span> 2 Phòng tắm</span>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="home_price">$ 1. 245 999</div>
-                                    </div>
-                                </div>
+                                        <div class="home_price">10 tỷ VND</div>
+                                    </div>                                </div>
                             </div>
                         </div>
                     </div>
@@ -318,7 +317,6 @@
                                     <div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
                                 </div>
                             </div>
-                            <div class="button recent_button"><a href="#">see more</a></div>
                         </div>
                     </div>
                 </div>

@@ -97,17 +97,17 @@
                                     </div>
                                 </div>
 
-                                <table class="table" id="myTable" border="1px">
+                                <table class="table table-striped table-bordered table-sm" id="myTable" border="1px">
                                     <thead>
                                     <tr>
                                         <th data-field="id" style="text-align: center">ID</th>
                                         <th data-field="username" data-editable="true" style="text-align: center">Tên đăng nhập</th>
-                                        <th data-field="fullname" data-editable="true" style="text-align: center">Tên đầy đủ</th>
+                                        <%--<th data-field="fullname" data-editable="true" style="text-align: center">Tên đầy đủ</th>--%>
                                         <th data-field="address" data-editable="true" style="text-align: center">Email liên lạc</th>
                                         <th data-field="phone" data-editable="true" style="text-align: center">Số điện thoại</th>
                                         <th data-field="dateCreate" data-editable="true" style="text-align: center">Ngày tạo</th>
                                         <th data-field="idRole" data-editable="true" style="text-align: center">Quyền</th>
-                                        <th data-field="action" style="text-align: center">Status</th>
+                                        <th data-field="action" style="text-align: center">Trạng thái</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -115,7 +115,7 @@
                                         <tr>
                                             <td style="width:5%; text-align: center">${objUser.id}</td>
                                             <td>${objUser.username}</td>
-                                            <td style="text-align: center">${objUser.fullname}</td>
+                                            <%--<td style="text-align: center">${objUser.fullname}</td>--%>
                                             <td style="text-align: center">${objUser.email}</td>
                                             <td style="text-align: center">${objUser.phone}</td>
                                             <td style="text-align: center">${objUser.dateCreate}</td>
