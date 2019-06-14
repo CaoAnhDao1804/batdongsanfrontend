@@ -192,9 +192,9 @@
     <div class="intro">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-md-12">
                     <div class="intro_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
-                        <div class="intro_title_container">
+                        <div class="col-md-10 intro_title_container">
                             <div class="intro_title">
                                 <div class="col-12" style="font-size: 25px; color: #1390c5;">
                                     ${objPost.name}
@@ -273,7 +273,7 @@
                             </div>
 
                         </div>
-                        <div class="intro_price_container ml-lg-auto d-flex flex-column align-items-start justify-content-center">
+                        <div class="col-md-2 intro_price_container ml-lg-auto d-flex flex-column align-items-start justify-content-center">
                             <div>Giá tham khảo</div>
                             <div class="intro_price">Thỏa thuận</div>
                         </div>
@@ -501,9 +501,7 @@
           success: function(data){
             alert("Đã thêm bình luận thành công!")
           },
-          error: function (){
-            alert('Lỗi')
-          }
+
         });
 
       }
@@ -511,15 +509,8 @@
     }
 
     function changeFavorite(idPost, status) {
-      alert("change status")
-      console.log(idPost)
-      console.log(status)
       if (status == 0) {
         alert("Bạn phải đăng nhập để sử dụng chức năng này!");
-
-        // $('#myModal .modal-title').html('Bạn cần login để sử dụng chức năng này.');
-        // $('#myModal').show();
-        // $('#myModalBackGround').show();
       } else {
         if (status == 1) {
           alert("Bạn muốn thêm sản phẩm này vào danh sách yêu thích?")
@@ -543,25 +534,19 @@
               console.log(numberFavorite);
               $('#number_favorite').html(numberFavorite);
             },
-            error: function (){
-              alert('Lỗi')
-            }
+
           });
 
         } else {
-          alert("Sản phẩm này có trong dánh sách yêu thích của bạn!")
-          $('#myModal .modal-title').text('Sản phẩm đã có trong danh sách yêu thích');
-          $('#myModal').show();
-          $('#myModalBackGround').show();
+          alert("Sản phẩm này có trong danh sách yêu thích của bạn!")
+
         }
       }
 
 
     }
     function changeCareStatus(idPost, status) {
-      alert("change care status")
-      console.log(idPost)
-      console.log(status)
+
       if (status == 0) {
         alert("Bạn phải đăng nhập để sử dụng chức năng này!");
 
@@ -591,63 +576,58 @@
               console.log(numberCare);
               $('#number_care').html(numberCare);
             },
-            error: function (){
-              alert('Lỗi')
-            }
+
           });
 
         } else {
-          alert("Sản phẩm này có trong dánh sách quan tâm của bạn!")
-          $('#myModal .modal-title').text('Sản phẩm đã có trong danh sách yêu thích');
-          $('#myModal').show();
-          $('#myModalBackGround').show();
+          alert("Sản phẩm này có trong danh sách quan tâm của bạn!")
         }
       }
 
 
     }
 
-  $(document).ready(function() {
-    $('#favorite_button').click(function () {
-      alert("Da vao button!")
-      if($('#favorite_button').children().first().hasClass('un-logged')) {
-        $('#myModal .modal-title').html('Bạn cần login để sử dụng chức năng này.');
-        $('#myModal').show();
-        $('#myModalBackGround').show();
-      } else {
-        if($('#favorite_button').children().first().hasClass('fa-heart-o')) {
-          $('.page_preloader').show();
-          $.ajax({
-            url: '${pageContext.request.contextPath}/favorite/add-delete',
-            type: 'POST',
-            cache: false,
-            data: {
-              book_id: $('#book_id').val()
-            },
-            success: function(data){
-              $('#favorite_button').html(data);
-              $('#favorite_button').attr('title', 'Đã thêm vào yêu thích');
-              if($('#favorite_button').attr('title') == 'Đã thêm vào yêu thích') {
-                $('.page_preloader').hide();
-              }
-            },
-            error: function (){
-              alert('Lỗi')
-            }
-          });
-        } else {
-          $('#myModal .modal-title').text('Sản phẩm đã có trong danh sách yêu thích');
-          $('#myModal').show();
-          $('#myModalBackGround').show();
-        }
-      }
-    });
+  <%--$(document).ready(function() {--%>
+    <%--$('#favorite_button').click(function () {--%>
+      <%--if($('#favorite_button').children().first().hasClass('un-logged')) {--%>
+        <%----%>
+        <%--$('#myModal .modal-title').html('Bạn cần login để sử dụng chức năng này.');--%>
+        <%--$('#myModal').show();--%>
+        <%--$('#myModalBackGround').show();--%>
+      <%--} else {--%>
+        <%--if($('#favorite_button').children().first().hasClass('fa-heart-o')) {--%>
+          <%--$('.page_preloader').show();--%>
+          <%--$.ajax({--%>
+            <%--url: '${pageContext.request.contextPath}/favorite/add-delete',--%>
+            <%--type: 'POST',--%>
+            <%--cache: false,--%>
+            <%--data: {--%>
+              <%--book_id: $('#book_id').val()--%>
+            <%--},--%>
+            <%--success: function(data){--%>
+              <%--$('#favorite_button').html(data);--%>
+              <%--$('#favorite_button').attr('title', 'Đã thêm vào yêu thích');--%>
+              <%--if($('#favorite_button').attr('title') == 'Đã thêm vào yêu thích') {--%>
+                <%--$('.page_preloader').hide();--%>
+              <%--}--%>
+            <%--},--%>
+            <%--error: function (){--%>
+              <%--alert('Lỗi')--%>
+            <%--}--%>
+          <%--});--%>
+        <%--} else {--%>
+          <%--$('#myModal .modal-title').text('Sản phẩm đã có trong danh sách yêu thích');--%>
+          <%--$('#myModal').show();--%>
+          <%--$('#myModalBackGround').show();--%>
+        <%--}--%>
+      <%--}--%>
+    <%--});--%>
 
-    $('.close-modal').click(function () {
-      $('#myModal').hide();
-      $('#myModalBackGround').hide();
-    });
-  });
+    <%--$('.close-modal').click(function () {--%>
+      <%--$('#myModal').hide();--%>
+      <%--$('#myModalBackGround').hide();--%>
+    <%--});--%>
+  <%--});--%>
 
 
 </script>

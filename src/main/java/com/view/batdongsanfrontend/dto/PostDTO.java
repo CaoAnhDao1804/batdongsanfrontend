@@ -37,4 +37,8 @@ public class PostDTO {
     String[] utilities;
 
     Long userId;
+
+    String nameOwner;
+    String mailOwner;
+    String phoneOwner;
 }

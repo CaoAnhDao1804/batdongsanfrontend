@@ -37,6 +37,9 @@ public class PostController {
     UtilitiesService utilitiesService;
 
     @Autowired
+    DistrictService districtService;
+
+    @Autowired
     StringUtil stringUtil;
 
     @ModelAttribute
@@ -47,6 +50,7 @@ public class PostController {
         model.addAttribute("listSurroundings", suroundingService.getAllObject());
         model.addAttribute("listUtilities", utilitiesService.getAllObject());
         model.addAttribute("stringUtil", stringUtil);
+        model.addAttribute("districtsList", districtService.getAllDistricts());
 
     }
 
@@ -129,6 +133,8 @@ public class PostController {
                               @RequestParam("utilities_id[]") String[] utilities_ids,
                               @RequestParam("postType_id") int postType_id,
                               @RequestParam("productType_id") int productType_id,
+                              @RequestParam("district_county") int district_county,
+                              @RequestParam("ward") String ward,
                               @ModelAttribute("post") PostDTO postDTO,
                               RedirectAttributes ra,
                               ModelMap modelMap,
@@ -146,6 +152,27 @@ public class PostController {
             return "redirect:/mod/post";
         }
 
+        String fullAddress = postDTO.getAddress();
+
+        if (district_county == 7) {
+            fullAddress = fullAddress + ", xã " + ward;
+        } else {
+            fullAddress = fullAddress + ", phường " + ward;
+        }
+
+        List<Districts> districtsList = districtService.getAllDistricts();
+        for (Districts districts:districtsList){
+            if (district_county == districts.getId()){
+                if (district_county == 7) {
+                    fullAddress = fullAddress + ", huyện " + districts.getName();
+                } else {
+                    fullAddress = fullAddress + ", quận " + districts.getName();
+                }
+            }
+        }
+
+
+        postDTO.setAddress(fullAddress);
 
         List<Surrounding> surroundings = new ArrayList<>();
         for (int i = 0; i < surrounding_ids.length; i++) {

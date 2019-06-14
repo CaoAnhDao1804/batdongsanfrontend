@@ -43,7 +43,7 @@
                                                             <label class="login2 pull-right pull-right-pro">Tên chủ sở hữu</label>
                                                         </div>
                                                         <div class="col-lg-9 col-md-10 col-sm-9 col-xs-12">
-                                                            <input type="text" class="form-control" id="nameOwner" name="nameOwner" value="${objPost.user.id}" required
+                                                            <input type="text" class="form-control" id="nameOwner" name="nameOwner" value="${objPost.nameOwner}" required
 
                                                                    placeholder="Tên chủ sở hữu"
                                                                    oninvalid="this.setCustomValidity('Vui lòng nhập tên chủ sở hữu')"
@@ -144,7 +144,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">SDT liên hệ</label>
                                                                 </div>
                                                                 <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12">
-                                                                    <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" value="${userOfPost.phone}" required
+                                                                    <input type="number" class="form-control" id="phoneOwner" name="phoneOwner" value="${objPost.phoneOwner}" required
                                                                            placeholder="0123456789"
                                                                            oninvalid="this.setCustomValidity('Vui lòng nhập nhập số điện thoại')"
                                                                            oninput="this.setCustomValidity('')"
@@ -158,7 +158,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Email</label>
                                                                 </div>
                                                                 <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12">
-                                                                    <input type="email" class="form-control" id="mail" name="mail" value="${userOfPost.email}"
+                                                                    <input type="email" class="form-control" id="mailOwner" name="mailOwner" value="${objPost.mailOwner}"
                                                                     />
                                                                 </div>
                                                             </div>

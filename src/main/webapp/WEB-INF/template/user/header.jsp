@@ -115,7 +115,7 @@
                                             <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div>
-                                                    <span> 650 Ftsq</span>
+                                                    <span> 650 m2</span>
                                                 </li>
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
@@ -149,7 +149,7 @@
                                             <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div>
-                                                    <span> 650 Ftsq</span>
+                                                    <span> 650 m2</span>
                                                 </li>
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>
@@ -183,7 +183,7 @@
                                             <ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_1.png" alt=""></div>
-                                                    <span> 650 Ftsq</span>
+                                                    <span> 650 m2</span>
                                                 </li>
                                                 <li>
                                                     <div class="home_details_image"><img src="${pageContext.request.contextPath}/templates/user/assets/images/icon_2.png" alt=""></div>

@@ -71,6 +71,27 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
+
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Quận, huyện</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-4 col-sm-9 col-xs-12">
+                                                                    <div class="form-select-list">
+                                                                        <select class="form-control custom-select-value" required id="district_county" name="district_county" onchange="changeDistricts(this)">
+                                                                            <c:if test="${not empty districtsList}">
+                                                                                <c:forEach var="districts" items="${districtsList}">
+                                                                                    <option value="${districts.id}">${districts.name}</option>
+                                                                                </c:forEach>
+                                                                            </c:if>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
                                                         <div class="form-group-inner">
                                                             <div class="row">
                                                                 <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
@@ -168,7 +189,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">SDT liên hệ</label>
                                                                 </div>
                                                                 <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12">
-                                                                    <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" required
+                                                                    <input type="number" class="form-control" id="phoneOwner" name="phoneOwner" required
                                                                            placeholder="0123456789"
                                                                            oninvalid="this.setCustomValidity('Vui lòng nhập nhập số điện thoại')"
                                                                            oninput="this.setCustomValidity('')"
@@ -182,7 +203,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Email</label>
                                                                 </div>
                                                                 <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12">
-                                                                    <input type="email" class="form-control" id="mail" name="mail" required
+                                                                    <input type="email" class="form-control" id="mailOwner" name="mailOwner" required
                                                                            placeholder="nguyenvanA@gmail.com"
                                                                            oninvalid="this.setCustomValidity('Vui lòng nhập email liên hệ')"
                                                                            oninput="this.setCustomValidity('')"
@@ -193,6 +214,30 @@
 
                                                     </div>
                                                     <div class="col-md-6">
+
+                                                        <div class="form-group-inner">
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+                                                                    <label class="login2 pull-right pull-right-pro">Phường, Xã</label>
+                                                                </div>
+                                                                <div class="col-lg-9 col-md-4 col-sm-9 col-xs-12">
+                                                                    <div class="form-select-list">
+                                                                        <select required class="form-control" id="ward" name="ward">
+                                                                            <c:forEach var="obj" items="${wards}">
+                                                                                <c:if test="${obj.name == ward}">
+                                                                                    <option selected value="${obj.name}">${obj.name}</option>
+                                                                                </c:if>
+                                                                                <c:if test="${obj.name != ward}">
+                                                                                    <option value="${obj.name}">${obj.name}</option>
+                                                                                </c:if>
+                                                                            </c:forEach>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
                                                         <div class="form-group-inner">
                                                             <div class="row">
                                                                 <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
@@ -373,6 +418,28 @@
 
 <script type="text/javascript">
 
+    function changeDistricts() {
+      confirm("Vao Distric function");
+      $('.page_preloader').show();
+      var id = $('#district_county option:selected').attr('id');
+      $.ajax({
+        url: '${pageContext.request.contextPath}/admin/districts/change_district',
+        type: 'POST',
+        cache: false,
+        data: {
+          district_name: $('#district_county').val(),
+        },
+        success: function(data){
+          $('#ward').html(data);
+          $('.page_preloader').hide();
+        },
+        error: function (){
+          alert('Lỗi')
+        }
+      });
+
+    }
+
 
   function changeStatus(id, status) {
     var post = {};
@@ -448,5 +515,32 @@
   var editor = CKEDITOR.replace('editor');
   CKFinder.setupCKEditor(editor, '${pageContext.request.contextPath}/lib/ckfinder/');
 </script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#district_county').change(function () {
+      confirm("Vào district!")
+      $('.page_preloader').show();
+      var id = $('#district_county option:selected').attr('id');
+      $.ajax({
+        url: '${pageContext.request.contextPath}/admin/districts/change_district',
+        type: 'POST',
+        cache: false,
+        data: {
+          district_name: $('#district_county').val(),
+          id: id
+        },
+        success: function(data){
+          $('#ward').html(data);
+          $('.page_preloader').hide();
+        },
+        error: function (){
+          alert('Lỗi')
+        }
+      });
+    });
+  });
+</script>
+
 
 <jsp:include page="${pageContext.request.contextPath}/WEB-INF/template/admin/footer.jsp"/>

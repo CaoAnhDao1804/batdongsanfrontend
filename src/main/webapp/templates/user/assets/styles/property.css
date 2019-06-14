@@ -793,8 +793,9 @@ section
 .intro_price_container
 {
 	height: 86px;
-	padding-left: 48px;
-	padding-right: 43px;
+	width: 220px;
+	padding-left: 20px;
+	padding-right: 0px;
 	background: linear-gradient(to right, #487fee, #32fa95);
 	border-radius: 43px;
 }

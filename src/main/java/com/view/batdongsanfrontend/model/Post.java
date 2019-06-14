@@ -47,4 +47,7 @@ public class Post {
 
     User user;
     User userAccount;
+    String nameOwner;
+    String mailOwner;
+    String phoneOwner;
 }
